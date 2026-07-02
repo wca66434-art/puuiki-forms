@@ -134,6 +134,10 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
 .tb-clear:hover{border-color:var(--colk);color:var(--colk)}
 @media (max-width:760px){.toolbar-inner{padding:10px 20px}}
 
+/* TEST MODE BANNER */
+.test-banner{background:#B91C1C;color:#fff;padding:10px 20px;text-align:center;font-size:13px;font-weight:700;letter-spacing:.02em}
+.test-banner span{font-weight:400;opacity:.9}
+
 .elig-error{display:none;background:#fff5f0;border:1.5px solid var(--co);border-radius:7px;padding:9px 12px;font-size:12px;color:var(--colk);margin:-4px 0 14px;font-weight:600}
 .elig-error.show{display:block}
 
@@ -150,6 +154,8 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
 </style>
 </head>
 <body>
+
+<div class="test-banner" id="test-banner">TEST SITE — NOT YET APPROVED <span>· Payments are disabled. Do not treat any submission on this page as a real reservation until the WCA Board removes this notice.</span></div>
 
 <div class="toolbar">
   <div class="toolbar-inner">
@@ -336,6 +342,12 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
 /* ════════════════════════════════════════════════════════
    WCA SETTINGS — edit values here only
    ════════════════════════════════════════════════════════ */
+var FORM_LIVE = false;
+/* FORM_LIVE = false: payment buttons are disabled and the red test banner shows.
+   FORM_LIVE = true:  payment buttons work normally and the banner is hidden.
+   Change to true ONLY after the WCA Board gives WRITTEN approval on all open items
+   (see the [CONFIRM] boxes on this page and Section 7 of the Handoff Guide).
+   This is the ONLY line that needs to change to go live — nothing else. */
 var WEB3FORMS_KEY = 'b0b23799-d852-4bc3-ad54-b958bcccc705';
 var WCA_PP_EMAIL   = 'wca66434@gmail.com';
 var NIGHTLY_RATE    = 150;
@@ -527,6 +539,9 @@ function submitForm(){
   }).then(function(r){return r.json();})
     .then(function(d){
       document.getElementById('success').classList.add('show');
+      if(!FORM_LIVE){
+        document.getElementById('success').innerHTML = '<div class="ss-title" style="color:#B91C1C"><i class="ti ti-alert-triangle" style="font-size:16px"></i>TEST MODE — this was NOT a real reservation</div><div style="font-size:12px;color:var(--tx)">This form is not yet approved by the WCA Board. Your submission was received for testing purposes only. No date has been held and no payment was requested. Do not act as though this reservation is confirmed.</div>';
+      }
       document.getElementById('success').scrollIntoView({behavior:'smooth'});
     })
     .catch(function(e){
@@ -561,6 +576,26 @@ function clearAll(){
     alert('Something went wrong clearing the form — please refresh the page and try again.');
   }
 }
+
+/* TEST MODE GATE — intercepts payment button clicks while FORM_LIVE is false.
+   Does NOT touch the hrefs, so flipping FORM_LIVE to true needs no other changes. */
+function initLiveGate(){
+  var banner = document.getElementById('test-banner');
+  if(FORM_LIVE){
+    if(banner) banner.style.display = 'none';
+    return;
+  }
+  if(banner) banner.style.display = 'block';
+  ['btn-deposit','btn-fee','btn-both'].forEach(function(id){
+    var btn = document.getElementById(id);
+    if(!btn) return;
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      alert('This form is in TEST MODE. Payments are disabled until the WCA Board approves it in writing. No charge has been made.');
+    });
+  });
+}
+document.addEventListener('DOMContentLoaded', initLiveGate);
 </script>
 </body>
 </html>
