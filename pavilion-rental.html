@@ -287,9 +287,9 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
       <div class="pay-opts">
         <div class="pay-opt-lbl">Choose what to pay now</div>
         <div class="pp-btns">
-          <a class="pp-btn" id="btn-deposit" href="#" target="_blank" rel="noopener"><span class="amt">$100</span><span class="lbl">Deposit only — hold my date</span></a>
-          <a class="pp-btn" id="btn-fee" href="#" target="_blank" rel="noopener"><span class="amt">$350</span><span class="lbl">Rental fee only</span></a>
-          <a class="pp-btn" id="btn-both" href="#" target="_blank" rel="noopener"><span class="amt">$450</span><span class="lbl">Deposit + fee — pay both now</span></a>
+          <a class="pp-btn" id="btn-deposit" href="https://www.paypal.com/ncp/payment/KQKFSTTFXARZL" target="_blank" rel="noopener"><span class="amt">$100</span><span class="lbl">Deposit only — hold my date</span></a>
+          <a class="pp-btn" id="btn-fee" href="https://www.paypal.com/ncp/payment/FGFYGZW78S99G" target="_blank" rel="noopener"><span class="amt">$350</span><span class="lbl">Rental fee only</span></a>
+          <a class="pp-btn" id="btn-both" href="https://www.paypal.com/ncp/payment/SEUPBJX2GXYVG" target="_blank" rel="noopener"><span class="amt">$450</span><span class="lbl">Deposit + fee — pay both now</span></a>
         </div>
       </div>
       <div class="pp-memo">Paid via PayPal to wca66434@gmail.com. A deposit payment does not confirm your reservation by itself — see "what happens next" after you submit.</div>
@@ -310,25 +310,15 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
    WCA SETTINGS — edit values here only
    ════════════════════════════════════════════════════════ */
 var WEB3FORMS_KEY = 'b0b23799-d852-4bc3-ad54-b958bcccc705';
-var WCA_PP_EMAIL   = 'wca66434@gmail.com';
 var PAVILION_FEE    = 350;
 var PAVILION_DEPOSIT = 100;
+/* Payment buttons below are fixed-price PayPal Hosted Buttons (paypal.com/buttons),
+   not dynamic links — created July 2026: Deposit=KQKFSTTFXARZL $100, Fee=FGFYGZW78S99G $350,
+   Deposit+Fee=SEUPBJX2GXYVG $450. To change a price, edit it in PayPal's dashboard directly —
+   no code change needed. To replace a button, update its href in the HTML above AND this comment. */
 /* ════════════════════════════════════════════════════════
    END WCA SETTINGS
    ════════════════════════════════════════════════════════ */
-
-const PP_BASE = 'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=' + encodeURIComponent(WCA_PP_EMAIL) + '&currency_code=USD';
-
-function ppLink(amt, memo){
-  return PP_BASE + '&amount=' + amt + '&item_name=' + encodeURIComponent(memo);
-}
-
-function refreshPayLinks(){
-  var name = document.getElementById('p-name').value.trim() || 'Applicant';
-  document.getElementById('btn-deposit').href = ppLink(PAVILION_DEPOSIT, 'WCA Puuiki Pavilion Deposit — ' + name);
-  document.getElementById('btn-fee').href = ppLink(PAVILION_FEE, 'WCA Puuiki Pavilion Fee — ' + name);
-  document.getElementById('btn-both').href = ppLink(PAVILION_FEE + PAVILION_DEPOSIT, 'WCA Puuiki Pavilion Deposit+Fee — ' + name);
-}
 
 /* PAVILION SELECT */
 document.querySelectorAll('.pav-card:not(.unavail)').forEach(function(card){
@@ -378,7 +368,7 @@ function goStep(n){
     document.getElementById('sm-name').textContent = document.getElementById('p-name').value.trim();
     document.getElementById('sm-pav').textContent = pav ? pav.dataset.name : '—';
     document.getElementById('sm-date').textContent = document.getElementById('p-date').value;
-    refreshPayLinks();
+    // payment buttons are fixed links now — nothing to refresh here
   }
   window.scrollTo({top:0,behavior:'smooth'});
 }
