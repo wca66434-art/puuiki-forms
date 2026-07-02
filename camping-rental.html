@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<!-- WCA Puʻuiki Camping Rental Agreement — V1 — July 2026
+     Built to match the visual system and submission pattern of donate_pay_V51.
+     Search "CONFIRM" to find facts that need Trustee sign-off before this goes live.
+     Search "WCA SETTINGS" to find the section you'll edit for fees/emails. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Camping Rental — Puʻuiki Beach Park — Waialua Community Association</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#5AAF8E;--dg:#3D8A6E;--glt:#E4F3EC;
+  --co:#D4906A;--colt:#F7E8DC;--colk:#A86040;
+  --pa:#F3EAD8;--br:#7D5A3C;--brlt:#C4A882;
+  --tx:#2A1F14;--mu:#6B5A48;--bd:rgba(0,0,0,0.12);
+  --bg:#ffffff;--bg2:#f8f7f4;
+  --amber:#B8860B;--amberlt:#FFF6E0;--amberbd:#E8C878;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Nunito',Arial,sans-serif;
+  --pp-mid:#2D6A4F;
+}
+body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa);min-height:100vh}
+
+/* HERO */
+.page-hero{background:var(--dg);padding:40px 40px 36px}
+.ph-inner{max-width:900px;margin:0 auto}
+.ph-ey{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#F0C898;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.ph-ey::after{content:'';flex:0 0 36px;height:1px;background:#F0C898;opacity:.5}
+.ph-h1{font-family:var(--serif);font-size:38px;font-weight:600;color:#fff;line-height:1.15;margin-bottom:10px}
+.ph-rule{width:48px;height:3px;background:var(--co);border-radius:2px;margin-bottom:14px}
+.ph-p{font-size:14px;color:rgba(255,255,255,.82);line-height:1.65;max-width:600px}
+
+/* LAYOUT */
+.main{display:grid;grid-template-columns:1fr 320px;gap:0;max-width:900px;margin:0 auto;min-height:600px}
+.left{padding:32px 28px 40px 0;border-right:1px solid var(--bd)}
+.right{padding:24px 0 40px 24px}
+@media (max-width:760px){.main{grid-template-columns:1fr}.left{border-right:none;border-bottom:1px solid var(--bd);padding:24px 20px}.right{padding:20px}}
+
+.panel-ey{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--co);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.panel-ey::after{content:'';flex:0 0 28px;height:1px;background:var(--co);opacity:.5}
+.panel-h2{font-family:var(--serif);font-size:25px;font-weight:600;color:var(--tx);margin-bottom:8px}
+.panel-rule{width:36px;height:2px;background:var(--co);border-radius:1px;margin-bottom:14px}
+.panel-p{font-size:14px;color:var(--mu);line-height:1.65;margin-bottom:18px}
+
+/* FORM ELEMENTS */
+.form-row{display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.form-group{flex:1;min-width:180px;margin-bottom:12px}
+.form-row .form-group{margin-bottom:0}
+.form-label{display:block;font-size:12px;font-weight:600;color:var(--tx);margin-bottom:5px}
+.req{color:var(--colk)}
+.form-input{width:100%;padding:10px 12px;border:1.5px solid var(--bd);border-radius:7px;font-family:var(--sans);font-size:14px;color:var(--tx);background:#fff}
+.form-input:focus{outline:none;border-color:var(--dg)}
+.form-hint{font-size:11px;color:var(--mu);margin-top:4px}
+
+/* PAVILION SELECT CARDS */
+.pav-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:6px}
+.pav-card{background:#fff;border:1.5px solid var(--bd);border-radius:10px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer;transition:all .15s}
+.pav-card:hover{border-color:var(--g)}
+.pav-card.sel{border-color:var(--dg);border-width:2px;background:var(--glt)}
+.pav-card.unavail{opacity:.55;cursor:not-allowed;background:var(--bg2)}
+.pav-card.unavail:hover{border-color:var(--bd)}
+.pav-l{display:flex;align-items:center;gap:10px}
+.pav-check{width:20px;height:20px;border-radius:50%;border:2px solid var(--bd);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pav-card.sel .pav-check{background:var(--dg);border-color:var(--dg)}
+.pav-check i{font-size:11px;color:#fff;display:none}
+.pav-card.sel .pav-check i{display:block}
+.pav-name{font-size:14px;font-weight:600;color:var(--tx)}
+.pav-meta{font-size:11px;color:var(--mu);margin-top:2px}
+.pav-fee{font-size:16px;font-weight:700;color:var(--dg);font-family:var(--serif)}
+.pav-badge{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--colk);background:var(--colt);padding:3px 8px;border-radius:20px}
+
+/* CALLOUTS */
+.n-info{background:var(--glt);border-left:3px solid var(--g);border-radius:0 8px 8px 0;padding:11px 14px;font-size:13px;color:var(--dg);line-height:1.6;margin-bottom:16px}
+.n-amber{background:#fff5f0;border-left:3px solid var(--co);border-radius:0 8px 8px 0;padding:11px 14px;font-size:12px;color:var(--br);line-height:1.6;margin-bottom:16px}
+.n-confirm{background:var(--amberlt);border:1.5px dashed var(--amberbd);border-radius:8px;padding:12px 14px;font-size:12px;color:#6b4f00;line-height:1.65;margin-bottom:14px;display:flex;gap:9px}
+.n-confirm i{color:var(--amber);font-size:16px;flex-shrink:0;margin-top:1px}
+.n-confirm strong{color:#5a4200}
+
+/* CHECKBOX RULES */
+.rule-item{display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:9px 10px;background:var(--pa);border-radius:6px;margin-bottom:6px}
+.rule-item input{width:15px;height:15px;flex-shrink:0;margin-top:2px;cursor:pointer}
+
+/* STEP BUTTONS */
+.step-btn{background:var(--dg);color:#fff;border:none;padding:12px 20px;border-radius:7px;font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.step-btn:disabled{background:#bbb;cursor:not-allowed}
+.step-btn-back{background:transparent;color:var(--mu);border:1.5px solid var(--bd);padding:11px 18px;border-radius:7px;font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.clear-btn{background:transparent;color:var(--mu);border:1.5px solid var(--bd);padding:11px 18px;border-radius:7px;font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.submit-btn{background:var(--co);color:#fff;border:none;padding:13px 22px;border-radius:7px;font-family:var(--sans);font-size:14px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.submit-btn:disabled{background:#ccc;cursor:not-allowed}
+
+.app-summary{background:var(--bg2);border:1.5px solid var(--bd);border-radius:10px;padding:14px 16px;margin-bottom:16px}
+.summary-title{font-size:12px;font-weight:700;color:var(--dg);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.summary-row{display:flex;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--bd)}
+.summary-row:last-child{border:none}
+.summary-label{color:var(--mu)}
+.summary-val{color:var(--tx);font-weight:600;text-align:right}
+
+.submit-success{display:none;margin-top:16px;border:1.5px solid #B8DECE;background:var(--glt);border-radius:10px;padding:16px}
+.submit-success.show{display:block}
+.ss-title{font-size:14px;font-weight:700;color:var(--dg);margin-bottom:8px;display:flex;align-items:center;gap:7px}
+
+/* PAYMENT SIDEBAR */
+.pay-card{background:var(--pp-mid);border-radius:14px;overflow:hidden;margin-bottom:14px}
+.pay-top{padding:16px 20px 12px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.pay-type-lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9FE1CB;margin-bottom:2px}
+.pay-type-val{font-size:15px;font-weight:600;color:#EAF7EF}
+.pay-opts{padding:14px 20px}
+.pay-opt-lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9FE1CB;margin-bottom:10px}
+.pp-btns{display:flex;flex-direction:column;gap:8px}
+.pp-btn{width:100%;background:var(--co);color:#fff;border:none;padding:12px;border-radius:8px;font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;text-align:center}
+.pp-btn:hover{background:var(--colk)}
+.pp-btn .amt{font-size:15px;font-weight:700}
+.pp-btn .lbl{font-size:11px;font-weight:400;opacity:.9}
+.pp-memo{font-size:11px;color:#7AAA8A;line-height:1.5;text-align:center;padding:0 20px 16px}
+.other-ways{background:#fff;border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.ow-title{font-size:12px;font-weight:700;color:var(--tx);margin-bottom:8px}
+.ow-item{font-size:12px;color:var(--mu);line-height:1.6;display:flex;align-items:flex-start;gap:7px;margin-bottom:6px}
+.ow-item i{margin-top:2px;color:var(--dg);flex-shrink:0}
+
+/* PRINT */
+.print-btn{background:transparent;color:var(--dg);border:1.5px solid var(--dg);padding:10px 16px;border-radius:7px;font-family:var(--sans);font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+
+/* PERSISTENT TOOLBAR */
+.toolbar{background:#fff;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:50}
+.toolbar-inner{max-width:900px;margin:0 auto;padding:10px 40px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.tb-back{color:var(--dg);font-size:13px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.tb-back:hover{text-decoration:underline}
+.tb-clear{background:transparent;color:var(--mu);border:1.5px solid var(--bd);padding:8px 14px;border-radius:7px;font-family:var(--sans);font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.tb-clear:hover{border-color:var(--colk);color:var(--colk)}
+@media (max-width:760px){.toolbar-inner{padding:10px 20px}}
+
+.elig-error{display:none;background:#fff5f0;border:1.5px solid var(--co);border-radius:7px;padding:9px 12px;font-size:12px;color:var(--colk);margin:-4px 0 14px;font-weight:600}
+.elig-error.show{display:block}
+
+@media print{
+  .page-hero,.right,.toolbar,.step-btn-back,.clear-btn,.print-btn,.n-confirm,.elig-error{display:none !important}
+  body{background:#fff}
+  .main{grid-template-columns:1fr;max-width:100%}
+  .left{border-right:none;padding:0}
+  #step1,#step2,#step3{display:block !important}
+  .step-btn,.submit-btn{display:none !important}
+}
+.panel{display:none}
+.panel.active{display:block}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <a class="tb-back" href="https://waialuacommunityassociation.org" target="_top"><i class="ti ti-arrow-left" style="font-size:14px"></i>Back to WCA website</a>
+    <button class="tb-clear" onclick="clearAll()"><i class="ti ti-eraser" style="font-size:13px"></i>Clear form &amp; start over</button>
+  </div>
+</div>
+
+<div class="page-hero">
+  <div class="ph-inner">
+    <div class="ph-ey"><i class="ti ti-tent"></i>Puʻuiki Beach Park</div>
+    <h1 class="ph-h1">Camping Rental Agreement</h1>
+    <div class="ph-rule"></div>
+    <p class="ph-p">Reserve a campsite at WCA @ Puʻuiki Beach Park, 67-467 Waialua Beach Road, Waialua, HI 96791. $150/night for your first 2 sites, $125/night for each site after that. 7:00 AM check-in / 11:00 AM check-out.</p>
+  </div>
+</div>
+
+<div class="main">
+  <div class="left">
+
+    <!-- STEP 1 -->
+    <div class="panel active" id="step1">
+      <div class="panel-ey">Step 1 of 3</div>
+      <h2 class="panel-h2">Your information &amp; campsite</h2>
+      <div class="panel-rule"></div>
+
+      <div class="form-group"><label class="form-label">Applicant name <span class="req">*</span></label><input class="form-input" type="text" id="p-name" placeholder="Full legal name"></div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">WCA Member? <span class="req">*</span></label><select class="form-input" id="p-wca" onchange="checkStep1()"><option>No</option><option>Yes</option></select></div>
+        <div class="form-group"><label class="form-label">Dole Employee? <span class="req">*</span></label><select class="form-input" id="p-dole" onchange="checkStep1()"><option>No</option><option>Yes</option></select></div>
+        <div class="form-group"><label class="form-label">Dole/Waialua Sugar Retiree? <span class="req">*</span></label><select class="form-input" id="p-retiree" onchange="checkStep1()"><option>No</option><option>Yes</option></select></div>
+      </div>
+      <div class="form-hint" style="margin-top:-6px;margin-bottom:14px">Puʻuiki Beach Park rentals are limited to WCA members, Dole employees, and Dole/Waialua Sugar retirees. At least one must be "Yes" to proceed.</div>
+      <div class="elig-error" id="elig-error"><i class="ti ti-alert-circle" style="margin-right:4px"></i>Select "Yes" for at least one of WCA Member, Dole Employee, or Dole/Waialua Sugar Retiree — this is required to rent at Puʻuiki.</div>
+      <div class="form-group"><label class="form-label">Point of contact (if different)</label><input class="form-input" type="text" id="p-poc" placeholder="Name and phone, if applicable"></div>
+      <div class="form-group"><label class="form-label">Mailing address <span class="req">*</span></label><input class="form-input" type="text" id="p-addr" placeholder="Street, city, state, ZIP"></div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Phone <span class="req">*</span></label><input class="form-input" type="tel" id="p-phone" placeholder="(808) 555-0000"></div>
+        <div class="form-group"><label class="form-label">Email <span class="req">*</span></label><input class="form-input" type="email" id="p-email" placeholder="your@email.com"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Check-in date <span class="req">*</span></label><input class="form-input" type="date" id="p-checkin" oninput="calcNights()"></div>
+      <div class="form-group"><label class="form-label">Check-out date <span class="req">*</span></label><input class="form-input" type="date" id="p-checkout" oninput="calcNights()"></div>
+      <div class="form-hint" style="margin-bottom:6px">Check-in 7:00 AM · check-out 11:00 AM on the last day.</div>
+      <div class="n-info" id="nights-calc" style="margin-bottom:16px">Select both dates to calculate nights and total fee.</div>
+
+      <label class="form-label" style="margin-top:6px;display:block">Campsite selection <span class="req">*</span></label>
+      <div class="form-hint" style="margin-bottom:8px">Sites are 40ʼ × 40ʼ plots. Select every site your group is reserving — extended-family groups often need more than one.</div>
+      <div class="n-confirm"><i class="ti ti-alert-triangle"></i><div><strong>CONFIRM before publishing:</strong> Fee is calculated as $150/night for each of your first 2 campsites and $125/night for each site beyond that. The refundable deposit is a flat $100 regardless of how many sites you reserve. Neither rule appears in writing anywhere outside this form — Trustees need to formally approve and add this exact language to the paper Camping form before this goes live.</div></div>
+
+      <div class="form-hint" style="font-weight:700;color:var(--tx);margin-bottom:4px">Right of driveway</div>
+      <div class="pav-grid" style="grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px">
+        <div class="pav-card" data-site="#1" style="flex-direction:column;padding:10px;text-align:center"><div class="pav-name">#1</div></div>
+        <div class="pav-card" data-site="#2" style="flex-direction:column;padding:10px;text-align:center"><div class="pav-name">#2</div></div>
+        <div class="pav-card" data-site="#3" style="flex-direction:column;padding:10px;text-align:center"><div class="pav-name">#3</div></div>
+        <div class="pav-card" data-site="#4" style="flex-direction:column;padding:10px;text-align:center"><div class="pav-name">#4</div></div>
+      </div>
+      <div class="form-hint" style="font-weight:700;color:var(--tx);margin-bottom:4px">Right side along Waialua Beach Road</div>
+      <div class="pav-grid" style="grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px">
+        <div class="pav-card" data-site="#5" style="flex-direction:column;padding:10px;text-align:center"><div class="pav-name">#5</div></div>
+        <div class="pav-card" data-site="#6" style="flex-direction:column;padding:10px;text-align:center"><div class="pav-name">#6</div></div>
+        <div class="pav-card" data-site="#7" style="flex-direction:column;padding:10px;text-align:center"><div class="pav-name">#7</div></div>
+        <div class="pav-card" data-site="#8" style="flex-direction:column;padding:10px;text-align:center"><div class="pav-name">#8</div></div>
+      </div>
+      <div class="form-hint" style="font-weight:700;color:var(--tx);margin-bottom:4px">Closest to shoreline</div>
+      <div class="pav-grid" style="grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:6px">
+        <div class="pav-card" data-site="#9" style="flex-direction:column;padding:10px;text-align:center"><div class="pav-name">#9</div></div>
+        <div class="pav-card" data-site="#10" style="flex-direction:column;padding:10px;text-align:center"><div class="pav-name">#10</div></div>
+        <div class="pav-card" data-site="#11" style="flex-direction:column;padding:10px;text-align:center"><div class="pav-name">#11</div></div>
+        <div class="pav-card" data-site="#12" style="flex-direction:column;padding:10px;text-align:center"><div class="pav-name">#12</div></div>
+      </div>
+      <div class="form-hint" style="margin-bottom:16px">Selected sites are added together for your total below — pricing updates live as you select.</div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="step-btn-back" href="https://waialuacommunityassociation.org" target="_top"><i class="ti ti-arrow-left" style="font-size:13px"></i>Back to WCA website</a>
+        <button class="step-btn" id="s1-next" onclick="goStep(2)" disabled>Continue <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="panel" id="step2">
+      <div class="panel-ey">Step 2 of 3</div>
+      <h2 class="panel-h2">Site conditions &amp; park rules</h2>
+      <div class="panel-rule"></div>
+      <p class="panel-p">Please read and acknowledge each item below.</p>
+
+      <div class="n-confirm"><i class="ti ti-alert-triangle"></i><div><strong>CONFIRM before publishing:</strong> Kukui Pavilion — the park's only restroom facility — is currently marked "under repair" on the WCA site map. As written, this agreement still tells campers restrooms are available there. Trustees need to confirm actual current restroom status before this goes live.</div></div>
+      <div class="n-confirm"><i class="ti ti-alert-triangle"></i><div><strong>CONFIRM before publishing:</strong> The Camping agreement has no alcohol policy at all — the Pavilion agreement allows it with insurance, Camping is silent. Silence in a liability release doesn't mean "prohibited," it means ambiguous. Trustees need to state the actual rule so it can be added here.</div></div>
+
+      <label class="rule-item"><input type="checkbox" id="r1" onchange="chkRules()"><span><strong>No Electricity:</strong> The park has no electrical supply grid.</span></label>
+      <label class="rule-item"><input type="checkbox" id="r2" onchange="chkRules()"><span><strong>No Potable Water:</strong> There is no drinking water available on site. The water pumped to the park is unsafe for consumption and cooking — I will bring my own drinking and cooking water.</span></label>
+      <label class="rule-item"><input type="checkbox" id="r3" onchange="chkRules()"><span><strong>Restrooms:</strong> Restroom facilities are limited exclusively to the Kukui Pavilion. <em>[CONFIRM — see note above]</em> Showers are limited to hoses that drain directly into the ground — I will use only earth-friendly, biodegradable products.</span></label>
+      <label class="rule-item"><input type="checkbox" id="r4" onchange="chkRules()"><span><strong>Pack it in, pack it out:</strong> I am completely responsible for removing all trash from my designated campsite upon check-out.</span></label>
+      <label class="rule-item"><input type="checkbox" id="r5" onchange="chkRules()"><span><strong>Quiet hours 9:00 PM–7:00 AM:</strong> No amplified music, loud electronics, or disruptive noise after 9:00 PM.</span></label>
+      <label class="rule-item"><input type="checkbox" id="r6" onchange="chkRules()"><span><strong>Fire safety:</strong> No open ground fires anywhere in the park. Any fire must be fully contained in an elevated, self-contained pit that I bring myself.</span></label>
+      <label class="rule-item"><input type="checkbox" id="r7" onchange="chkRules()"><span><strong>Vehicles &amp; parking:</strong> Vehicles park strictly in designated areas only — never on grass or outside marked boundaries.</span></label>
+      <label class="rule-item"><input type="checkbox" id="r8" onchange="chkRules()"><span><strong>Prohibited items:</strong> Illegal drugs, firearms, and fireworks are strictly prohibited on park grounds.</span></label>
+      <label class="rule-item"><input type="checkbox" id="r9" onchange="chkRules()"><span><strong>Restricted access:</strong> This agreement does not include beach or shoreline access.</span></label>
+      <label class="rule-item"><input type="checkbox" id="r11" onchange="chkRules()"><span><strong>Indemnification &amp; release:</strong> WCA is not responsible for personal injury, illness, property damage, or lost/stolen items during my stay. I release, indemnify, and hold harmless the Waialua Community Association, its Trustees, officers, and staff from any claims arising from my use of WCA @ Puʻuiki Beach Park.</span></label>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+        <button class="step-btn-back" onclick="goStep(1)"><i class="ti ti-arrow-left" style="font-size:13px"></i>Back</button>
+        <button class="step-btn" id="s2-next" onclick="goStep(3)" disabled>Continue to review &amp; sign <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="panel" id="step3">
+      <div class="panel-ey">Step 3 of 3</div>
+      <h2 class="panel-h2">Review &amp; sign</h2>
+      <div class="panel-rule"></div>
+
+      <div class="app-summary" id="summary">
+        <div class="summary-title"><i class="ti ti-clipboard-check" style="font-size:16px"></i>Application summary</div>
+        <div class="summary-row"><span class="summary-label">Applicant</span><span class="summary-val" id="sm-name">—</span></div>
+        <div class="summary-row"><span class="summary-label">Campsites</span><span class="summary-val" id="sm-pav">—</span></div>
+        <div class="summary-row"><span class="summary-label">Check-in → Check-out</span><span class="summary-val" id="sm-date">—</span></div>
+        <div class="summary-row"><span class="summary-label">Nights</span><span class="summary-val" id="sm-nights">—</span></div>
+        <div class="summary-row"><span class="summary-label">Camping fee ($150/night first 2 sites, $125/night after)</span><span class="summary-val" id="sm-fee">—</span></div>
+        <div class="summary-row"><span class="summary-label">Refundable deposit (flat, any # of sites)</span><span class="summary-val" id="sm-deposit">—</span></div>
+        <div class="summary-row"><span class="summary-label">Total if paying both now</span><span class="summary-val" style="color:var(--dg)" id="sm-total">—</span></div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Typed legal signature <span class="req">*</span></label><input class="form-input" type="text" id="p-sig" placeholder="Type your full legal name" oninput="chkSubmit()"></div>
+        <div class="form-group"><label class="form-label">Print name <span class="req">*</span></label><input class="form-input" type="text" id="p-print" placeholder="Print clearly" oninput="chkSubmit()"></div>
+      </div>
+      <div class="form-hint" style="margin-bottom:16px">By typing your name above and submitting this form, you are providing your electronic signature, which has the same legal effect as a handwritten signature under the Hawaiʻi Uniform Electronic Transactions Act (HRS Chapter 489E).</div>
+
+      <p class="panel-p" style="margin-bottom:10px"><strong>Your date is not secured until a deposit is received and WCA confirms availability.</strong> Choose a payment option in the panel on the right, then submit below.</p>
+
+      <button class="submit-btn" id="submit-btn" onclick="submitForm()" disabled>Send application <i class="ti ti-send" style="font-size:14px"></i></button>
+      <button class="clear-btn" onclick="clearAll()" style="margin-left:8px"><i class="ti ti-eraser" style="font-size:13px"></i>Clear form</button>
+      <button class="print-btn" onclick="window.print()" style="margin-left:8px"><i class="ti ti-printer" style="font-size:13px"></i>Print blank copy</button>
+
+      <div class="submit-success" id="success">
+        <div class="ss-title"><i class="ti ti-circle-check" style="font-size:16px"></i>Application sent to WCA</div>
+        <div style="font-size:12px;line-height:1.7;color:var(--tx)">
+          <strong>What happens next:</strong><br>
+          1. Pay using the button you chose on the right — PayPal will email you a receipt with a transaction ID.<br>
+          2. Forward that receipt to <strong>wca66434@gmail.com</strong> so it can be matched to your application.<br>
+          3. WCA will email you within 1–2 business days to confirm your date and payment. <strong>That email is your official booking confirmation</strong> — not this form, and not your payment alone.<br><br>
+          Questions? Call (808) 637-4606, Mon–Fri 8am–12pm, or email wca66434@gmail.com.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end left -->
+
+  <div class="right">
+    <div class="pay-card">
+      <div class="pay-top">
+        <div class="pay-type-lbl">Puʻuiki Camping Rental</div>
+        <div class="pay-type-val">$150/night (first 2 sites) · $125/night after · $100 deposit</div>
+      </div>
+      <div class="pay-opts">
+        <div class="pay-opt-lbl">Your amount, calculated from Step 1</div>
+        <div id="pay-amount-box" style="background:rgba(255,255,255,0.08);border:1.5px dashed rgba(255,255,255,0.3);border-radius:8px;padding:12px;margin-bottom:12px;text-align:center">
+          <div style="font-size:11px;color:#9FE1CB;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px">Total if paying fee + deposit</div>
+          <div style="font-size:22px;font-weight:700;color:#fff" id="side-total">Select dates first</div>
+        </div>
+        <div class="n-amber" style="background:rgba(255,255,255,0.08);border-left-color:var(--co);color:#F0D8C0;margin-bottom:12px">
+          <strong>Important:</strong> PayPal does not receive this amount automatically. When you click a button below, you must type the correct dollar amount yourself on PayPal's page. Double-check it against the number above before sending.
+        </div>
+        <div class="pp-btns">
+          <a class="pp-btn" id="btn-deposit" href="https://www.paypal.com/ncp/payment/HM94XBMSAA5BA" target="_blank" rel="noopener"><span class="amt" id="btn-deposit-amt">Deposit</span><span class="lbl">Enter your calculated deposit amount</span></a>
+          <a class="pp-btn" id="btn-fee" href="https://www.paypal.com/ncp/payment/HM94XBMSAA5BA" target="_blank" rel="noopener"><span class="amt" id="btn-fee-amt">Fee only</span><span class="lbl">Enter your calculated fee amount</span></a>
+          <a class="pp-btn" id="btn-both" href="https://www.paypal.com/ncp/payment/HM94XBMSAA5BA" target="_blank" rel="noopener"><span class="amt" id="btn-both-amt">Deposit + fee</span><span class="lbl">Enter fee + $100 deposit combined</span></a>
+        </div>
+      </div>
+      <div class="pp-memo">Paid via PayPal to wca66434@gmail.com. A deposit payment does not confirm your reservation by itself — see "what happens next" after you submit.</div>
+    </div>
+
+    <div class="other-ways">
+      <div class="ow-title">Other ways to pay</div>
+      <div class="ow-item"><i class="ti ti-mail"></i>Mail check or money order to: 66-434 Kamehameha Hwy., Haleiwa, Hawaii 96712</div>
+      <div class="ow-item"><i class="ti ti-phone"></i>Call (808) 637-4606, Mon–Fri 8am–12pm</div>
+      <div class="ow-item"><i class="ti ti-map-pin"></i>Pay in person at our office</div>
+      <div class="ow-item"><i class="ti ti-printer"></i>Prefer paper? Use the "Print blank copy" button above.</div>
+    </div>
+  </div><!-- end right -->
+</div>
+
+<script>
+/* ════════════════════════════════════════════════════════
+   WCA SETTINGS — edit values here only
+   ════════════════════════════════════════════════════════ */
+var WEB3FORMS_KEY = 'b0b23799-d852-4bc3-ad54-b958bcccc705';
+var WCA_PP_EMAIL   = 'wca66434@gmail.com';
+var NIGHTLY_RATE    = 150;
+var NIGHTLY_RATE_DISCOUNT = 125;
+var DISCOUNT_AFTER_SITES  = 2;
+var CAMPING_DEPOSIT = 100;
+/* ════════════════════════════════════════════════════════
+   END WCA SETTINGS
+   ════════════════════════════════════════════════════════ */
+
+/* Camping fee: $150/night for each of the first 2 sites, $125/night for each site beyond 2.
+   Deposit: flat $100 regardless of how many sites (per WCA policy, July 2026 — pending Trustee sign-off). */
+function perNightRate(siteCount){
+  var full = Math.min(siteCount, DISCOUNT_AFTER_SITES);
+  var discounted = Math.max(siteCount - DISCOUNT_AFTER_SITES, 0);
+  return (full * NIGHTLY_RATE) + (discounted * NIGHTLY_RATE_DISCOUNT);
+}
+function campingFee(nights, siteCount){
+  return nights * perNightRate(siteCount);
+}
+function campingDeposit(siteCount){
+  return siteCount > 0 ? CAMPING_DEPOSIT : 0;
+}
+
+function calcNights(){
+  var ci = document.getElementById('p-checkin').value;
+  var co = document.getElementById('p-checkout').value;
+  var box = document.getElementById('nights-calc');
+  var nights = 0;
+  var siteCount = getSelectedSites().length;
+  if(ci && co){
+    var d1 = new Date(ci+'T00:00:00'), d2 = new Date(co+'T00:00:00');
+    nights = Math.round((d2 - d1) / (1000*60*60*24));
+    if(nights <= 0){
+      box.innerHTML = '<strong>Check-out must be after check-in.</strong>';
+      box.style.background = '#fff5f0'; box.style.color = 'var(--colk)'; box.style.borderLeftColor = 'var(--co)';
+    } else if(siteCount === 0){
+      box.textContent = 'Select at least one campsite below to calculate your total.';
+      box.style.background = ''; box.style.color = ''; box.style.borderLeftColor = '';
+    } else {
+      var fee = campingFee(nights, siteCount);
+      var rate = perNightRate(siteCount);
+      box.innerHTML = nights + ' night' + (nights===1?'':'s') + ' × $' + rate.toLocaleString() + '/night (' + siteCount + ' site' + (siteCount===1?'':'s') + ') = <strong>$' + fee.toLocaleString() + ' camping fee</strong>';
+      box.style.background = ''; box.style.color = ''; box.style.borderLeftColor = '';
+    }
+  } else {
+    box.textContent = 'Select dates to calculate nights and total fee.';
+    box.style.background = ''; box.style.color = ''; box.style.borderLeftColor = '';
+  }
+  updateSideTotal();
+  checkStep1();
+}
+
+function getNights(){
+  var ci = document.getElementById('p-checkin').value;
+  var co = document.getElementById('p-checkout').value;
+  if(!ci || !co) return 0;
+  var d1 = new Date(ci+'T00:00:00'), d2 = new Date(co+'T00:00:00');
+  var n = Math.round((d2 - d1) / (1000*60*60*24));
+  return n > 0 ? n : 0;
+}
+
+function updateSideTotal(){
+  var n = getNights();
+  var siteCount = getSelectedSites().length;
+  var side = document.getElementById('side-total');
+  var feeAmtEl = document.getElementById('btn-fee-amt');
+  var bothAmtEl = document.getElementById('btn-both-amt');
+  var depositAmtEl = document.getElementById('btn-deposit-amt');
+  if(n > 0 && siteCount > 0){
+    var fee = campingFee(n, siteCount);
+    var deposit = campingDeposit(siteCount);
+    var total = fee + deposit;
+    side.textContent = '$' + total.toLocaleString() + '  ($' + fee.toLocaleString() + ' fee + $' + deposit.toLocaleString() + ' deposit, ' + siteCount + ' site' + (siteCount===1?'':'s') + ')';
+    feeAmtEl.textContent = '$' + fee.toLocaleString();
+    bothAmtEl.textContent = '$' + total.toLocaleString();
+    depositAmtEl.textContent = '$' + deposit.toLocaleString();
+  } else {
+    side.textContent = 'Select dates + sites first';
+    feeAmtEl.textContent = 'Fee only';
+    bothAmtEl.textContent = 'Deposit + fee';
+    depositAmtEl.textContent = 'Deposit';
+  }
+}
+
+/* CAMPSITE MULTI-SELECT */
+document.querySelectorAll('.pav-card').forEach(function(card){
+  card.addEventListener('click', function(){
+    card.classList.toggle('sel');
+    checkStep1();
+    calcNights();
+  });
+});
+
+function getSelectedSites(){
+  return Array.prototype.map.call(document.querySelectorAll('.pav-card.sel'), function(c){ return c.dataset.site; });
+}
+
+function checkStep1(){
+  var name = document.getElementById('p-name').value.trim();
+  var addr = document.getElementById('p-addr').value.trim();
+  var phone = document.getElementById('p-phone').value.trim();
+  var email = document.getElementById('p-email').value.trim();
+  var siteCount = getSelectedSites().length;
+  var nights = getNights();
+  var eligible = (document.getElementById('p-wca').value === 'Yes') ||
+                 (document.getElementById('p-dole').value === 'Yes') ||
+                 (document.getElementById('p-retiree').value === 'Yes');
+  var errEl = document.getElementById('elig-error');
+  if(errEl) errEl.classList.toggle('show', !eligible && (name !== '' || addr !== '' || phone !== ''));
+  document.getElementById('s1-next').disabled = !(name && addr && phone && email && nights > 0 && siteCount > 0 && eligible);
+}
+['p-name','p-addr','p-phone','p-email'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', checkStep1);
+});
+
+function chkRules(){
+  var all = document.querySelectorAll('#step2 input[type=checkbox]');
+  var ok = true;
+  all.forEach(function(c){ if(!c.checked) ok = false; });
+  document.getElementById('s2-next').disabled = !ok;
+}
+
+function chkSubmit(){
+  var sig = document.getElementById('p-sig').value.trim();
+  var pr = document.getElementById('p-print').value.trim();
+  document.getElementById('submit-btn').disabled = !(sig && pr);
+}
+
+function goStep(n){
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
+  document.getElementById('step'+n).classList.add('active');
+  if(n === 3){
+    var sites = getSelectedSites();
+    var nights = getNights();
+    var fee = campingFee(nights, sites.length);
+    var deposit = campingDeposit(sites.length);
+    document.getElementById('sm-name').textContent = document.getElementById('p-name').value.trim();
+    document.getElementById('sm-pav').textContent = sites.length ? sites.join(', ') : '—';
+    document.getElementById('sm-date').textContent = document.getElementById('p-checkin').value + ' → ' + document.getElementById('p-checkout').value;
+    document.getElementById('sm-nights').textContent = nights;
+    document.getElementById('sm-fee').textContent = '$' + fee.toLocaleString() + ' (' + sites.length + ' site' + (sites.length===1?'':'s') + ')';
+    document.getElementById('sm-deposit').textContent = '$' + deposit.toLocaleString();
+    document.getElementById('sm-total').textContent = '$' + (fee + deposit).toLocaleString();
+    updateSideTotal();
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function submitForm(){
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.innerHTML = 'Sending… <i class="ti ti-loader-2" style="font-size:14px"></i>';
+  var sites = getSelectedSites();
+  var nights = getNights();
+  var fee = campingFee(nights, sites.length);
+  var deposit = campingDeposit(sites.length);
+  var total = fee + deposit;
+  var payload = {
+    access_key: WEB3FORMS_KEY,
+    subject: 'WCA Camping Rental — ' + document.getElementById('p-checkin').value + ' — ' + document.getElementById('p-name').value,
+    from_name: document.getElementById('p-name').value,
+    applicant_name: document.getElementById('p-name').value,
+    wca_member: document.getElementById('p-wca').value,
+    dole_employee: document.getElementById('p-dole').value,
+    dole_retiree: document.getElementById('p-retiree').value,
+    point_of_contact: document.getElementById('p-poc').value,
+    mailing_address: document.getElementById('p-addr').value,
+    phone: document.getElementById('p-phone').value,
+    email: document.getElementById('p-email').value,
+    replyTo: document.getElementById('p-email').value,
+    check_in: document.getElementById('p-checkin').value,
+    check_out: document.getElementById('p-checkout').value,
+    nights: nights,
+    campsites: sites.join(', '),
+    site_count: sites.length,
+    EXPECTED_CAMPING_FEE: '$' + fee.toLocaleString() + ' (' + nights + ' nights x $' + perNightRate(sites.length).toLocaleString() + '/night for ' + sites.length + ' sites — tiered rate)',
+    EXPECTED_DEPOSIT: '$' + deposit.toLocaleString() + ' (flat, any number of sites)',
+    EXPECTED_TOTAL_IF_BOTH: '$' + total.toLocaleString(),
+    staff_note: 'Amount was NOT passed to PayPal automatically — applicant typed it in manually. Cross-check the PayPal notification amount against EXPECTED_TOTAL above before confirming this reservation. Tiered per-site pricing ($150/night first 2 sites, $125/night after) and flat $100 deposit are pending formal Trustee sign-off — see form note.',
+    typed_signature: document.getElementById('p-sig').value,
+    printed_name: document.getElementById('p-print').value,
+    submitted: new Date().toLocaleString('en-US',{timeZone:'Pacific/Honolulu'})
+  };
+  fetch('https://api.web3forms.com/submit',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify(payload)
+  }).then(function(r){return r.json();})
+    .then(function(d){
+      document.getElementById('success').classList.add('show');
+      document.getElementById('success').scrollIntoView({behavior:'smooth'});
+    })
+    .catch(function(e){
+      btn.disabled = false;
+      btn.innerHTML = 'Send application <i class="ti ti-send" style="font-size:14px"></i>';
+      alert('There was a problem sending your form. Please try again or call (808) 637-4606.');
+    });
+}
+
+function clearAll(){
+  if(!confirm('Clear all fields and start over?')) return;
+  try{
+    ['p-name','p-poc','p-addr','p-phone','p-email','p-checkin','p-checkout','p-sig','p-print'].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) el.value = '';
+    });
+    var wca = document.getElementById('p-wca'); if(wca) wca.value = 'No';
+    var dole = document.getElementById('p-dole'); if(dole) dole.value = 'No';
+    var ret = document.getElementById('p-retiree'); if(ret) ret.value = 'No';
+    document.querySelectorAll('.pav-card').forEach(function(c){c.classList.remove('sel');});
+    document.querySelectorAll('#step2 input[type=checkbox]').forEach(function(c){c.checked=false;});
+    var errEl = document.getElementById('elig-error'); if(errEl) errEl.classList.remove('show');
+    var successEl = document.getElementById('success'); if(successEl) successEl.classList.remove('show');
+    calcNights();
+    var submitBtn = document.getElementById('submit-btn');
+    if(submitBtn){ submitBtn.disabled = true; submitBtn.innerHTML = 'Send application <i class="ti ti-send" style="font-size:14px"></i>'; }
+    goStep(1);
+    checkStep1();
+    chkRules();
+  } catch(err){
+    console.error('WCA form clear error:', err);
+    alert('Something went wrong clearing the form — please refresh the page and try again.');
+  }
+}
+</script>
+</body>
+</html>
