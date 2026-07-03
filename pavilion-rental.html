@@ -134,6 +134,13 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
 .tb-clear:hover{border-color:var(--colk);color:var(--colk)}
 @media (max-width:760px){.toolbar-inner{padding:10px 20px}}
 
+/* SITE MAP */
+.site-map-wrap{margin-bottom:18px;border:1.5px solid var(--bd);border-radius:10px;overflow:hidden;background:var(--bg2)}
+.site-map-wrap img{width:100%;display:block;cursor:zoom-in}
+.site-map-caption{padding:9px 12px;font-size:11px;color:var(--mu);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.site-map-caption a{color:var(--dg);font-weight:600;text-decoration:none}
+.site-map-caption a:hover{text-decoration:underline}
+
 /* TEST MODE BANNER */
 .test-banner{background:#B91C1C;color:#fff;padding:10px 20px;text-align:center;font-size:13px;font-weight:700;letter-spacing:.02em}
 .test-banner span{font-weight:400;opacity:.9}
@@ -169,7 +176,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
     <div class="ph-ey"><i class="ti ti-tent"></i>Puʻuiki Beach Park</div>
     <h1 class="ph-h1">Pavilion Rental Agreement</h1>
     <div class="ph-rule"></div>
-    <p class="ph-p">Reserve the Kaʻala Pavilion at WCA @ Puʻuiki Beach Park, 67-467 Waialua Beach Road, Waialua, HI 96791.</p>
+    <p class="ph-p"><strong>Introductory rate: $350 through Dec 31, 2026</strong>, while park repairs are ongoing. Regular rate (expected $400–$500, exact figure pending Board approval) begins Jan 1, 2027. Kaʻala Pavilion: approx. 2,200 SF (31' × 73') within a 16,500 SF total rental area, Waialua Beach Road, Waialua, HI 96791.</p>
   </div>
 </div>
 
@@ -198,11 +205,18 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
       </div>
       <div class="form-group"><label class="form-label">Requested date <span class="req">*</span></label><input class="form-input" type="date" id="p-date"></div>
 
+      <div class="site-map-wrap">
+        <a href="images/puuiki-site-map.jpg" target="_blank" rel="noopener">
+          <img src="images/puuiki-site-map.jpg" alt="Aerial site map of WCA Puʻuiki Beach Park showing the Kaʻala Pavilion along Waialua Beach Road, the Kukui Pavilion (center of park, marked Under Repair) and ʻIwa Pavilion (at the shoreline, marked Under Repair), along with parking areas, campsite zones, the Little League field, and common areas." loading="lazy">
+        </a>
+        <div class="site-map-caption"><span>Park map — tap to view full size</span><a href="images/puuiki-site-map.jpg" target="_blank" rel="noopener">Open full map ↗</a></div>
+      </div>
+
       <label class="form-label" style="margin-top:6px;display:block">Pavilion selection <span class="req">*</span></label>
       <div class="pav-grid" id="pav-grid">
         <div class="pav-card" data-fee="350" data-name="Kaʻala (Donkey Barn)">
           <div class="pav-l"><div class="pav-check"><i class="ti ti-check"></i></div><div><div class="pav-name">Kaʻala — "Donkey Barn"</div><div class="pav-meta">Along Waialua Beach Road · 7:00 AM–9:00 PM</div></div></div>
-          <div class="pav-fee">$350</div>
+          <div class="pav-fee">$350<div style="font-size:10px;font-weight:600;color:var(--co);text-transform:uppercase;letter-spacing:.03em;margin-top:2px">Intro rate thru 12/31/26</div></div>
         </div>
         <div class="pav-card unavail"><div class="pav-l"><div class="pav-check"></div><div><div class="pav-name">Kukui Pavilion</div><div class="pav-meta">Center of park</div></div></div><div class="pav-badge">Under repair</div></div>
         <div class="pav-card unavail"><div class="pav-l"><div class="pav-check"></div><div><div class="pav-name">ʻIwa Pavilion</div><div class="pav-meta">At the shoreline</div></div></div><div class="pav-badge">Under repair</div></div>
@@ -288,7 +302,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
     <div class="pay-card">
       <div class="pay-top">
         <div class="pay-type-lbl">Puʻuiki Pavilion Rental</div>
-        <div class="pay-type-val">Kaʻala Pavilion — $350 + $100 deposit</div>
+        <div class="pay-type-val">Kaʻala Pavilion — $350 intro rate + $100 deposit</div>
       </div>
       <div class="pay-opts">
         <div class="pay-opt-lbl">Choose what to pay now</div>
@@ -327,7 +341,18 @@ var PAVILION_DEPOSIT = 100;
 /* Payment buttons below are fixed-price PayPal Hosted Buttons (paypal.com/buttons),
    not dynamic links — created July 2026: Deposit=KQKFSTTFXARZL $100, Fee=FGFYGZW78S99G $350,
    Deposit+Fee=SEUPBJX2GXYVG $450. To change a price, edit it in PayPal's dashboard directly —
-   no code change needed. To replace a button, update its href in the HTML above AND this comment. */
+   no code change needed. To replace a button, update its href in the HTML above AND this comment.
+
+   ⚠ TIME-SENSITIVE — ACTION REQUIRED BY 12/31/2026 ⚠
+   The $350 Fee / $450 Deposit+Fee prices above are an INTRODUCTORY RATE, discounted due to
+   ongoing park repairs. The regular rate (expected $400–$500, exact figure pending Board
+   approval) takes effect Jan 1, 2027. Unlike Camping, this does NOT happen automatically —
+   TWO manual steps are required together, same day, or the displayed price and the actual
+   PayPal charge will disagree:
+     1. Edit the Fee (FGFYGZW78S99G) and Deposit+Fee (SEUPBJX2GXYVG) button prices in PayPal's
+        dashboard (paypal.com/buttons → Edit) to the Board-approved regular rate.
+     2. Update every "$350" and "$450" reference in this HTML file's visible text (hero copy,
+        pavilion selection card, sidebar, Step 3 summary) to match, and re-upload to GitHub. */
 /* ════════════════════════════════════════════════════════
    END WCA SETTINGS
    ════════════════════════════════════════════════════════ */
