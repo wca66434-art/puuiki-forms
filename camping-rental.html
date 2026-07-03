@@ -134,6 +134,13 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
 .tb-clear:hover{border-color:var(--colk);color:var(--colk)}
 @media (max-width:760px){.toolbar-inner{padding:10px 20px}}
 
+/* SITE MAP */
+.site-map-wrap{margin-bottom:18px;border:1.5px solid var(--bd);border-radius:10px;overflow:hidden;background:var(--bg2)}
+.site-map-wrap img{width:100%;display:block;cursor:zoom-in}
+.site-map-caption{padding:9px 12px;font-size:11px;color:var(--mu);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.site-map-caption a{color:var(--dg);font-weight:600;text-decoration:none}
+.site-map-caption a:hover{text-decoration:underline}
+
 /* TEST MODE BANNER */
 .test-banner{background:#B91C1C;color:#fff;padding:10px 20px;text-align:center;font-size:13px;font-weight:700;letter-spacing:.02em}
 .test-banner span{font-weight:400;opacity:.9}
@@ -169,7 +176,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
     <div class="ph-ey"><i class="ti ti-tent"></i>Puʻuiki Beach Park</div>
     <h1 class="ph-h1">Camping Rental Agreement</h1>
     <div class="ph-rule"></div>
-    <p class="ph-p">Reserve a campsite at WCA @ Puʻuiki Beach Park, 67-467 Waialua Beach Road, Waialua, HI 96791. $150/night for your first 2 sites, $125/night for each site after that. 7:00 AM check-in / 11:00 AM check-out.</p>
+    <p class="ph-p" id="hero-price-copy">Reserve a campsite at WCA @ Puʻuiki Beach Park, 67-467 Waialua Beach Road, Waialua, HI 96791. 7:00 AM check-in / 11:00 AM check-out.</p>
   </div>
 </div>
 
@@ -200,6 +207,13 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
       <div class="form-group"><label class="form-label">Check-out date <span class="req">*</span></label><input class="form-input" type="date" id="p-checkout" oninput="calcNights()"></div>
       <div class="form-hint" style="margin-bottom:6px">Check-in 7:00 AM · check-out 11:00 AM on the last day.</div>
       <div class="n-info" id="nights-calc" style="margin-bottom:16px">Select both dates to calculate nights and total fee.</div>
+
+      <div class="site-map-wrap">
+        <a href="images/puuiki-site-map.jpg" target="_blank" rel="noopener">
+          <img src="images/puuiki-site-map.jpg" alt="Aerial site map of WCA Puʻuiki Beach Park showing three campsite zones — sites 1 through 4 right of the driveway, sites 5 through 8 along Waialua Beach Road, and sites 9 through 12 closest to the shoreline — along with the Kaʻala, Kukui, and ʻIwa pavilion locations, parking areas, the Little League field, and common areas. Kukui and ʻIwa pavilions are marked \"Under Repair.\"" loading="lazy">
+        </a>
+        <div class="site-map-caption"><span>Park map — tap to view full size</span><a href="images/puuiki-site-map.jpg" target="_blank" rel="noopener">Open full map ↗</a></div>
+      </div>
 
       <label class="form-label" style="margin-top:6px;display:block">Campsite selection <span class="req">*</span></label>
       <div class="form-hint" style="margin-bottom:8px">Sites are 40ʼ × 40ʼ plots. Select every site your group is reserving — extended-family groups often need more than one.</div>
@@ -273,7 +287,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
         <div class="summary-row"><span class="summary-label">Campsites</span><span class="summary-val" id="sm-pav">—</span></div>
         <div class="summary-row"><span class="summary-label">Check-in → Check-out</span><span class="summary-val" id="sm-date">—</span></div>
         <div class="summary-row"><span class="summary-label">Nights</span><span class="summary-val" id="sm-nights">—</span></div>
-        <div class="summary-row"><span class="summary-label">Camping fee ($150/night first 2 sites, $125/night after)</span><span class="summary-val" id="sm-fee">—</span></div>
+        <div class="summary-row"><span class="summary-label" id="sm-fee-label">Camping fee</span><span class="summary-val" id="sm-fee">—</span></div>
         <div class="summary-row"><span class="summary-label">Refundable deposit (flat, any # of sites)</span><span class="summary-val" id="sm-deposit">—</span></div>
         <div class="summary-row"><span class="summary-label">Total if paying both now</span><span class="summary-val" style="color:var(--dg)" id="sm-total">—</span></div>
       </div>
@@ -308,7 +322,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
     <div class="pay-card">
       <div class="pay-top">
         <div class="pay-type-lbl">Puʻuiki Camping Rental</div>
-        <div class="pay-type-val">$150/night (first 2 sites) · $125/night after · $100 deposit</div>
+        <div class="pay-type-val" id="sidebar-price-label">$150/night (first 2 sites) · $125/night after · $100 deposit</div>
       </div>
       <div class="pay-opts">
         <div class="pay-opt-lbl">Your amount, calculated from Step 1</div>
@@ -350,17 +364,32 @@ var FORM_LIVE = false;
    This is the ONLY line that needs to change to go live — nothing else. */
 var WEB3FORMS_KEY = 'b0b23799-d852-4bc3-ad54-b958bcccc705';
 var WCA_PP_EMAIL   = 'wca66434@gmail.com';
+
+/* PERMANENT rate structure — applies AFTER the promo period ends */
 var NIGHTLY_RATE    = 150;
 var NIGHTLY_RATE_DISCOUNT = 125;
 var DISCOUNT_AFTER_SITES  = 2;
 var CAMPING_DEPOSIT = 100;
+
+/* TEMPORARY promo — flat $100/night per site, no tiering, while park repairs are ongoing.
+   Ends automatically at midnight HST on 12/31/2026 — no manual action needed for Camping,
+   unlike Pavilion (see Pavilion's WCA SETTINGS comment for why that one's different). */
+var PROMO_RATE_FLAT = 100;
+var PROMO_END = new Date('2027-01-01T00:00:00-10:00'); // Hawaii Standard Time
+function promoActive(){
+  return new Date() < PROMO_END;
+}
 /* ════════════════════════════════════════════════════════
    END WCA SETTINGS
    ════════════════════════════════════════════════════════ */
 
-/* Camping fee: $150/night for each of the first 2 sites, $125/night for each site beyond 2.
-   Deposit: flat $100 regardless of how many sites (per WCA policy, July 2026 — pending Trustee sign-off). */
+/* Camping fee, PERMANENT structure (after promo ends): $150/night for each of the first 2 sites,
+   $125/night for each site beyond 2. During the promo period: flat $100/night per site, no tiering.
+   Deposit: flat $100 regardless of how many sites or promo status (per WCA policy, July 2026 — pending Trustee sign-off). */
 function perNightRate(siteCount){
+  if(promoActive()){
+    return siteCount * PROMO_RATE_FLAT;
+  }
   var full = Math.min(siteCount, DISCOUNT_AFTER_SITES);
   var discounted = Math.max(siteCount - DISCOUNT_AFTER_SITES, 0);
   return (full * NIGHTLY_RATE) + (discounted * NIGHTLY_RATE_DISCOUNT);
@@ -390,7 +419,7 @@ function calcNights(){
     } else {
       var fee = campingFee(nights, siteCount);
       var rate = perNightRate(siteCount);
-      box.innerHTML = nights + ' night' + (nights===1?'':'s') + ' × $' + rate.toLocaleString() + '/night (' + siteCount + ' site' + (siteCount===1?'':'s') + ') = <strong>$' + fee.toLocaleString() + ' camping fee</strong>';
+      box.innerHTML = nights + ' night' + (nights===1?'':'s') + ' × $' + rate.toLocaleString() + '/night (' + siteCount + ' site' + (siteCount===1?'':'s') + (promoActive() ? ', introductory rate' : '') + ') = <strong>$' + fee.toLocaleString() + ' camping fee</strong>';
       box.style.background = ''; box.style.color = ''; box.style.borderLeftColor = '';
     }
   } else {
@@ -489,6 +518,7 @@ function goStep(n){
     document.getElementById('sm-pav').textContent = sites.length ? sites.join(', ') : '—';
     document.getElementById('sm-date').textContent = document.getElementById('p-checkin').value + ' → ' + document.getElementById('p-checkout').value;
     document.getElementById('sm-nights').textContent = nights;
+    document.getElementById('sm-fee-label').textContent = promoActive() ? 'Camping fee ($100/night/site, introductory rate)' : 'Camping fee ($150/night first 2 sites, $125/night after)';
     document.getElementById('sm-fee').textContent = '$' + fee.toLocaleString() + ' (' + sites.length + ' site' + (sites.length===1?'':'s') + ')';
     document.getElementById('sm-deposit').textContent = '$' + deposit.toLocaleString();
     document.getElementById('sm-total').textContent = '$' + (fee + deposit).toLocaleString();
@@ -524,7 +554,8 @@ function submitForm(){
     nights: nights,
     campsites: sites.join(', '),
     site_count: sites.length,
-    EXPECTED_CAMPING_FEE: '$' + fee.toLocaleString() + ' (' + nights + ' nights x $' + perNightRate(sites.length).toLocaleString() + '/night for ' + sites.length + ' sites — tiered rate)',
+    EXPECTED_CAMPING_FEE: '$' + fee.toLocaleString() + ' (' + nights + ' nights x $' + perNightRate(sites.length).toLocaleString() + '/night for ' + sites.length + ' sites — ' + (promoActive() ? 'INTRODUCTORY RATE' : 'regular tiered rate') + ')',
+    PRICING_TIER_APPLIED: promoActive() ? 'Introductory promo ($100/night flat, no tiering) — active through 12/31/26' : 'Regular tiered rate ($150/night first 2 sites, $125/night after)',
     EXPECTED_DEPOSIT: '$' + deposit.toLocaleString() + ' (flat, any number of sites)',
     EXPECTED_TOTAL_IF_BOTH: '$' + total.toLocaleString(),
     staff_note: 'Amount was NOT passed to PayPal automatically — applicant typed it in manually. Cross-check the PayPal notification amount against EXPECTED_TOTAL above before confirming this reservation. Tiered per-site pricing ($150/night first 2 sites, $125/night after) and flat $100 deposit are pending formal Trustee sign-off — see form note.',
@@ -595,6 +626,18 @@ function initLiveGate(){
     });
   });
 }
+function renderPriceCopy(){
+  var el = document.getElementById('hero-price-copy');
+  var sidebar = document.getElementById('sidebar-price-label');
+  if(promoActive()){
+    if(el) el.innerHTML = '<strong>Introductory rate: $100/night per campsite through Dec 31, 2026</strong>, while park repairs are ongoing. Regular tiered pricing ($150/night first 2 sites, $125/night after) resumes Jan 1, 2027. 7:00 AM check-in / 11:00 AM check-out.';
+    if(sidebar) sidebar.textContent = '$100/night per site (introductory rate through 12/31/26) · $100 deposit';
+  } else {
+    if(el) el.textContent = '$150/night for your first 2 sites, $125/night for each site after that. 7:00 AM check-in / 11:00 AM check-out.';
+    if(sidebar) sidebar.textContent = '$150/night (first 2 sites) · $125/night after · $100 deposit';
+  }
+}
+document.addEventListener('DOMContentLoaded', renderPriceCopy);
 document.addEventListener('DOMContentLoaded', initLiveGate);
 </script>
 </body>
