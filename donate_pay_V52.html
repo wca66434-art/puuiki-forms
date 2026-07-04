@@ -1260,6 +1260,10 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
         <div class="pay-type-val" id="pay-type-val">Donation</div>
         <div class="pay-name-val" id="pay-name-val">WCA Operations fund</div>
       </div>
+      <div id="pay-amount-due" style="display:none;margin:10px 0 4px;padding:10px 14px;background:rgba(255,255,255,0.08);border-radius:8px;border-left:3px solid var(--co)">
+        <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#9FE1CB;font-weight:700;margin-bottom:4px">Amount due</div>
+        <div id="pay-amount-due-val" style="font-size:22px;font-weight:700;color:#fff;font-family:var(--serif)">$0</div>
+      </div>
       <div class="pay-amt-section" id="pay-amt-section">
         <div class="pay-amt-lbl">Choose an amount</div>
         <div class="tier-grid" id="tier-grid">
@@ -1285,7 +1289,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
             <i class="ti ti-credit-card" style="font-size:16px"></i>Pay with Card
           </a>
         </div>
-        <div class="pp-memo">Amount: <strong id="memo-amt">$25</strong><br>Memo: <strong id="memo-text">"WCA Operations Fund donation"</strong></div>
+        <div class="pp-memo" id="pp-memo" style="display:none">Amount: <strong id="memo-amt">$25</strong><br>Memo: <strong id="memo-text">"WCA Operations Fund donation"</strong></div>
       </div>
     </div>
 
@@ -1526,9 +1530,14 @@ function updateSidebar() {
   const amtSection = document.getElementById('pay-amt-section');
   const progBox = document.getElementById('prog-box');
   lock.style.display = 'none';
+  var ppMemo = document.getElementById('pp-memo');
+  if(ppMemo) ppMemo.style.display = 'none';
+  var padEl = document.getElementById('pay-amount-due');
+  if(padEl) padEl.style.display = 'none';
   if (curTab === 'donate') {
     amtSection.style.display = 'block';
     progBox.style.display = 'block';
+    if(ppMemo) ppMemo.style.display = 'block';
     document.getElementById('pay-type-val').textContent = 'Donation';
     const sel = document.querySelector('#grid-donate .sel-c, #grid-donate .sel');
     if (sel) { curMemo = sel.dataset.memo; document.getElementById('pay-name-val').textContent = sel.dataset.name; document.getElementById('qr-name').textContent = sel.dataset.name; }
@@ -1562,11 +1571,19 @@ function updateSidebar() {
         document.getElementById('pay-name-val').textContent = 'Use fee — $' + _sbAmt;
         document.getElementById('qr-name').textContent = 'Use fee — $' + _sbAmt;
         curAmt = _sbAmt;
+        var _sbpad = document.getElementById('pay-amount-due');
+        var _sbpadv = document.getElementById('pay-amount-due-val');
+        if(_sbpad) _sbpad.style.display = 'block';
+        if(_sbpadv) _sbpadv.textContent = '$' + _sbAmt.toLocaleString();
       } else {
         document.getElementById('pay-type-val').textContent = 'Rental deposit';
         document.getElementById('pay-name-val').textContent = 'Deposit — $300';
         document.getElementById('qr-name').textContent = 'Rental deposit — $300';
         curAmt = 300;
+        var _sbpad2 = document.getElementById('pay-amount-due');
+        var _sbpadv2 = document.getElementById('pay-amount-due-val');
+        if(_sbpad2) _sbpad2.style.display = 'block';
+        if(_sbpadv2) _sbpadv2.textContent = '$300 deposit';
       }
       updateMemo();
     } else {
@@ -2058,6 +2075,10 @@ function rentSubmit() {
     document.getElementById('qr-name').textContent = 'Use fee — $' + _hrAmt;
     curAmt = _hrAmt;
     curMemo = 'WCA Hourly Use — ' + name + ' — ' + date;
+    var _pad = document.getElementById('pay-amount-due');
+    var _padv = document.getElementById('pay-amount-due-val');
+    if(_pad) _pad.style.display = 'block';
+    if(_padv) _padv.textContent = '$' + _hrAmt.toLocaleString();
   } else {
     // event/party/flat fee — deposit only
     document.getElementById('pay-type-val').textContent = 'Rental deposit';
@@ -2065,8 +2086,16 @@ function rentSubmit() {
     document.getElementById('qr-name').textContent = 'Rental deposit — $300';
     curAmt = 300;
     curMemo = 'WCA Rental Deposit — ' + name + ' — ' + date;
+    var _pad2 = document.getElementById('pay-amount-due');
+    var _padv2 = document.getElementById('pay-amount-due-val');
+    if(_pad2) _pad2.style.display = 'block';
+    if(_padv2) _padv2.textContent = '$300 deposit';
   }
   curTab = 'rental';
+  var _ppmemo = document.getElementById('pp-memo');
+  if(_ppmemo) _ppmemo.style.display = 'none';
+  var _padReset = document.getElementById('pay-amount-due');
+  if(_padReset) _padReset.style.display = 'none';
   updateMemo();
   sendHeight();
 }
