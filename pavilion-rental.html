@@ -197,7 +197,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
       </div>
       <div class="form-hint" style="margin-top:-6px;margin-bottom:14px">Puʻuiki Beach Park rentals are limited to WCA members, Dole employees, and Dole/Waialua Sugar retirees. At least one must be "Yes" to proceed.</div>
       <div class="elig-error" id="elig-error"><i class="ti ti-alert-circle" style="margin-right:4px"></i>Select "Yes" for at least one of WCA Member, Dole Employee, or Dole/Waialua Sugar Retiree — this is required to rent at Puʻuiki.</div>
-      <div class="form-group"><label class="form-label">Point of contact (if different)</label><input class="form-input" type="text" id="p-poc" placeholder="Name and phone, if applicable"></div>
+      <div class="form-group"><label class="form-label">Point of contact (if different from applicant)</label><input class="form-input" type="text" id="p-poc" placeholder="Name, phone number, and email"><div class="form-hint">Person WCA should contact on the day of your rental. If left blank, applicant is assumed to be the day-of contact.</div></div>
       <div class="form-group"><label class="form-label">Mailing address <span class="req">*</span></label><input class="form-input" type="text" id="p-addr" placeholder="Street, city, state, ZIP"></div>
       <div class="form-row">
         <div class="form-group"><label class="form-label">Phone <span class="req">*</span></label><input class="form-input" type="tel" id="p-phone" placeholder="(808) 555-0000"></div>
@@ -434,6 +434,8 @@ function submitForm(){
     deposit: '$' + PAVILION_DEPOSIT,
     typed_signature: document.getElementById('p-sig').value,
     printed_name: document.getElementById('p-print').value,
+    waiver_and_release: 'Agreed — 2026 WCA Puuiki Beach Park Waiver & Release (electronic signature accepted under HRS §489E-7)',
+    date_confirmation_note: 'WCA will verify eligibility, payment receipt, and date availability before issuing written confirmation. Submission does not guarantee a booking.',
     submitted: new Date().toLocaleString('en-US',{timeZone:'Pacific/Honolulu'})
   };
   fetch('https://api.web3forms.com/submit',{
