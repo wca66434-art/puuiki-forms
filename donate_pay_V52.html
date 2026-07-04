@@ -1,0 +1,2398 @@
+<!DOCTYPE html>
+<!-- WCA Donate & Pay — V52 — 7-3-26
+<!-- & Pay — V11 — June 2026 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pay & Give — Waialua Community Association</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#5AAF8E;--dg:#3D8A6E;--glt:#E4F3EC;
+  --co:#D4906A;--colt:#F7E8DC;--colk:#A86040;
+  --pa:#F3EAD8;--br:#7D5A3C;--brlt:#C4A882;
+  --tx:#2A1F14;--mu:#6B5A48;--bd:rgba(0,0,0,0.12);
+  --bg:#ffffff;--bg2:#f8f7f4;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Nunito',Arial,sans-serif;
+  --pp-dark:#1A3D2B;--pp-mid:#2D6A4F;--pp-light:#D8F0E4;--pp-lighter:#EAF7EF;
+}
+body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa);min-height:100vh}
+
+/* PAGE HERO */
+.page-hero{background:var(--dg);padding:44px 40px 40px}
+.ph-inner{max-width:900px;margin:0 auto}
+.ph-ey{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#F0C898;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.ph-ey::after{content:'';flex:0 0 36px;height:1px;background:#F0C898;opacity:.5}
+.ph-h1{font-family:var(--serif);font-size:42px;font-weight:600;color:#fff;line-height:1.1;margin-bottom:12px}
+.ph-rule{width:48px;height:3px;background:var(--co);border-radius:2px;margin-bottom:14px}
+.ph-p{font-size:15px;color:rgba(255,255,255,.82);line-height:1.65;max-width:580px;margin-bottom:18px}
+
+/* TABS */
+.tabs-bar{background:#fff;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:50}
+.tabs-inner{display:flex;max-width:900px;margin:0 auto;padding:0 24px;overflow-x:auto}
+.tab{padding:15px 18px;font-size:13px;font-weight:500;color:var(--mu);cursor:pointer;border-bottom:3px solid transparent;display:flex;align-items:center;gap:6px;transition:all .15s;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none;font-family:var(--sans);flex-shrink:0}
+.tab i{font-size:15px}
+.tab:hover{color:var(--tx)}
+.tab.active{color:var(--dg);border-bottom-color:var(--co);font-weight:600}
+.tab.active i{color:var(--co)}
+
+/* MAIN LAYOUT */
+.main{display:grid;grid-template-columns:1fr 320px;gap:0;max-width:900px;margin:0 auto;min-height:600px}
+.left{padding:32px 28px 40px 0;border-right:1px solid var(--bd)}
+.right{padding:24px 0 40px 24px}
+.panel{display:none}.panel.active{display:block}
+
+/* PANEL */
+.panel-ey{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--co);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.panel-ey::after{content:'';flex:0 0 28px;height:1px;background:var(--co);opacity:.5}
+.panel-h2{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--tx);margin-bottom:8px}
+.panel-rule{width:36px;height:2px;background:var(--co);border-radius:1px;margin-bottom:12px}
+.panel-p{font-size:14px;color:var(--mu);line-height:1.65;margin-bottom:20px}
+
+/* CHOICE SCREEN */
+.choice-screen{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.choice-card{background:#fff;border:2px solid var(--bd);border-radius:12px;padding:24px 20px;cursor:pointer;transition:all .18s;text-align:center}
+.choice-card:hover{border-color:var(--g);transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.choice-card.primary{border-color:var(--dg);background:var(--glt)}
+.choice-badge{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:20px;background:var(--dg);color:#fff;display:inline-block;margin-bottom:12px}
+.choice-icon{width:52px;height:52px;border-radius:12px;background:var(--glt);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.choice-card.primary .choice-icon{background:var(--dg)}
+.choice-icon i{font-size:24px;color:var(--dg)}
+.choice-card.primary .choice-icon i{color:#fff}
+.choice-h{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--tx);margin-bottom:6px}
+.choice-p{font-size:12px;color:var(--mu);line-height:1.55;margin-bottom:16px}
+.choice-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 20px;border-radius:6px;font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;border:none;width:100%;transition:background .18s}
+.choice-btn.primary{background:var(--dg);color:#fff}
+.choice-btn.primary:hover{background:var(--pp-mid)}
+.choice-btn.secondary{background:transparent;color:var(--dg);border:2px solid var(--dg)}
+.choice-btn.secondary:hover{background:var(--glt)}
+.dl-list{margin-top:10px;text-align:left}
+.dl-item{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--mu);padding:5px 0;border-bottom:.5px solid var(--bd)}
+.dl-item:last-child{border:none}
+.dl-item i{font-size:13px;color:var(--g);flex-shrink:0}
+
+/* OPTION CARDS */
+.opt-grid{display:grid;gap:12px;margin-bottom:16px}
+.opt-grid.cols3{grid-template-columns:repeat(3,1fr)}
+.opt-grid.cols2{grid-template-columns:repeat(2,1fr)}
+.oc{background:#fff;border:1.5px solid var(--bd);border-radius:10px;padding:16px;cursor:pointer;transition:all .15s;position:relative}
+.oc:hover{border-color:var(--g);transform:translateY(-1px)}
+.oc.sel,.oc.sel-c{border-color:var(--dg);border-width:2px;background:var(--glt)}
+.oc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.oc-ico{width:36px;height:36px;border-radius:8px;background:var(--glt);display:flex;align-items:center;justify-content:center}
+.oc-ico i{font-size:18px;color:var(--dg)}
+.oc.sel .oc-ico,.oc.sel-c .oc-ico{background:var(--dg)}
+.oc.sel .oc-ico i,.oc.sel-c .oc-ico i{color:#fff}
+.oc-check{width:22px;height:22px;border-radius:50%;border:2px solid var(--bd);display:flex;align-items:center;justify-content:center;transition:all .15s}
+.oc.sel .oc-check,.oc.sel-c .oc-check{background:var(--dg);border-color:var(--dg)}
+.oc-check i{font-size:12px;color:#fff;display:none}
+.oc.sel .oc-check i,.oc.sel-c .oc-check i{display:block}
+.oc-price{font-size:16px;font-weight:700;color:var(--dg);margin-bottom:4px;font-family:var(--serif)}
+.oc-title{font-size:14px;font-weight:600;color:var(--tx);margin-bottom:4px}
+.oc-desc{font-size:12px;color:var(--mu);line-height:1.5;margin-bottom:8px}
+.oc-badge{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px}
+.bg{background:var(--glt);color:var(--dg)}
+.bm{background:#FEF3C7;color:#92400E}
+.bc{background:var(--colt);color:var(--colk)}
+
+.info-note{background:var(--glt);border-left:3px solid var(--g);border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;color:var(--dg);display:flex;align-items:flex-start;gap:8px;margin-bottom:16px;line-height:1.55}
+.info-note i{font-size:16px;flex-shrink:0;margin-top:1px}
+
+/* PAYMENT SIDEBAR */
+.pay-sidebar{position:sticky;top:64px}
+.pay-card{background:var(--pp-mid);border-radius:14px;overflow:hidden;margin-bottom:14px}
+.pay-top{padding:16px 20px 12px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.pay-type-lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9FE1CB;margin-bottom:2px}
+.pay-type-val{font-size:15px;font-weight:600;color:#EAF7EF}
+.pay-name-val{font-size:13px;color:#9FE1CB;margin-top:2px}
+.pay-amt-section{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.pay-amt-lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9FE1CB;margin-bottom:10px}
+.tier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px}
+.tier-btn{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);border-radius:7px;padding:8px 4px;cursor:pointer;text-align:center;font-family:var(--sans);transition:all .15s}
+.tier-btn:hover{background:rgba(255,255,255,0.14)}
+.tier-btn.sel{background:var(--co);border-color:var(--co)}
+.tier-btn .tb-amt{font-size:14px;font-weight:700;color:#fff}
+.tier-btn .tb-lbl{font-size:10px;color:rgba(255,255,255,.65);letter-spacing:.06em;text-transform:uppercase;margin-top:1px}
+.tier-btn.sel .tb-lbl{color:rgba(255,255,255,.85)}
+.cust-row{display:flex;align-items:center;gap:8px}
+.cust-lbl{font-size:14px;color:#9FE1CB;flex-shrink:0}
+.cust-wrap{display:flex;align-items:center;flex:1;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:6px;overflow:hidden}
+.cust-pre{padding:8px 10px;font-size:14px;color:#C8E8D8}
+.cust-inp{flex:1;background:transparent;border:none;outline:none;font-size:14px;color:#fff;padding:8px 8px 8px 0;font-family:var(--sans)}
+.cust-inp::placeholder{color:rgba(255,255,255,.35)}
+.qr-section{padding:14px 20px}
+.qr-frame i{font-size:64px;color:var(--dg)}
+.pp-btns{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.pp-btn{width:100%;background:var(--co);color:#fff;border:none;padding:13px;border-radius:8px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:background .2s;margin-bottom:10px;text-decoration:none}
+.card-btn{width:100%;background:var(--dg);color:#fff;border:none;padding:13px;border-radius:8px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;box-sizing:border-box}
+.pp-btn:hover{background:var(--colk)}
+.pp-memo{font-size:12px;color:#7AAA8A;line-height:1.55;text-align:center}
+.pp-memo strong{color:#A8C8B8}
+.other-ways{background:#fff;border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.ow-title{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);font-weight:600;margin-bottom:10px}
+.ow-item{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--mu);margin-bottom:8px;line-height:1.5}
+.ow-item:last-child{margin-bottom:0}
+.ow-item i{font-size:13px;color:var(--g);flex-shrink:0;margin-top:1px}
+
+/* MEMBERSHIP STEPS */
+.steps{display:flex;align-items:center;margin-bottom:24px}
+.step{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.step-num{width:26px;height:26px;border-radius:50%;background:var(--bd);color:var(--mu);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.step.active .step-num{background:var(--g);color:#fff}
+.step.done .step-num{background:var(--dg);color:#fff}
+.step-label{font-size:12px;color:var(--mu);font-weight:500;white-space:nowrap}
+.step.active .step-label{color:var(--dg);font-weight:600}
+.step.done .step-label{color:var(--dg)}
+.step-line{flex:1;height:2px;background:var(--bd);margin:0 8px;min-width:16px}
+.step.done+.step-line{background:var(--dg)}
+.app-form{background:#fff;border-radius:10px;padding:20px;margin-bottom:4px;border:1px solid var(--bd)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-group{margin-bottom:14px}
+.form-group:last-child{margin-bottom:0}
+.form-label{display:block;font-size:12px;font-weight:600;color:var(--tx);margin-bottom:5px}
+.req{color:var(--co)}
+.form-input{width:100%;padding:10px 12px;border:1.5px solid var(--bd);border-radius:6px;font-size:14px;font-family:var(--sans);color:var(--tx);background:#fff;outline:none;transition:border-color .15s}
+.form-input:focus{border-color:var(--g)}
+.form-hint{font-size:11px;color:var(--mu);margin-top:3px}
+.form-agree{display:flex;align-items:flex-start;gap:9px;padding:12px;background:var(--glt);border-radius:7px;font-size:12px;color:var(--mu);line-height:1.6;margin-top:4px}
+.step-btn{background:var(--g);color:#fff;border:none;padding:12px 22px;border-radius:6px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:background .2s}
+.step-btn:hover:not(:disabled){background:var(--dg)}
+.step-btn:disabled{opacity:.45;cursor:not-allowed}
+.step-btn-back{background:transparent;color:var(--mu);border:1.5px solid var(--bd);padding:11px 18px;border-radius:6px;font-family:var(--sans);font-size:14px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all .2s}
+.step-btn-back:hover{border-color:var(--g);color:var(--dg)}
+.app-summary{background:var(--glt);border:1.5px solid #B8DECE;border-radius:10px;padding:16px 18px;margin-bottom:14px}
+.summary-title{font-size:13px;font-weight:600;color:var(--dg);margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.summary-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(90,175,142,0.2)}
+.summary-row:last-child{border-bottom:none}
+.summary-label{font-size:12px;color:var(--mu)}
+.summary-val{font-size:12px;font-weight:600;color:var(--tx)}
+.submit-btn{background:var(--dg);color:#fff;border:none;padding:12px 22px;border-radius:6px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:7px;width:100%;justify-content:center;transition:background .2s}
+.submit-btn:hover:not(:disabled){background:var(--pp-mid)}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed}
+.submit-success{background:var(--glt);border:1.5px solid #B8DECE;border-radius:8px;padding:14px 16px;margin-top:12px;display:none}
+.ss-title{font-size:13px;font-weight:600;color:var(--dg);margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.ss-sub{font-size:12px;color:var(--mu);line-height:1.6}
+
+/* DONOR LETTER */
+.donor-letter{background:#fff;border:1px solid var(--bd);border-radius:10px;padding:24px;margin-top:16px;display:none}
+.donor-letter-title{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--dg);margin-bottom:4px}
+.donor-letter-sub{font-size:12px;color:var(--mu);margin-bottom:16px}
+.letter-body{font-size:13px;color:var(--tx);line-height:1.8;border:1px solid var(--bd);border-radius:8px;padding:20px;background:var(--bg2);margin-bottom:14px}
+.letter-body p{margin-bottom:10px}
+.letter-body p:last-child{margin-bottom:0}
+.print-btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:6px;background:var(--dg);color:#fff;font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;border:none;transition:background .18s}
+.print-btn:hover{background:var(--pp-mid)}
+
+/* PAYMENT LOCK */
+.pay-locked{position:relative}
+.pay-lock-overlay{position:absolute;inset:0;background:rgba(61,138,110,0.96);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;z-index:10;transition:opacity .3s}
+.pay-lock-overlay.unlocked{opacity:0;pointer-events:none}
+.lock-icon{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.lock-icon i{font-size:24px;color:#fff}
+.lock-msg{font-size:13px;font-weight:600;color:#fff;margin-bottom:5px;line-height:1.4}
+.lock-sub{font-size:11px;color:#A8C8B8;line-height:1.55}
+
+/* BALANCE LOOKUP */
+.lookup-box{background:#fff;border-radius:10px;padding:16px 18px;border:1px solid var(--bd);margin-bottom:14px}
+.lookup-box h5{font-size:13px;font-weight:600;color:var(--dg);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.email-row{display:flex;gap:8px;margin-bottom:6px}
+.email-row input{flex:1;padding:9px 12px;border:1.5px solid var(--bd);border-radius:6px;font-size:14px;font-family:var(--sans);color:var(--tx);outline:none}
+.email-row input:focus{border-color:var(--g)}
+.email-row button{background:var(--dg);color:#fff;border:none;padding:9px 16px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--sans);white-space:nowrap}
+.email-row button:hover{background:var(--g)}
+.lookup-hint{font-size:11px;color:var(--mu);line-height:1.45}
+.n-red{border-left:3px solid #e24b4a;background:#fff5f5;padding:.38rem .65rem;border-radius:0 6px 6px 0;font-size:12px;color:#7a1c1c;line-height:1.45;margin-top:.4rem;display:none}
+.n-amber{border-left:3px solid #d97706;background:#fffbf0;padding:.5rem .75rem;border-radius:0 6px 6px 0;font-size:12px;color:#7a4a08;line-height:1.55;margin-bottom:.8rem}
+.n-info{border-left:3px solid var(--co);background:#fff9f5;padding:.5rem .75rem;border-radius:0 6px 6px 0;font-size:12px;color:var(--br);line-height:1.55;margin-bottom:.8rem}
+
+.fac-lbl{display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;background:#fff;border:1.5px solid var(--bd);border-radius:6px;padding:8px 12px;transition:all .15s;user-select:none}
+.fac-lbl:hover{border-color:var(--g);background:var(--glt)}
+.fac-lbl.checked{border-color:var(--dg);background:var(--glt);color:var(--dg);font-weight:600}
+.fac-lbl input[type=checkbox]{accent-color:var(--dg);width:14px;height:14px;cursor:pointer;flex-shrink:0}.bk-item{background:#fff;border:1px solid var(--bd);border-radius:8px;padding:12px 14px;margin-bottom:8px}
+.bk-item h6{font-size:13px;font-weight:600;color:var(--dg);margin-bottom:8px}
+.bkr{display:flex;justify-content:space-between;font-size:12px;padding:.15rem 0;border-bottom:.5px solid var(--bd)}
+.bkr:last-child{border:none}
+.bkr .bl{color:var(--mu)}.bkr .bv{font-weight:500}
+.bal-pill{display:flex;justify-content:space-between;align-items:center;background:var(--pa);border-radius:6px;padding:8px 12px;margin-top:8px;cursor:pointer;transition:background .15s}
+.bal-pill:hover{background:var(--brlt)}
+.bp-l{font-size:11px;color:var(--br)}.bp-l strong{display:block;font-size:14px;color:var(--dg)}
+.bp-r{font-size:16px;font-weight:600;color:var(--dg)}
+.paid-badge{display:inline-flex;align-items:center;gap:.25rem;background:#e8f7ef;color:#1a5c38;font-size:11px;padding:.22rem .55rem;border-radius:20px;margin-top:6px}
+
+/* RENTAL */
+.rent-opts{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.ropt{background:#fff;border:1px solid var(--bd);border-radius:8px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ropt h5{font-size:13px;font-weight:600;color:var(--tx);margin-bottom:2px}
+.ropt p{font-size:11px;color:var(--mu)}
+.ropt-price{font-size:13px;font-weight:700;color:var(--dg);white-space:nowrap}
+.btn-go{background:var(--dg);color:#fff;border:none;padding:12px 16px;border-radius:7px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--sans);display:inline-flex;align-items:center;gap:7px;text-decoration:none;transition:background .2s;margin-right:10px;margin-bottom:8px}
+.btn-go:hover{background:var(--g)}
+.btn-go-secondary{background:transparent;color:var(--dg);border:2px solid var(--dg);padding:11px 16px;border-radius:7px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--sans);display:inline-flex;align-items:center;gap:7px;text-decoration:none;transition:all .2s;margin-bottom:8px}
+.btn-go-secondary:hover{background:var(--glt)}
+
+/* CAR WASH */
+.cw-detail{background:#fff;border:1px solid var(--bd);border-radius:10px;padding:18px;margin-bottom:16px}
+.cw-detail h5{font-size:14px;font-weight:600;color:var(--dg);margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.cw-row{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:.5px solid var(--bd)}
+.cw-row:last-child{border:none}
+.cw-lbl{color:var(--mu)}
+.cw-val{font-weight:600;color:var(--tx)}
+
+/* PROGRESS BARS */
+.prog-box{background:#fff;border-radius:10px;padding:14px 16px;border:1px solid var(--bd)}
+.prog-title{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);font-weight:600;margin-bottom:12px}
+.prog-item{margin-bottom:12px}
+.prog-item:last-child{margin-bottom:0}
+.prog-name{font-size:13px;font-weight:600;color:var(--tx);margin-bottom:2px}
+.prog-desc{font-size:11px;color:var(--mu);margin-bottom:6px}
+.prog-bg{background:var(--glt);border-radius:20px;height:6px;overflow:hidden;margin-bottom:4px}
+.prog-fill{background:var(--co);border-radius:20px;height:6px}
+.prog-meta{display:flex;justify-content:space-between;align-items:center;font-size:11px;flex-wrap:wrap;gap:4px;margin-top:3px}
+.prog-raised{color:var(--co);font-weight:700}
+.prog-goal{color:var(--dg);font-weight:600}
+
+/* PRINT STYLES */
+@media print{
+  /* Hide everything */
+  body * { visibility: hidden; }
+  /* Show only the letter and its contents */
+  #donor-letter-wrap, #donor-letter-wrap * { visibility: visible; }
+  /* Position the letter at top of page */
+  #donor-letter-wrap {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: #fff !important;
+    padding: 24px !important;
+    border: none !important;
+    display: block !important;
+  }
+  /* Force white background on body */
+  body { background: #fff !important; }
+}
+
+@media(max-width:768px){.outer-wrap{padding:0 8px !important}}
+/* MOBILE */
+@media(max-width:768px){
+  .page-hero{padding:20px 16px}
+  .ph-h1{font-size:24px}
+  .ph-p{font-size:13px;margin-bottom:12px}
+  .ph-ey{font-size:11px}
+  .main{grid-template-columns:1fr;padding:0 12px}
+  .left{padding:20px 0;border-right:none;border-bottom:1px solid var(--bd)}
+  .right{padding:16px 0}
+  .opt-grid.cols3{grid-template-columns:1fr 1fr}
+  .opt-grid.cols2{grid-template-columns:1fr}
+  .tabs-inner{padding:0 4px}
+  .tab{padding:12px 10px;font-size:12px}
+  .pay-sidebar{position:static;width:100%}
+  .tier-grid{grid-template-columns:repeat(2,1fr)}
+  .choice-screen{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .ropt{flex-direction:row;flex-wrap:wrap}
+  .ropt-price{font-weight:700;color:var(--dg)}
+  .panel-h2{font-size:22px}
+}
+@media(max-width:768px){
+  /* Prevent horizontal scroll site-wide */
+  body{overflow-x:hidden}
+  /* Stepper labels — hide on small screens, show only numbers */
+  .step-label{display:none}
+  .steps{gap:4px}
+  /* Facility checkboxes stack */
+  .fac-lbl{font-size:12px;padding:7px 10px}
+  /* Rental buttons stack */
+  .btn-go,.btn-go-secondary{width:100%;justify-content:center;margin-right:0}
+  /* Date/time inputs full width */
+  .form-input[type=date],.form-input[type=time]{min-width:0;width:100%}
+  /* Rental option rows wrap */
+  .ropt{flex-wrap:wrap;gap:6px}
+}
+@media(max-width:480px){
+  .ph-h1{font-size:22px}
+  .ph-p{font-size:12px}
+  .tab i{display:none}
+  .tab{padding:10px 8px;font-size:11px}
+  .panel-h2{font-size:20px}
+  .panel-p{font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="ph-inner">
+    <div class="ph-ey">Payments &amp; giving</div>
+    <h1 class="ph-h1">Donate &amp; Pay</h1>
+    <div class="ph-rule"></div>
+    <p class="ph-p">Donate to our programs, join as a member, rent our facilities, schedule a car wash, sign up to volunteer, or pay your rental balance — all in one place.</p>
+  </div>
+</div>
+
+<!-- TABS — five tabs -->
+<div class="tabs-bar">
+  <div class="tabs-inner">
+    <button class="tab active" data-tab="donate"><i class="ti ti-heart"></i>Donate</button>
+    <button class="tab" data-tab="membership"><i class="ti ti-id-badge"></i>Membership</button>
+    <button class="tab" data-tab="rental"><i class="ti ti-building"></i>Rent a space</button>
+    <button class="tab" data-tab="carwash"><i class="ti ti-car"></i>Car wash</button>
+    <button class="tab" data-tab="balance"><i class="ti ti-cash"></i>Pay my balance</button>
+    <button class="tab" data-tab="other"><i class="ti ti-receipt"></i>Other payments</button>
+    <button class="tab" data-tab="volunteer"><i class="ti ti-heart-handshake"></i>Volunteer</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div style="background:var(--pa);padding:0 40px" class="outer-wrap">
+<div class="main">
+<div class="left">
+
+  <!-- ══ DONATE ══ -->
+  <div class="panel active" id="panel-donate">
+    <div class="panel-ey">Give back to the North Shore</div>
+    <h2 class="panel-h2">Choose a fund</h2>
+    <div class="panel-rule"></div>
+    <p class="panel-p">Select a fund below. All donations are tax-deductible under our 501(c)(3) status · EIN 99-0074142. If paying by card please add a note identifying which fund your donation supports.</p>
+    <div class="opt-grid cols3" id="grid-donate">
+      <div class="oc" id="fc1" data-key="ops" data-name="WCA Operations fund" data-memo="WCA Operations Fund donation" data-note="Unrestricted">
+        <div class="oc-top"><div class="oc-ico"><i class="ti ti-home-heart"></i></div><div class="oc-check"><i class="ti ti-check"></i></div></div>
+        <div class="oc-price">Any amt</div>
+        <div class="oc-title">WCA Operations</div>
+        <div class="oc-desc">The only unrestricted fund — deployed immediately.</div>
+        <span class="oc-badge bc">Most needed</span>
+      </div>
+      <div class="oc" id="fc2" data-key="puuiki" data-name="Puuiki Beach Park fund" data-memo="WCA Puuiki Beach Park Fund donation" data-note="Puuiki Beach Park">
+        <div class="oc-top"><div class="oc-ico"><i class="ti ti-droplet"></i></div><div class="oc-check"><i class="ti ti-check"></i></div></div>
+        <div class="oc-price">Any amt</div>
+        <div class="oc-title">Puʻuiki Beach Park</div>
+        <div class="oc-desc">Water access at our 9.5-acre coastal park.</div>
+        <span class="oc-badge bm">67% funded</span>
+      </div>
+      <div class="oc" id="fc3" data-key="facility" data-name="WCA Facilities fund" data-memo="WCA Historic Facilities Fund donation" data-note="42% funded. Critical repairs to our 90-year-old community hall.">
+        <div class="oc-top"><div class="oc-ico"><i class="ti ti-building"></i></div><div class="oc-check"><i class="ti ti-check"></i></div></div>
+        <div class="oc-price">Any amt</div>
+        <div class="oc-title">WCA Facilities</div>
+        <div class="oc-desc">Repairs to our 90-year-old community hall.</div>
+        <span class="oc-badge bm">42% funded</span>
+      </div>
+    </div>
+    <div class="info-note"><i class="ti ti-info-circle"></i><div id="note-donate"><strong>WCA Operations fund selected.</strong> Unrestricted — WCA deploys this immediately for any urgent need.</div></div>
+
+    <!-- DONOR LETTER — appears after donation confirmed -->
+    <div id="donor-letter-wrap" class="donor-letter">
+      <div class="donor-letter-title">Tax Acknowledgment Letter</div>
+      <div class="donor-letter-sub">Print or save this letter for your IRS tax records.</div>
+      <div class="letter-body" id="letter-body">
+        <p><strong>Waialua Community Association</strong><br>
+        66-434 Kamehameha Hwy., Haleiwa, Hawaii 96712<br>
+        Phone: (808) 637-4606 · wca66434@gmail.com</p>
+        <p id="letter-date"></p>
+        <p id="letter-donor-addr" style="display:none"></p>
+        <p>Dear <span id="letter-donor">Donor</span>,</p>
+        <p>Thank you for your generous donation of <strong><span id="letter-amt">$25.00</span></strong> to the <strong><span id="letter-fund">WCA Operations Fund</span></strong> of the Waialua Community Association.</p>
+        <p>PayPal Transaction ID: <strong><span id="letter-txn-id"></span></strong></p>
+        <p>The Waialua Community Association is a tax-exempt organization under Section 501(c)(3) of the Internal Revenue Code. Our EIN is <strong>99-0074142</strong>. Your donation is tax-deductible to the extent permitted by law.</p>
+        <p>No goods or services were provided to you in exchange for this contribution.</p>
+        <p>Your support helps us continue to serve the North Shore community of Oʻahu. Mahalo nui loa.</p>
+        <p>Sincerely,<br>
+        <strong>Waialua Community Association</strong><br>
+        Board of Trustees</p>
+      </div>
+      <button class="print-btn" onclick="window.print()"><i class="ti ti-printer" style="font-size:14px"></i>Print donor letter</button>
+      <button class="step-btn-back" style="margin-left:10px" onclick="hideDonorLetter()"><i class="ti ti-x" style="font-size:13px"></i>Close</button>
+    </div>
+
+    <!-- PAYPAL TRANSACTION ID STEP -->
+    <div id="donor-txn-wrap" style="display:none;margin-top:20px">
+      <div class="app-form" style="border-left:3px solid var(--co);margin-bottom:12px">
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px">
+          <i class="ti ti-brand-paypal" style="font-size:22px;color:var(--dg);flex-shrink:0;margin-top:2px"></i>
+          <div>
+            <div style="font-size:14px;font-weight:700;color:var(--tx);margin-bottom:4px">Complete your PayPal payment first</div>
+            <div style="font-size:12px;color:var(--mu);line-height:1.65">Use the PayPal button on the right to complete your donation. PayPal will send you a confirmation email with a Transaction ID. Once you have that ID, enter it below to generate your tax acknowledgment letter.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">PayPal Transaction ID <span class="req">*</span></label>
+          <input class="form-input" type="text" id="donor-txn-id" placeholder="e.g. 1AB23456CD789012E" style="font-family:monospace;font-size:13px">
+          <div class="form-hint">Found in your PayPal confirmation email — usually starts with numbers and letters, e.g. 1AB23456CD789012E</div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+          <button class="step-btn" onclick="showDonorLetter()" style="background:var(--co)"><i class="ti ti-file-text" style="font-size:13px"></i>Generate tax acknowledgment letter</button>
+          <button onclick="hideTxnStep()" style="background:transparent;color:var(--mu);border:1.5px solid var(--bd);padding:11px 18px;border-radius:6px;font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.borderColor='var(--dg)';this.style.color='var(--dg)'" onmouseout="this.style.borderColor='var(--bd)';this.style.color='var(--mu)'"><i class="ti ti-arrow-left" style="font-size:13px"></i>Back</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DONOR INFO FORM -->
+    <div id="donor-info-wrap" style="margin-top:20px">
+      <div class="panel-ey" style="margin-bottom:8px">Your information</div>
+      <div class="app-form" style="margin-bottom:12px">
+        <div class="form-agree" style="margin-bottom:12px">
+          <input type="checkbox" id="anon-check" style="width:15px;height:15px;flex-shrink:0;cursor:pointer;margin-top:2px" onchange="toggleAnon(this)">
+          <label for="anon-check" style="cursor:pointer;font-size:12px;color:var(--mu)">I prefer to donate anonymously — do not include my name or address in records.</label>
+        </div>
+        <div id="donor-fields">
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">First name <span class="req">*</span></label><input class="form-input" type="text" id="donor-fname" placeholder="e.g. Leilani"></div>
+            <div class="form-group"><label class="form-label">Last name <span class="req">*</span></label><input class="form-input" type="text" id="donor-lname" placeholder="e.g. Kahananui"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Email <span class="req">*</span></label><input class="form-input" type="email" id="donor-email" placeholder="your@email.com"><div class="form-hint">Required for your donation confirmation</div></div>
+            <div class="form-group"><label class="form-label">Phone <span class="req">*</span></label><input class="form-input" type="tel" id="donor-phone" placeholder="(808) 555-0000"></div>
+          </div>
+          <div class="form-group"><label class="form-label">Mailing address <span class="req">*</span></label><input class="form-input" type="text" id="donor-addr" placeholder="Street address"></div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">City <span class="req">*</span></label><input class="form-input" type="text" id="donor-city" placeholder="Haleʻiwa"></div>
+            <div class="form-group"><label class="form-label">State <span class="req">*</span></label><input class="form-input" type="text" id="donor-state" placeholder="HI" value="HI"></div>
+            <div class="form-group"><label class="form-label">ZIP <span class="req">*</span></label><input class="form-input" type="text" id="donor-zip" placeholder="96712"></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:0">
+        <button class="step-btn" onclick="showPaymentStep()" style="background:var(--co)"><i class="ti ti-cash" style="font-size:13px"></i>Pay &amp; get tax acknowledgment letter</button>
+        <button onclick="donorClear()" style="background:transparent;color:var(--mu);border:1.5px solid var(--bd);padding:11px 18px;border-radius:6px;font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.borderColor='var(--dg)';this.style.color='var(--dg)'" onmouseout="this.style.borderColor='var(--bd)';this.style.color='var(--mu)'"><i class="ti ti-eraser" style="font-size:13px"></i>Clear form</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ MEMBERSHIP ══ -->
+  <div class="panel" id="panel-membership">
+
+    <!-- CHOICE SCREEN -->
+    <div id="mem-choice">
+      <div class="panel-ey">Join the WCA community</div>
+      <h2 class="panel-h2">Membership</h2>
+      <div class="panel-rule"></div>
+      <p class="panel-p">How would you like to apply? Online takes about 60 seconds. You can also download and return the paper form.</p>
+      <div class="choice-screen" style="grid-template-columns:1fr;max-width:400px">
+        <div class="choice-card primary">
+          <span class="choice-badge">Recommended</span>
+          <div class="choice-icon"><i class="ti ti-device-laptop"></i></div>
+          <div class="choice-h">Apply online</div>
+          <div class="choice-p">Fill out the form and pay in three quick steps. Application sent automatically to WCA office.</div>
+          <button class="choice-btn primary" onclick="showMemSteps()"><i class="ti ti-arrow-right" style="font-size:13px"></i>Start online application</button>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- STEP FLOW — hidden until Start is clicked -->
+    <div id="mem-steps" style="display:none">
+      <div class="steps">
+        <div class="step active" id="step-ind-1"><div class="step-num">1</div><div class="step-label">Choose tier</div></div>
+        <div class="step-line"></div>
+        <div class="step" id="step-ind-2"><div class="step-num">2</div><div class="step-label">Your info</div></div>
+        <div class="step-line"></div>
+        <div class="step" id="step-ind-3"><div class="step-num">3</div><div class="step-label">Pay</div></div>
+      </div>
+
+      <!-- STEP 1 -->
+      <div id="mem-step1">
+        <div class="panel-ey">Step 1 of 3</div>
+        <h2 class="panel-h2">Choose your membership</h2>
+        <div class="panel-rule"></div>
+        <p class="panel-p">Select the membership that fits you. Membership year runs January 1 – December 31.</p>
+        <div class="opt-grid cols2" id="grid-membership">
+          <div class="oc" data-key="mem-ind" data-name="Individual membership" data-memo="WCA Individual Membership" data-fixed="25" data-note="One year. Voting rights, event discounts, free parking." data-type="Individual">
+            <div class="oc-top"><div class="oc-ico"><i class="ti ti-user"></i></div><div class="oc-check"><i class="ti ti-check"></i></div></div>
+            <div class="oc-price">$25 / year</div>
+            <div class="oc-title">Individual</div>
+            <div class="oc-desc">Voting rights, event discounts, free parking.</div>
+            <span class="oc-badge bg">Most popular</span>
+          </div>
+          <div class="oc" data-key="mem-np" data-name="Non-profit organization membership" data-memo="WCA Non-profit Membership" data-fixed="150" data-note="One year. All Individual benefits plus one free car wash with current CGS." data-type="Non-profit">
+            <div class="oc-top"><div class="oc-ico"><i class="ti ti-building-community"></i></div><div class="oc-check"><i class="ti ti-check"></i></div></div>
+            <div class="oc-price">$150 / year</div>
+            <div class="oc-title">Non-profit organization</div>
+            <div class="oc-desc">All Individual benefits + one free car wash/year with current CGS.</div>
+            <span class="oc-badge bm">Non-profits</span>
+          </div>
+          <div class="oc" data-key="mem-biz" data-name="Business membership" data-memo="WCA Business Membership" data-fixed="250" data-note="One year. All Individual benefits plus free meeting room up to 10 hrs/year." data-type="Business">
+            <div class="oc-top"><div class="oc-ico"><i class="ti ti-briefcase"></i></div><div class="oc-check"><i class="ti ti-check"></i></div></div>
+            <div class="oc-price">$250 / year</div>
+            <div class="oc-title">Business</div>
+            <div class="oc-desc">All Individual benefits + free meeting room up to 10 hrs/year.</div>
+            <span class="oc-badge bm">Businesses</span>
+          </div>
+          <div class="oc" data-key="mem-life" data-name="Lifetime membership" data-memo="WCA Lifetime Membership" data-fixed="500" data-note="One-time payment. All Individual benefits for life plus one free event every 5 years." data-type="Individual">
+            <div class="oc-top"><div class="oc-ico"><i class="ti ti-star"></i></div><div class="oc-check"><i class="ti ti-check"></i></div></div>
+            <div class="oc-price">$500 one-time</div>
+            <div class="oc-title">Lifetime</div>
+            <div class="oc-desc">All benefits for life. One free event every 5 years.</div>
+            <span class="oc-badge bc">Best value</span>
+          </div>
+        </div>
+        <div class="info-note" id="note-membership"><i class="ti ti-info-circle"></i><div>Select a membership tier above to continue.</div></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="step-btn-back" onclick="showMemChoice()"><i class="ti ti-arrow-left" style="font-size:13px"></i>Back</button>
+          <button class="step-btn" id="mem-next1" onclick="memGoStep2()" disabled>Continue <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div id="mem-step2" style="display:none">
+        <div class="panel-ey">Step 2 of 3</div>
+        <h2 class="panel-h2">Your information</h2>
+        <div class="panel-rule"></div>
+        <div class="app-form">
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">First name <span class="req">*</span></label><input class="form-input" type="text" id="mem-fname" placeholder="e.g. Leilani"></div>
+            <div class="form-group"><label class="form-label">Last name <span class="req">*</span></label><input class="form-input" type="text" id="mem-lname" placeholder="e.g. Kahananui"></div>
+          </div>
+          <div class="form-group"><label class="form-label">Email <span class="req">*</span></label><input class="form-input" type="email" id="mem-email" placeholder="your@email.com"><div class="form-hint">Membership confirmation sent here</div></div>
+          <div class="form-group"><label class="form-label">Phone <span class="req">*</span></label><input class="form-input" type="tel" id="mem-phone" placeholder="(808) 555-0000"></div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Mailing address <span class="req">*</span></label><input class="form-input" type="text" id="mem-addr" placeholder="Street address"></div>
+            <div class="form-group"><label class="form-label">City <span class="req">*</span></label><input class="form-input" type="text" id="mem-city" placeholder="Haleʻiwa"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">State <span class="req">*</span></label><input class="form-input" type="text" id="mem-state" placeholder="HI" value="HI"></div>
+            <div class="form-group"><label class="form-label">ZIP <span class="req">*</span></label><input class="form-input" type="text" id="mem-zip" placeholder="96712"></div>
+          </div>
+          <div class="form-group" id="org-row" style="display:none"><label class="form-label">Organization name </label><input class="form-input" type="text" id="mem-org" placeholder="Your organization name"></div>
+          <div class="form-agree">
+            <input type="checkbox" id="mem-agree" style="width:15px;height:15px;flex-shrink:0;cursor:pointer;margin-top:2px">
+            <label for="mem-agree" style="cursor:pointer;font-size:12px">I understand my membership runs January 1 – December 31 regardless of when I join. Lifetime memberships are non-transferable. All memberships are non-refundable.</label>
+          </div>
+          <div class="form-agree" style="margin-top:8px;background:#fff5f0;border:1px solid #f5c8b0">
+            <input type="checkbox" id="mem-waiver" style="width:15px;height:15px;flex-shrink:0;cursor:pointer;margin-top:2px">
+            <label for="mem-waiver" style="cursor:pointer;font-size:12px;color:var(--tx)"><strong>Waiver &amp; Release — I agree.</strong> I acknowledge there are certain risks to participants in programs and activities at WCA facilities. I voluntarily assume full risk of any injuries or damages. I waive and release all claims against the Waialua Community Association, its trustees, agents, volunteers, and employees. I also grant WCA the right to use photographs or recordings made during my participation. This waiver expires December 31, 2026.</label>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+          <button class="step-btn-back" onclick="memGoStep1()"><i class="ti ti-arrow-left" style="font-size:13px"></i>Back</button>
+          <button class="step-btn" id="mem-next2" onclick="memGoStep3()">Continue <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+          <button onclick="memClear()" style="background:transparent;color:var(--mu);border:1.5px solid var(--bd);padding:11px 18px;border-radius:6px;font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.borderColor='var(--dg)';this.style.color='var(--dg)'" onmouseout="this.style.borderColor='var(--bd)';this.style.color='var(--mu)'"><i class="ti ti-eraser" style="font-size:13px"></i>Clear form</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div id="mem-step3" style="display:none">
+        <div class="panel-ey">Step 3 of 3 — almost there!</div>
+        <h2 class="panel-h2">Review &amp; pay</h2>
+        <div class="panel-rule"></div>
+        <div class="app-summary">
+          <div class="summary-title"><i class="ti ti-clipboard-check" style="font-size:16px"></i>Application summary</div>
+          <div class="summary-row"><span class="summary-label">Membership tier</span><span class="summary-val" id="sum-tier">—</span></div>
+          <div class="summary-row"><span class="summary-label">Name</span><span class="summary-val" id="sum-name">—</span></div>
+          <div class="summary-row"><span class="summary-label">Email</span><span class="summary-val" id="sum-email">—</span></div>
+          <div class="summary-row"><span class="summary-label">Membership year</span><span class="summary-val">January 1 – December 31, 2026</span></div>
+          <div class="summary-row"><span class="summary-label">Amount due</span><span class="summary-val" id="sum-amt">—</span></div>
+        </div>
+        <p style="font-size:12px;color:var(--mu);margin-bottom:14px;line-height:1.6">Click Open PayPal to pay. After paying, email your confirmation to <strong>wca66434@gmail.com</strong>. The WCA office confirms within 1–2 business days.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="step-btn-back" onclick="memGoStep2()"><i class="ti ti-arrow-left" style="font-size:13px"></i>Back</button>
+          <button class="submit-btn" id="mem-submit" onclick="memSubmit()" style="width:auto">Submit &amp; unlock payment <i class="ti ti-check" style="font-size:14px"></i></button>
+        </div>
+        <div class="submit-success" id="mem-success">
+          <div class="ss-title"><i class="ti ti-circle-check" style="font-size:16px"></i>Application received!</div>
+          <div class="ss-sub">Pay via PayPal on the right to complete your membership. The WCA office will confirm within 1–2 business days at the email you provided.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ RENTAL — full inline application ══ -->
+  <div class="panel" id="panel-rental">
+
+    <!-- STEP INDICATOR -->
+    <div class="steps" id="rent-stepper">
+      <div class="step active" id="rs1"><div class="step-num">1</div><div class="step-label">How to apply</div></div>
+      <div class="step-line" id="rline1"></div>
+      <div class="step" id="rs2"><div class="step-num">2</div><div class="step-label">Application</div></div>
+      <div class="step-line" id="rline2"></div>
+      <div class="step" id="rs3"><div class="step-num">3</div><div class="step-label">Terms</div></div>
+      <div class="step-line" id="rline3"></div>
+      <div class="step" id="rs4"><div class="step-num">4</div><div class="step-label">Review &amp; pay</div></div>
+    </div>
+
+    <!-- STEP 1: CHOICE -->
+    <div id="rp1">
+      <div class="panel-ey">Book a facility</div>
+      <h2 class="panel-h2">Rent a space</h2>
+      <div class="panel-rule"></div>
+      <div class="n-amber"><strong>Your date is not confirmed until WCA verifies availability and your payment is received and confirmed.</strong> Parties, events, and concerts require a <strong>$300 deposit</strong>. Hourly use requires <strong>full payment</strong> at time of booking. Dates are first-come, first-served.</div>
+      <p class="panel-p">Host your meeting, party, concert, or event at the WCA. Choose how to apply below.</p>
+      <div class="choice-screen" style="grid-template-columns:1fr;max-width:400px">
+        <div class="choice-card primary">
+          <span class="choice-badge">Recommended</span>
+          <div class="choice-icon"><i class="ti ti-device-laptop"></i></div>
+          <div class="choice-h">Apply &amp; pay online</div>
+          <div class="choice-p">Complete the application, agree to all terms, and pay your $300 deposit via PayPal. Fastest way to secure your date.</div>
+          <button class="choice-btn primary" onclick="rentGo(2)"><i class="ti ti-arrow-right" style="font-size:13px"></i>Start online application</button>
+        </div>
+        
+      </div>
+      <!-- Fee quick reference -->
+      <div class="rent-opts">
+        <div class="ropt"><div><h5>Gym — flat fee</h5><p>Up to 299 people · stage · kitchen · 7 hrs total</p></div><div class="ropt-price">$500</div></div>
+        <div class="ropt"><div><h5>Gym — hourly</h5><p>4-hr total block max including setup &amp; cleanup</p></div><div class="ropt-price">$75/hr</div></div>
+        <div class="ropt"><div><h5>Lawn — flat fee</h5><p>Outdoor events · 7 hrs total incl. setup &amp; cleanup</p></div><div class="ropt-price">$500</div></div>
+        <div class="ropt"><div><h5>Lawn — hourly</h5><p>4-hr total block max including setup &amp; cleanup</p></div><div class="ropt-price">$75/hr</div></div>
+        <div class="ropt"><div><h5>Gym &amp; Lawn combined</h5><p>Full facility · 7 hrs total incl. setup &amp; cleanup</p></div><div class="ropt-price">$1,000</div></div>
+        <div class="ropt"><div><h5>Atherton Room</h5><p>Small meetings · 4-hr block max · extra at $35/hr</p></div><div class="ropt-price">$35/hr</div></div>
+        <div class="ropt"><div><h5>Cottage #2</h5><p>Small groups · 4-hr block max · extra at $35/hr</p></div><div class="ropt-price">$35/hr</div></div>
+        <div class="ropt"><div><h5>Kitchen — one-time use</h5><p>Subject to availability · 4-hr max · stove training required</p></div><div class="ropt-price">$25/hr</div></div>
+        <div class="ropt"><div><h5>Parking Lot — Car Wash</h5><p>Check office for available date · 7:00 AM – 3:00 PM</p></div><div class="ropt-price">$150 flat</div></div>
+      </div>
+      <div style="font-size:12px;color:var(--mu);margin-top:10px;padding:8px 12px;background:var(--pa);border-radius:6px;line-height:1.65">
+        <strong>Online payments:</strong> PayPal, Venmo, or credit card via the PayPal button. &nbsp;|&nbsp; <strong>In office / mail:</strong> Check or money order payable to Waialua Community Association. No cash.
+      </div>
+    </div>
+
+    <!-- STEP 2: APPLICATION FORM -->
+    <div id="rp2" style="display:none">
+      <div class="panel-ey">Step 2 of 4</div>
+      <h2 class="panel-h2">Your application</h2>
+      <div class="panel-rule"></div>
+      <div class="n-amber"><strong>Your date is not secured until payment is received.</strong> Parties, events, and concerts require a <strong>$300 deposit</strong> to hold the date — maximum 7 hours including setup &amp; cleanup, event must end by 9:30 PM, all persons off premises by 11:00 PM. Hourly use requires <strong>full payment</strong> at time of booking — maximum 4 hours. Complete this form, agree to terms, then pay via PayPal.</div>
+
+      <div class="app-form">
+        <div class="form-group"><label class="form-label">Name / Organization</label><input class="form-input" type="text" id="rf-org" placeholder="Organization name (optional — leave blank if individual)"><div class="form-hint">Only required if applying on behalf of an organization</div></div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Have you used WCA facilities before?</label>
+            <select class="form-input" id="rf-prior"><option value="">Select…</option><option value="yes">Yes</option><option value="no">No — first time</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Contact Name <span class="req">*</span></label><input class="form-input" type="text" id="rf-name" placeholder="Best contact name"></div>
+          <div class="form-group"><label class="form-label">Email <span class="req">*</span></label><input class="form-input" type="email" id="rf-email" placeholder="your@email.com"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Phone <span class="req">*</span></label><input class="form-input" type="tel" id="rf-phone" placeholder="(808) 555-0000"></div>
+          <div class="form-group"><label class="form-label">Alt. Phone</label><input class="form-input" type="tel" id="rf-phone2" placeholder="Optional"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Mailing Address <span class="req">*</span></label><input class="form-input" type="text" id="rf-addr" placeholder="Street address"></div>
+          <div class="form-group"><label class="form-label">City / State / ZIP <span class="req">*</span></label><input class="form-input" type="text" id="rf-csz" placeholder="Haleʻiwa, HI 96712"></div>
+        </div>
+
+        <div class="form-group"><label class="form-label">Facility requested <span class="req">*</span></label>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px" id="fac-wrap">
+            <label class="fac-lbl"><input type="checkbox" id="rfc-gym" onchange="facChk(this)"> Gym — flat fee ($500)</label>
+            <label class="fac-lbl"><input type="checkbox" id="rfc-gymhr" onchange="facChk(this)"> Gym — hourly ($75/hr)</label>
+            <label class="fac-lbl"><input type="checkbox" id="rfc-lawn" onchange="facChk(this)"> Lawn — flat fee ($500)</label>
+            <label class="fac-lbl"><input type="checkbox" id="rfc-lawnhr" onchange="facChk(this)"> Lawn — hourly ($75/hr)</label>
+            <label class="fac-lbl"><input type="checkbox" id="rfc-gymlawn" onchange="facChk(this)"> Gym &amp; Lawn ($1,000)</label>
+            <label class="fac-lbl"><input type="checkbox" id="rfc-atherton" onchange="facChk(this)"> Atherton Room ($35/hr)</label>
+            <label class="fac-lbl"><input type="checkbox" id="rfc-cottage" onchange="facChk(this)"> Cottage #2 ($35/hr)</label>
+            <label class="fac-lbl"><input type="checkbox" id="rfc-kitchen" onchange="facChk(this)"> Kitchen — 1x use ($25/hr, subject to availability)</label>
+            <label class="fac-lbl"><input type="checkbox" id="rfc-parking" onchange="facChk(this)"> Parking Lot — Car Wash ($150 flat, check office for date)</label>
+          </div>
+          <div id="fac-error" style="display:none;font-size:11px;color:#e24b4a;margin-top:4px">Please select at least one facility.</div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Date requested <span class="req">*</span></label>
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+              <input class="form-input" type="date" id="rf-date" style="flex:1;min-width:130px">
+              <a href="https://www.trumba.com/calendars/waialua-community-assn-historic-haleiwa-gym" target="_blank" style="display:inline-flex;align-items:center;gap:5px;background:var(--dg);color:#fff;padding:9px 12px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap"><i class="ti ti-calendar" style="font-size:13px"></i>Check calendar</a>
+            </div>
+            <div class="form-hint">Opens calendar in new tab — close to return here</div>
+          </div>
+          <div class="form-group"><label class="form-label">Type of use <span class="req">*</span></label>
+          <select class="form-input" id="rf-type">
+            <option value="">Select type of use...</option>
+            <option>Hourly Use / Meeting</option>
+            <option>Party / Celebration</option>
+            <option>Concert / Performance</option>
+            <option>Community Event</option>
+            <option>Other</option>
+          </select></div>
+        </div>
+        <div class="form-group"><label class="form-label">Name / description of event <span class="req">*</span></label>
+          <input class="form-input" type="text" id="rf-purpose" placeholder="e.g. Birthday party, community meeting, concert..."></div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Expected attendees</label>
+            <input class="form-input" type="number" id="rf-attendees" placeholder="e.g. 50" min="1" max="299"></div>
+          <div class="form-group"><label class="form-label">Start time</label>
+            <select class="form-input" id="rf-start">
+              <option value="">Select start time…</option>
+              <option>7:00 AM</option><option>7:30 AM</option>
+              <option>8:00 AM</option><option>8:30 AM</option>
+              <option>9:00 AM</option><option>9:30 AM</option>
+              <option>10:00 AM</option><option>10:30 AM</option>
+              <option>11:00 AM</option><option>11:30 AM</option>
+              <option>12:00 PM (noon)</option><option>12:30 PM</option>
+              <option>1:00 PM</option><option>1:30 PM</option>
+              <option>2:00 PM</option><option>2:30 PM</option>
+              <option>3:00 PM</option><option>3:30 PM</option>
+              <option>4:00 PM</option><option>4:30 PM</option>
+              <option>5:00 PM</option><option>5:30 PM</option>
+              <option>6:00 PM</option><option>6:30 PM</option>
+              <option>7:00 PM</option><option>7:30 PM</option>
+              <option>8:00 PM</option><option>8:30 PM</option>
+              <option>9:00 PM</option><option>9:30 PM</option>
+            </select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Event end time <span style="font-size:10px;color:var(--co)">(max 9:30 PM)</span></label>
+            <select class="form-input" id="rf-end">
+              <option value="">Select end time…</option>
+              <option>7:00 AM</option><option>7:30 AM</option>
+              <option>8:00 AM</option><option>8:30 AM</option>
+              <option>9:00 AM</option><option>9:30 AM</option>
+              <option>10:00 AM</option><option>10:30 AM</option>
+              <option>11:00 AM</option><option>11:30 AM</option>
+              <option>12:00 PM (noon)</option><option>12:30 PM</option>
+              <option>1:00 PM</option><option>1:30 PM</option>
+              <option>2:00 PM</option><option>2:30 PM</option>
+              <option>3:00 PM</option><option>3:30 PM</option>
+              <option>4:00 PM</option><option>4:30 PM</option>
+              <option>5:00 PM</option><option>5:30 PM</option>
+              <option>6:00 PM</option><option>6:30 PM</option>
+              <option>7:00 PM</option><option>7:30 PM</option>
+              <option>8:00 PM</option><option>8:30 PM</option>
+              <option>9:00 PM</option>
+              <option>9:30 PM (latest allowed)</option>
+            </select>
+            <div class="form-hint">All persons off premises by 11:00 PM</div></div>
+        </div>
+
+        <!-- HOURLY: hours + calculated amount — shown/hidden by facChk -->
+        <div id="hourly-row" style="display:none">
+          <div class="form-row" style="margin-top:4px">
+            <div class="form-group">
+              <label class="form-label">Number of hours <span class="req">*</span></label>
+              <select class="form-input" id="rf-hours" onchange="calcRental()">
+                <option value="">Select hours…</option>
+                <option value="1">1 hour</option>
+                <option value="2">2 hours</option>
+                <option value="3">3 hours</option>
+                <option value="4">4 hours (maximum)</option>
+              </select>
+              <div class="form-hint">Maximum 4 hours including setup &amp; cleanup</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Estimated total use fee</label>
+              <div id="rf-calc" style="font-size:18px;font-weight:700;color:var(--dg);padding:10px 0">—</div>
+              <div class="form-hint">Full amount due at time of booking. No deposit required for hourly use.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Alcohol served?</label>
+            <select class="form-input" id="rf-alcohol" onchange="updateRentTerms()"><option value="no">No</option><option value="yes">Yes — insurance must include alcohol coverage</option></select></div>
+          <div class="form-group"><label class="form-label">Gas range used?</label>
+            <select class="form-input" id="rf-gas"><option value="no">No</option><option value="yes">Yes — stove training required week before event</option></select></div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:8px;margin-top:16px">
+        <button type="button" onclick="rentClearAll()" style="background:transparent;border:none;color:var(--mu);font-size:12px;font-family:var(--sans);cursor:pointer;text-decoration:underline;padding:0">↺ Clear form and start over</button>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="step-btn-back" onclick="rentGo(1)"><i class="ti ti-arrow-left" style="font-size:13px"></i>Back</button>
+        <button class="step-btn" onclick="rentValidate2()">Continue to terms <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 3: TERMS -->
+    <div id="rp3" style="display:none">
+      <div class="panel-ey">Step 3 of 4 — Terms &amp; conditions</div>
+      <h2 class="panel-h2">Review &amp; agree to terms</h2>
+      <div class="panel-rule"></div>
+
+      <div style="background:#fff5f5;border-left:4px solid #e24b4a;border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;color:#7a1c1c;display:flex;align-items:flex-start;gap:8px;margin-bottom:14px;line-height:1.55">
+        <i class="ti ti-volume-off" style="font-size:16px;flex-shrink:0;margin-top:1px"></i>
+        <div><strong>No loud music or noise after 9:30 PM — City Ordinance.</strong> Amplified music must stop by 9:30 PM. Violation may result in loss of deposit and restriction from future use.</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid var(--bd);border-radius:10px;padding:16px;margin-bottom:14px">
+        <div style="font-size:13px;font-weight:600;color:var(--dg);margin-bottom:12px;display:flex;align-items:center;gap:6px"><i class="ti ti-clipboard-check" style="font-size:15px"></i>Check all items to proceed to payment</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div id="rc1-wrap"><label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--bg2);border-radius:6px"><input type="checkbox" id="rc1" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Event insurance:</strong> Required for all parties, events, and concerts. I will obtain coverage naming WCA as additional insured and provide proof before the event. (Also required for hourly use if alcohol is served.)</span></label></div>
+          <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--bg2);border-radius:6px"><input type="checkbox" id="rc2" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Alcohol:</strong> No alcohol without event insurance that includes alcohol coverage. No glass bottles or glassware on premises.</span></label>
+          <div id="rc3-wrap"><label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--bg2);border-radius:6px"><input type="checkbox" id="rc3" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Security:</strong> I will provide an off-duty HPD officer or licensed certified guard service (two for concerts) and submit proof to WCA before the event.</span></label></div>
+          <div id="rc14-wrap"><label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:#7a1c1c;cursor:pointer;line-height:1.6;padding:8px;background:#fff5f5;border-radius:6px"><input type="checkbox" id="rc14" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>No open fires or fireworks:</strong> Absolutely no open fires, candles, or fireworks anywhere on WCA property. Any illegal activity including fireworks will result in forfeiture of the entire deposit and may result in ban from future use.</span></label></div>
+          <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:#7a1c1c;cursor:pointer;line-height:1.6;padding:8px;background:#fff5f5;border-radius:6px"><input type="checkbox" id="rc4" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Time limits &amp; curfew — City Ordinance:</strong> Hourly use maximum 4 hours. Party/event maximum 7 hours including setup and cleanup. All amplified sound must stop by 9:30 PM. All persons must be off premises by 11:00 PM. Violations may result in loss of deposit and ban from future use.</span></label>
+          <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--bg2);border-radius:6px"><input type="checkbox" id="rc5" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Decorations:</strong> No nails, staples, or glass. All tape removed after event. No glass cups or bottles on premises.</span></label>
+          <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--bg2);border-radius:6px"><input type="checkbox" id="rc6" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Cleanup:</strong> Gym floor, kitchen, bathrooms cleaned. All trash hauled off site. Lights off, doors locked. Jalousies closed. Keys returned to lock box.</span></label>
+          <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--bg2);border-radius:6px"><input type="checkbox" id="rc7" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Restricted areas:</strong> Guests kept out of NSCC and leech field areas. Children off stage. 25ft clearance from gas tank. No open fires or fireworks.</span></label>
+          <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--bg2);border-radius:6px"><input type="checkbox" id="rc8" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Occupancy:</strong> Maximum 299 people in the gymnasium at any time.</span></label>
+          <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--bg2);border-radius:6px"><input type="checkbox" id="rc9" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Gas range:</strong> Designated person completes WCA stove training the week before the event. Unauthorized use forfeits deposit.</span></label>
+
+          <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--bg2);border-radius:6px"><input type="checkbox" id="rc11" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Liability &amp; guest responsibility:</strong> I assume full responsibility for the conduct of all guests, agents, and invitees while on WCA property. I assume full responsibility for all damages caused by Renter, guests, or invitees. I hold the WCA harmless from any loss, claims, or injury.</span></label>
+          <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--bg2);border-radius:6px"><input type="checkbox" id="rc15" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Tables &amp; chairs:</strong> WCA tables and chairs are a courtesy only, not guaranteed to be sufficient, and may not be used outside the building. They will be wiped clean and returned exactly as found. A reference photo is posted at the door.</span></label>
+          <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--bg2);border-radius:6px"><input type="checkbox" id="rc17" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Facility lock-up:</strong> Upon departure all doors must be locked and keys returned to the lock box. All lights, fans, and speakers off. All lower jalousies closed. All decorations and food removed. Contact WCA office for the complete facility rules and lock-up checklist.</span></label>
+          <div id="rc16-wrap"><label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--bg2);border-radius:6px"><input type="checkbox" id="rc16" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Non-compliance charges:</strong> I understand that charges will be deducted from the security deposit for violations including failure to clean, unreturned keys, unauthorized alcohol use, no police officer on site, and other rule violations. Contact the WCA office for the complete non-compliance charge schedule.</span></label></div>
+        </div>
+        <div style="margin:4px 0" id="rc12-wrap">
+          <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--pa);border-radius:6px">
+            <input type="checkbox" id="rc12" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Cancellation policy (parties/events/concerts):</strong> Cancellations must be submitted in writing. Cancel 3+ weeks before event — deposit refunded less $50 admin fee. Cancel less than 3 weeks — entire deposit forfeited. No-show without notice — entire deposit forfeited and may result in ban from future use.</span>
+          </label>
+        </div>
+        <div style="margin:4px 0" id="rc13-wrap" style="display:none">
+          <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--pa);border-radius:6px">
+            <input type="checkbox" id="rc13" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Cancellation policy (hourly use):</strong> Cancellations must be submitted in writing. Cancel 3+ weeks before your booking — full refund. Cancel less than 3 weeks — $50 will be deducted from your refund. No-show without notice — no refund.</span>
+          </label>
+        </div>
+        <div id="rent-hint" style="font-size:11px;color:var(--mu);margin-top:10px;padding:6px 10px;background:var(--pa);border-radius:5px">Check all items above to unlock payment.</div>
+      </div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="step-btn-back" onclick="rentGo(2)"><i class="ti ti-arrow-left" style="font-size:13px"></i>Back</button>
+        <button class="step-btn" id="rent-terms-next" onclick="rentGo(4)" disabled>Continue to review &amp; pay <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 4: REVIEW & PAYMENT -->
+    <div id="rp4" style="display:none">
+      <div class="panel-ey">Step 4 of 4 — Almost there!</div>
+      <h2 class="panel-h2">Review &amp; sign</h2>
+      <div class="panel-rule"></div>
+
+      <div class="app-summary" id="rent-summary">
+        <div class="summary-title"><i class="ti ti-clipboard-check" style="font-size:16px"></i>Application summary</div>
+        <div class="summary-row"><span class="summary-label">Applicant</span><span class="summary-val" id="rs-name">—</span></div>
+        <div class="summary-row"><span class="summary-label">Email</span><span class="summary-val" id="rs-email">—</span></div>
+        <div class="summary-row"><span class="summary-label">Facility</span><span class="summary-val" id="rs-facility">—</span></div>
+        <div class="summary-row"><span class="summary-label">Date</span><span class="summary-val" id="rs-date">—</span></div>
+        <div class="summary-row"><span class="summary-label">Purpose</span><span class="summary-val" id="rs-purpose">—</span></div>
+        <div class="summary-row"><span class="summary-label">Payment due now</span><span class="summary-val" style="color:var(--dg)" id="rs-payment-due">$300 deposit</span></div>
+      </div>
+
+      <div class="app-form" style="margin-bottom:14px">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Typed legal signature <span class="req">*</span></label><input class="form-input" type="text" id="rf-sig" placeholder="Type your full legal name" oninput="rentUpdSub()"><div class="form-hint">Typed signature constitutes your legal signature</div></div>
+          <div class="form-group"><label class="form-label">Print name <span class="req">*</span></label><input class="form-input" type="text" id="rf-print" placeholder="Print clearly" oninput="rentUpdSub()"></div>
+        </div>
+      </div>
+
+      <p style="font-size:12px;color:var(--mu);margin-bottom:14px;line-height:1.65" id="rs-pay-instruction">After submitting, pay your $300 deposit via PayPal to secure your date. Then email your PayPal confirmation to <strong>wca66434@gmail.com</strong>. Balance is due 15 days before your event — use the <strong>Pay my balance</strong> tab. If your event is within 10 days, full payment is due now.</p>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="step-btn-back" onclick="rentGo(3)"><i class="ti ti-arrow-left" style="font-size:13px"></i>Back</button>
+        <button class="submit-btn" id="rent-submit" onclick="rentSubmit()" style="width:auto" disabled>Send application &amp; pay now <i class="ti ti-lock-open" style="font-size:14px"></i></button>
+      </div>
+      <div class="submit-success" id="rent-success" style="border:1.5px solid #B8DECE;background:var(--glt)">
+        <div class="ss-title"><i class="ti ti-circle-check" style="font-size:16px"></i>Application sent to WCA!</div>
+        <div class="ss-sub" style="margin-bottom:12px">
+          <strong>Your date is NOT secured until the $300 deposit is received.</strong><br>
+          Click Open PayPal on the right to pay now.
+        </div>
+
+        <!-- WHAT HAPPENS NEXT — Option 2 clean approach -->
+        <div style="background:#fff;border:1.5px solid var(--bd);border-radius:8px;padding:14px;margin-bottom:10px">
+          <div style="font-size:12px;font-weight:700;color:var(--dg);margin-bottom:10px;display:flex;align-items:center;gap:6px"><i class="ti ti-list-check" style="font-size:15px"></i>What happens next — three steps</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:12px;line-height:1.65;color:var(--tx)">
+              <div style="background:var(--dg);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;flex-shrink:0;margin-top:1px">1</div>
+              <div><strong>Pay your $300 deposit via PayPal</strong> using the button on the right. PayPal will immediately email you a payment receipt with a transaction ID — save it.</div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:12px;line-height:1.65;color:var(--tx)">
+              <div style="background:var(--dg);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;flex-shrink:0;margin-top:1px">2</div>
+              <div><strong>Forward your PayPal receipt email to <a href="mailto:wca66434@gmail.com" style="color:var(--dg)">wca66434@gmail.com</a></strong> so WCA can match your payment to your application.</div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:12px;line-height:1.65;color:var(--tx)">
+              <div style="background:var(--dg);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;flex-shrink:0;margin-top:1px">3</div>
+              <div><strong>WCA will email you within 1–2 business days</strong> to confirm your date is available and your payment has been received and confirmed. That email is your official booking confirmation. Balance is due 15 days before your event — pay it using the <strong>Pay My Balance</strong> tab above. If your event is within 10 days of today, full payment is due immediately.</div>
+            </div>
+          </div>
+          <div style="margin-top:12px;padding:10px 12px;background:var(--pa);border-radius:6px;font-size:11px;color:var(--br);line-height:1.6">
+            <strong>Questions?</strong> Call <strong>(808) 637-4606</strong> Mon–Fri 8am–12pm or email <strong>wca66434@gmail.com</strong>. Office hours are limited — email is fastest.
+          </div>
+        </div>
+
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
+          <button onclick="rentReset()" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:6px;background:transparent;color:var(--mu);font-family:var(--sans);font-size:12px;font-weight:500;cursor:pointer;border:1.5px solid var(--bd)"><i class="ti ti-refresh" style="font-size:13px"></i>Start new application</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ CAR WASH ══ -->
+  <div class="panel" id="panel-carwash">
+
+    <!-- CHOICE SCREEN -->
+    <div id="cw-choice">
+      <div class="panel-ey">Fundraise for your organization</div>
+      <h2 class="panel-h2">Car wash fundraiser</h2>
+      <div class="panel-rule"></div>
+      <p class="panel-p">Reserve our parking lot for a car wash fundraiser. Saturday mornings only. One reservation per quarter per organization.</p>
+      <div class="cw-detail">
+        <h5><i class="ti ti-info-circle" style="font-size:15px"></i>Car wash details</h5>
+        <div class="cw-row"><span class="cw-lbl">Fee</span><span class="cw-val">$150 flat fee</span></div>
+        <div class="cw-row"><span class="cw-lbl">Day</span><span class="cw-val">Saturdays only</span></div>
+        <div class="cw-row"><span class="cw-lbl">Hours</span><span class="cw-val">7:00 AM – 3:00 PM (includes setup &amp; cleanup)</span></div>
+        <div class="cw-row"><span class="cw-lbl">Limit</span><span class="cw-val">One per quarter per organization</span></div>
+        <div class="cw-row"><span class="cw-lbl">Payment</span><span class="cw-val">Full payment required to reserve date</span></div>
+        <div class="cw-row"><span class="cw-lbl">Cancellation</span><span class="cw-val">Full refund 30+ days prior · 50% refund under 30 days</span></div>
+        <div class="cw-row"><span class="cw-lbl">Priority</span><span class="cw-val">Non-profits with Certificate of Good Standing</span></div>
+        <div class="cw-row"><span class="cw-lbl">You must bring</span><span class="cw-val">Hoses, nozzles, buckets, car soap, sponges, chamois, microfiber cloths</span></div>
+        <div class="cw-row"><span class="cw-lbl">Not included</span><span class="cw-val">Gym or restroom access is not available during car wash</span></div>
+      </div>
+      <div class="n-amber">Payment must be made in full with your application. Check calendar for available Saturdays before applying. No cash — checks, money orders, or PayPal only.</div>
+      <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+        <button class="btn-go" onclick="showCwForm()"><i class="ti ti-arrow-right" style="font-size:14px"></i>Start online application</button>
+      </div>
+    </div>
+
+    <!-- CAR WASH APPLICATION FORM -->
+    <div id="cw-form" style="display:none">
+      <div class="panel-ey">Car wash application</div>
+      <h2 class="panel-h2">Your information</h2>
+      <div class="panel-rule"></div>
+      <div class="app-form">
+        <div class="form-group"><label class="form-label">Organization name</label><input class="form-input" type="text" id="cw-org" placeholder="Your organization name"></div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">First name <span class="req">*</span></label><input class="form-input" type="text" id="cw-fname" placeholder="e.g. Leilani"></div>
+          <div class="form-group"><label class="form-label">Last name <span class="req">*</span></label><input class="form-input" type="text" id="cw-lname" placeholder="e.g. Kahananui"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Email <span class="req">*</span></label><input class="form-input" type="email" id="cw-email" placeholder="your@email.com"></div>
+          <div class="form-group"><label class="form-label">Phone <span class="req">*</span></label><input class="form-input" type="tel" id="cw-phone" placeholder="(808) 555-0000"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Mailing address <span class="req">*</span></label><input class="form-input" type="text" id="cw-addr" placeholder="Street address"></div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">City <span class="req">*</span></label><input class="form-input" type="text" id="cw-city" placeholder="Haleʻiwa"></div>
+          <div class="form-group"><label class="form-label">State <span class="req">*</span></label><input class="form-input" type="text" id="cw-state" placeholder="HI" value="HI"></div>
+          <div class="form-group"><label class="form-label">ZIP <span class="req">*</span></label><input class="form-input" type="text" id="cw-zip" placeholder="96712"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Preferred Saturday date <span class="req">*</span></label>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <input class="form-input" type="date" id="cw-date" style="flex:1;min-width:140px">
+            <a href="https://www.trumba.com/calendars/waialua-community-assn-historic-haleiwa-gym" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--dg);color:#fff;padding:9px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap"><i class="ti ti-calendar" style="font-size:13px"></i>Check calendar</a>
+          </div>
+          <div style="font-size:11px;color:var(--mu);margin-top:4px">Opens calendar in new tab — close to return here</div>
+        </div>
+        <div class="form-group"><label class="form-label">Non-profit Certificate of Good Standing (CGS)?</label>
+          <select class="form-input" id="cw-cgs"><option value="">Select…</option><option>Yes — I will provide CGS</option><option>No</option><option>Not applicable</option></select>
+          <div class="form-hint">Priority given to non-profits with current CGS on file</div>
+        </div>
+        <div class="form-agree">
+          <input type="checkbox" id="cw-agree1" style="width:15px;height:15px;flex-shrink:0;cursor:pointer;margin-top:2px">
+          <label for="cw-agree1" style="cursor:pointer;font-size:12px">I will provide my own hoses, nozzles, buckets, car soap, sponges, chamois, and all supplies needed for the car wash.</label>
+        </div>
+        <div class="form-agree" style="margin-top:6px">
+          <input type="checkbox" id="cw-agree2" style="width:15px;height:15px;flex-shrink:0;cursor:pointer;margin-top:2px">
+          <label for="cw-agree2" style="cursor:pointer;font-size:12px">I agree that this application is solely for a car wash. No other fundraising activities (food sales, merchandise, etc.) are permitted. I am responsible for the health and safety of my participants and any damage to vehicles or property.</label>
+        </div>
+        <div class="form-agree" style="margin-top:6px">
+          <input type="checkbox" id="cw-agree3" style="width:15px;height:15px;flex-shrink:0;cursor:pointer;margin-top:2px">
+          <label for="cw-agree3" style="cursor:pointer;font-size:12px">I understand the full payment of $150 is required to reserve the date and I will indemnify the WCA from any conflict, personal injury, or damage during the car wash.</label>
+        </div>
+        <div class="form-agree" style="margin-top:8px;background:#fff5f0;border:1px solid #f5c8b0">
+          <input type="checkbox" id="cw-waiver" style="width:15px;height:15px;flex-shrink:0;cursor:pointer;margin-top:2px">
+          <label for="cw-waiver" style="cursor:pointer;font-size:12px;color:var(--tx)"><strong>Waiver &amp; Release — I agree.</strong> I acknowledge there are certain risks to participants in programs and activities at WCA facilities. I voluntarily assume full risk of any injuries or damages arising from the car wash. I waive and release all claims against the Waialua Community Association, its trustees, agents, volunteers, and employees. I also grant WCA the right to use photographs or recordings made during my participation. This waiver expires December 31, 2026.</label>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+        <button class="step-btn-back" onclick="showCwChoice()"><i class="ti ti-arrow-left" style="font-size:13px"></i>Back</button>
+        <button class="submit-btn" id="cw-submit" onclick="cwSubmit()" style="width:auto">Submit &amp; pay $150 <i class="ti ti-arrow-right" style="font-size:14px"></i></button>
+        <button onclick="cwClear()" style="background:transparent;color:var(--mu);border:1.5px solid var(--bd);padding:11px 18px;border-radius:6px;font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.borderColor='var(--dg)';this.style.color='var(--dg)'" onmouseout="this.style.borderColor='var(--bd)';this.style.color='var(--mu)'"><i class="ti ti-eraser" style="font-size:13px"></i>Clear form</button>
+      </div>
+      <div class="submit-success" id="cw-success">
+        <div class="ss-title"><i class="ti ti-circle-check" style="font-size:16px"></i>Application received!</div>
+        <div class="ss-sub">Pay $150 via PayPal on the right to confirm your date. The WCA office will confirm availability within 1–2 business days. Date is not reserved until payment is received and cleared.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAY MY BALANCE ══ -->
+  <div class="panel" id="panel-balance">
+    <div class="panel-ey">Use fee payment</div>
+    <h2 class="panel-h2">Pay my rental balance</h2>
+    <div class="panel-rule"></div>
+    <div class="n-info">After paying your $300 deposit to secure your date, return here to pay your use fee balance. <strong>Balance is due 15 days before your event.</strong> If your event is within 10 days of booking, full payment is due immediately.</div>
+    <div class="lookup-box">
+      <h5><i class="ti ti-search" style="font-size:14px"></i>Look up your booking</h5>
+      <div class="email-row">
+        <input type="email" id="lookup-email" placeholder="Email from your application" onkeydown="if(event.key==='Enter')lookup()">
+        <button onclick="lookup()">Look up</button>
+      </div>
+      <div class="lookup-hint">Enter the email you used when you submitted your rental application.</div>
+      <div class="n-red" id="lookup-err"></div>
+    </div>
+    <div id="booking-result"></div>
+    <div class="n-info" style="margin-top:10px;font-size:11px"><strong>Booking not showing?</strong> Call <strong>(808) 637-4606</strong> or email <strong>wca66434@gmail.com</strong></div>
+  </div>
+
+  <!-- ══ OTHER PAYMENTS ══ -->
+  <div class="panel" id="panel-other">
+    <div class="panel-ey">General payments</div>
+    <h2 class="panel-h2">Other payments</h2>
+    <div class="panel-rule"></div>
+    <p class="panel-p">Use this form for any payment not covered by Donation, Membership, Rental, or Car Wash — such as event tickets, kitchen use fees, or program fees.</p>
+    <div class="n-amber"><strong>All fields marked * are required.</strong> Your form will be sent to WCA when you click Submit. Pay using the PayPal button on the right.</div>
+    <div class="app-form" style="margin-top:16px">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First name <span class="req">*</span></label>
+          <input class="form-input" type="text" id="op-fname" placeholder="e.g. Leilani" oninput="opChk()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last name <span class="req">*</span></label>
+          <input class="form-input" type="text" id="op-lname" placeholder="e.g. Kahananui" oninput="opChk()">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Email <span class="req">*</span></label>
+          <input class="form-input" type="email" id="op-email" placeholder="your@email.com" oninput="opChk()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone <span class="req">*</span></label>
+          <input class="form-input" type="tel" id="op-phone" placeholder="(808) 555-0000" oninput="opChk()">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Organization</label>
+          <input class="form-input" type="text" id="op-org" placeholder="Optional">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Mailing address <span class="req">*</span></label>
+          <input class="form-input" type="text" id="op-addr" placeholder="Street address" oninput="opChk()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">City <span class="req">*</span></label>
+          <input class="form-input" type="text" id="op-city" placeholder="Haleʻiwa" oninput="opChk()">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">State <span class="req">*</span></label>
+          <input class="form-input" type="text" id="op-state" placeholder="HI" value="HI" oninput="opChk()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">ZIP <span class="req">*</span></label>
+          <input class="form-input" type="text" id="op-zip" placeholder="96712" oninput="opChk()">
+        </div>
+      </div>
+      <div class="form-group" style="margin-top:8px">
+        <label class="form-label">Payment purpose <span class="req">*</span></label>
+        <input class="form-input" type="text" id="op-purpose" placeholder="e.g. Event ticket, Kitchen use fee..." oninput="opChk()">
+      </div>
+      <div class="form-row" style="margin-top:8px">
+        <div class="form-group">
+          <label class="form-label">Amount <span class="req">*</span></label>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:18px;color:var(--br);font-weight:600">$</span>
+            <input class="form-input" type="number" id="op-amount" placeholder="0.00" min="1" step="0.01" oninput="opChk()" style="flex:1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Notes</label>
+          <textarea class="form-input" id="op-notes" rows="3" placeholder="Any additional information..." style="resize:vertical"></textarea>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+      <button class="submit-btn" id="op-submit" onclick="opSubmit()" disabled style="width:auto">
+        Submit &amp; pay <i class="ti ti-lock-open" style="font-size:14px"></i>
+      </button>
+      <button onclick="opClear()" style="background:transparent;color:var(--mu);border:1.5px solid var(--bd);padding:11px 18px;border-radius:6px;font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.borderColor='var(--dg)';this.style.color='var(--dg)'" onmouseout="this.style.borderColor='var(--bd)';this.style.color='var(--mu)'"><i class="ti ti-eraser" style="font-size:13px"></i>Clear form</button>
+    </div>
+    <div class="submit-success" id="op-success" style="display:none;border:1.5px solid #B8DECE;background:var(--glt)">
+      <div class="ss-title"><i class="ti ti-circle-check" style="font-size:16px"></i>Form sent to WCA!</div>
+      <div class="ss-sub">
+        <strong>Payment is not confirmed until WCA receives it.</strong><br>
+        Pay using the PayPal button on the right. Forward your PayPal receipt to
+        <strong>wca66434@gmail.com</strong>. WCA will confirm within 1–2 business days.
+      </div>
+      <button onclick="opReset()" style="margin-top:10px;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:6px;background:transparent;color:var(--mu);font-family:var(--sans);font-size:12px;font-weight:500;cursor:pointer;border:1.5px solid var(--bd)">
+        <i class="ti ti-refresh" style="font-size:13px"></i>Start new form
+      </button>
+    </div>
+  </div>
+
+  <!-- ══ VOLUNTEER ══ -->
+  <div class="panel" id="panel-volunteer">
+    <div class="panel-ey">Get involved</div>
+    <h2 class="panel-h2">Volunteer with the WCA</h2>
+    <div class="panel-rule"></div>
+    <p class="panel-p">The Waialua Community Association depends on the generosity of volunteers to serve the North Shore community. Fill out the form below and we will be in touch about how you can help.</p>
+
+    <div class="n-amber"><strong>All fields marked * are required.</strong> Your form will be sent directly to WCA when you click Submit.</div>
+
+    <div class="app-form" style="margin-top:16px">
+
+      <!-- PERSONAL INFO -->
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First name <span class="req">*</span></label>
+          <input class="form-input" type="text" id="vo-fname" placeholder="e.g. Leilani" oninput="voChk()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last name <span class="req">*</span></label>
+          <input class="form-input" type="text" id="vo-lname" placeholder="e.g. Kahananui" oninput="voChk()">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Email <span class="req">*</span></label>
+          <input class="form-input" type="email" id="vo-email" placeholder="your@email.com" oninput="voChk()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone <span class="req">*</span></label>
+          <input class="form-input" type="tel" id="vo-phone" placeholder="(808) 555-0000" oninput="voChk()">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Mailing address <span class="req">*</span></label>
+          <input class="form-input" type="text" id="vo-addr" placeholder="Street address" oninput="voChk()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">City <span class="req">*</span></label>
+          <input class="form-input" type="text" id="vo-city" placeholder="Haleʻiwa" oninput="voChk()">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">State <span class="req">*</span></label>
+          <input class="form-input" type="text" id="vo-state" placeholder="HI" value="HI" oninput="voChk()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">ZIP <span class="req">*</span></label>
+          <input class="form-input" type="text" id="vo-zip" placeholder="96712" oninput="voChk()">
+        </div>
+      </div>
+
+      <!-- SKILLS -->
+      <div class="form-group" style="margin-top:8px">
+        <label class="form-label">Primary area of interest <span class="req">*</span></label>
+        <select class="form-input" id="vo-area" oninput="voChk()">
+          <option value="">Select how you would like to help…</option>
+          <optgroup label="General">
+            <option>General volunteer — happy to help wherever needed</option>
+            <option>Event setup and cleanup</option>
+            <option>Office and administrative support</option>
+            <option>Programs and activities assistance</option>
+            <option>Fundraising support</option>
+          </optgroup>
+          <optgroup label="Skilled Trades — Puuiki Beach Park &amp; Facilities">
+            <option>Electrical experience</option>
+            <option>Plumbing experience</option>
+            <option>Masonry experience</option>
+            <option>Carpentry and woodworking experience</option>
+            <option>Landscape and grounds maintenance</option>
+            <option>Equipment operator experience</option>
+            <option>Roofing experience</option>
+            <option>Painting experience</option>
+            <option>Welding experience</option>
+            <option>Concrete and paving experience</option>
+          </optgroup>
+          <optgroup label="Other Skills">
+            <option>Photography or videography</option>
+            <option>Grant writing or fundraising</option>
+            <option>Social media and marketing</option>
+            <option>IT and technology support</option>
+            <option>Legal or accounting background</option>
+            <option>Other — please describe below</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div class="form-group" style="margin-top:8px">
+        <label class="form-label">Special skills, licenses, or certifications</label>
+        <textarea class="form-input" id="vo-skills" rows="3" placeholder="e.g. Licensed electrician 10 years experience. Heavy equipment operator. CPR certified." style="resize:vertical"></textarea>
+      </div>
+
+      <div class="form-group" style="margin-top:8px">
+        <label class="form-label">How would you like to help — tell us more</label>
+        <textarea class="form-input" id="vo-details" rows="3" placeholder="Tell us more about what you would like to do, how much time you can give, and anything else we should know..." style="resize:vertical"></textarea>
+      </div>
+
+      <div class="form-group" style="margin-top:8px">
+        <label class="form-label">How did you hear about volunteering with WCA?</label>
+        <select class="form-input" id="vo-source">
+          <option value="">Select…</option>
+          <option>WCA website</option>
+          <option>Friend or family member</option>
+          <option>Social media</option>
+          <option>Community event</option>
+          <option>North Shore Chamber</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+    </div><!-- end app-form -->
+
+    <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+      <button class="submit-btn" id="vo-submit" onclick="voSubmit()" disabled style="width:auto">
+        Submit <i class="ti ti-send" style="font-size:14px"></i>
+      </button>
+      <button onclick="voClear()" style="background:transparent;color:var(--mu);border:1.5px solid var(--bd);padding:11px 18px;border-radius:6px;font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.borderColor='var(--dg)';this.style.color='var(--dg)'" onmouseout="this.style.borderColor='var(--bd)';this.style.color='var(--mu)'"><i class="ti ti-eraser" style="font-size:13px"></i>Clear form</button>
+    </div>
+
+    <div class="submit-success" id="vo-success" style="display:none;border:1.5px solid #B8DECE;background:var(--glt)">
+      <div class="ss-title"><i class="ti ti-circle-check" style="font-size:16px"></i>Thank you for signing up!</div>
+      <div class="ss-sub">
+        We have received your volunteer application and will be in touch soon.<br><br>
+        Questions? Contact us at <strong>wca66434@gmail.com</strong> or call
+        <strong>(808) 637-4606</strong> Monday to Friday 8am to 12pm.
+      </div>
+      <button onclick="voReset()" style="margin-top:10px;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:6px;background:transparent;color:var(--mu);font-family:var(--sans);font-size:12px;font-weight:500;cursor:pointer;border:1.5px solid var(--bd)">
+        <i class="ti ti-refresh" style="font-size:13px"></i>Submit another form
+      </button>
+    </div>
+
+  </div>
+
+</div><!-- end left -->
+
+<!-- RIGHT SIDEBAR -->
+<div class="right">
+  <div class="pay-sidebar">
+    <div class="pay-card pay-locked" id="pay-card">
+      <div class="pay-lock-overlay" id="pay-lock-overlay" style="display:none">
+        <div class="lock-icon"><i class="ti ti-lock"></i></div>
+        <div class="lock-msg">Complete the application to unlock payment</div>
+        <div class="lock-sub">Fill in your details and submit. Payment unlocks at the final step.</div>
+      </div>
+      <div class="pay-top">
+        <div class="pay-type-lbl">Payment type</div>
+        <div class="pay-type-val" id="pay-type-val">Donation</div>
+        <div class="pay-name-val" id="pay-name-val">WCA Operations fund</div>
+      </div>
+      <div class="pay-amt-section" id="pay-amt-section">
+        <div class="pay-amt-lbl">Choose an amount</div>
+        <div class="tier-grid" id="tier-grid">
+          <button class="tier-btn" onclick="selTier(this,10)"><div class="tb-amt">$10</div><div class="tb-lbl">Friend</div></button>
+          <button class="tier-btn sel" onclick="selTier(this,25)"><div class="tb-amt">$25</div><div class="tb-lbl">Support</div></button>
+          <button class="tier-btn" onclick="selTier(this,50)"><div class="tb-amt">$50</div><div class="tb-lbl">Champ</div></button>
+          <button class="tier-btn" onclick="selTier(this,100)"><div class="tb-amt">$100</div><div class="tb-lbl">Pillar</div></button>
+        </div>
+        <div class="cust-row">
+          <span class="cust-lbl">Custom:</span>
+          <div class="cust-wrap">
+            <span class="cust-pre">$</span>
+            <input class="cust-inp" type="number" id="cust-inp" placeholder="Other" min="1" oninput="setCustomAmt(this.value)">
+          </div>
+        </div>
+      </div>
+      <div class="qr-section">
+        <div class="pp-btns">
+          <a class="pp-btn" id="pp-btn" href="#" target="_blank" rel="noopener">
+            <i class="ti ti-brand-paypal" style="font-size:16px"></i>Pay with PayPal
+          </a>
+          <a class="card-btn" href="https://www.paypal.com/ncp/payment/6LQZ8H3ZTGWNQ" target="_blank" rel="noopener">
+            <i class="ti ti-credit-card" style="font-size:16px"></i>Pay with Card
+          </a>
+        </div>
+        <div class="pp-memo">Amount: <strong id="memo-amt">$25</strong><br>Memo: <strong id="memo-text">"WCA Operations Fund donation"</strong></div>
+      </div>
+    </div>
+
+    <div class="other-ways">
+      <div class="ow-title">Other ways to pay</div>
+      <div class="ow-item"><i class="ti ti-mail"></i>Mail check or money order to: 66-434 Kamehameha Hwy., Haleiwa, Hawaii 96712</div>
+      <div class="ow-item"><i class="ti ti-phone"></i>Call (808) 637-4606 Mon–Fri 8am–12pm</div>
+      <div class="ow-item"><i class="ti ti-map-pin"></i>Pay in person at our office</div>
+      <div class="ow-item" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--bd)"><i class="ti ti-file-download" style="color:var(--dg)"></i>Prefer a paper form? Scroll down to the <strong>Paper Forms</strong> section below to download the Facility Use &amp; Rental Application.</div>
+    </div>
+
+    <div class="prog-box" id="prog-box">
+      <div class="prog-title" id="prog-year">2026 fund progress</div>
+      <div class="prog-item">
+        <div class="prog-name" id="p1-name"></div>
+        <div class="prog-desc" id="p1-desc" style="overflow:visible;white-space:normal"></div>
+        <div style="background:var(--glt);border-radius:8px;padding:10px 14px;margin-top:6px;border-left:3px solid var(--dg)">
+          <div style="font-size:12px;font-weight:700;color:var(--dg);margin-bottom:3px">Unrestricted support</div>
+          <div style="font-size:12px;color:var(--mu);line-height:1.55">Your gift goes where WCA needs it most — keeping our doors open year-round for the entire North Shore community.</div>
+        </div>
+      </div>
+      <div class="prog-item">
+        <div class="prog-name" id="p2-name"></div>
+        <div class="prog-desc" id="p2-desc" style="overflow:visible;white-space:normal"></div>
+        <div class="prog-bg"><div class="prog-fill" id="p2-fill" style="width:0%"></div></div>
+        <div class="prog-meta"><span class="prog-raised" id="p2-raised"></span><span class="prog-goal" id="p2-goal"></span></div>
+        <div id="p2-complete" style="display:none;font-size:11px;font-weight:700;color:var(--dg);margin-top:4px">🎉 Goal reached! Mahalo!</div>
+      </div>
+      <div class="prog-item">
+        <div class="prog-name" id="p3-name"></div>
+        <div class="prog-desc" id="p3-desc" style="overflow:visible;white-space:normal"></div>
+        <div class="prog-bg"><div class="prog-fill" id="p3-fill" style="width:0%"></div></div>
+        <div class="prog-meta"><span class="prog-raised" id="p3-raised"></span><span class="prog-goal" id="p3-goal"></span></div>
+        <div id="p3-complete" style="display:none;font-size:11px;font-weight:700;color:var(--dg);margin-top:4px">🎉 Goal reached! Mahalo!</div>
+      </div>
+      <p style="font-size:10px;color:#aaa;margin-top:10px;line-height:1.5;border-top:1px solid var(--bd);padding-top:8px">Updated quarterly. To update: change the width% and dollar amounts in the HTML file.</p>
+    </div>
+  </div>
+</div><!-- end right -->
+
+</div>
+</div>
+
+<script>
+/* ════════════════════════════════════════════════════════
+   WCA CAMPAIGN SETTINGS
+   Search for this to find it quickly.
+   Change anything between the quote marks or after the colon.
+   Numbers only — no $ or commas.
+   Save. Copy all. Paste into Wix. Click Update.
+   ════════════════════════════════════════════════════════ */
+var FUNDS = [
+  {
+    name:    "WCA Operations Fund",
+    desc:    "Keeps our doors open — staffing, utilities, maintenance, and daily community programs.",
+    raised:  0,
+    goal:    0
+  },
+  {
+    name:    "Puuiki Beach Park — Current: Connect to Board of Water Supply",
+    desc:    "Connecting Puuiki Beach Park to the Board of Water Supply water line for the entire North Shore community.",
+    raised:  100,
+    goal:    50000
+  },
+  {
+    name:    "WCA Facilities — Current: Cottages Repair",
+    desc:    "Critical repairs and upgrades to our WCA cottages and grounds.",
+    raised:  50,
+    goal:    35000
+  }
+];
+/* ════════════════════════════════════════════════════════
+   END WCA CAMPAIGN SETTINGS — DO NOT EDIT BELOW THIS LINE
+   ════════════════════════════════════════════════════════ */
+
+const PP_BASE = 'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=wca66434%40gmail.com&currency_code=USD';
+let curAmt = 25;
+let curMemo = 'WCA Operations Fund donation';
+let curTab = 'donate';
+let memTier = null;
+
+/* TABS */
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    curTab = t.dataset.tab;
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + curTab).classList.add('active');
+    updateSidebar();
+    sendHeight();
+  });
+});
+
+/* DONATE FUND CARDS */
+document.querySelectorAll('#grid-donate .oc').forEach(card => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('#grid-donate .oc').forEach(c => c.classList.remove('sel','sel-c'));
+    card.classList.add('sel-c');
+    document.getElementById('note-donate').innerHTML = '<strong>' + card.dataset.name + ' selected.</strong> ' + card.dataset.note;
+    curMemo = card.dataset.memo;
+    document.getElementById('pay-name-val').textContent = card.dataset.name;
+    document.getElementById('qr-name').textContent = card.dataset.name;
+    updateMemo();
+  });
+});
+
+/* DONOR LETTER */
+function showPaymentStep() {
+  const isAnon = document.getElementById('anon-check') && document.getElementById('anon-check').checked;
+  if(!isAnon) {
+    const _vf = document.getElementById('donor-fname') ? document.getElementById('donor-fname').value.trim() : '';
+    const _vl = document.getElementById('donor-lname') ? document.getElementById('donor-lname').value.trim() : '';
+    const _ve = document.getElementById('donor-email') ? document.getElementById('donor-email').value.trim() : '';
+    const _vp = document.getElementById('donor-phone') ? document.getElementById('donor-phone').value.trim() : '';
+    const _va = document.getElementById('donor-addr')  ? document.getElementById('donor-addr').value.trim()  : '';
+    const _vc = document.getElementById('donor-city')  ? document.getElementById('donor-city').value.trim()  : '';
+    const _vs = document.getElementById('donor-state') ? document.getElementById('donor-state').value.trim() : '';
+    const _vz = document.getElementById('donor-zip')   ? document.getElementById('donor-zip').value.trim()   : '';
+    if(!_vf||!_vl||!_ve||!_vp||!_va||!_vc||!_vs||!_vz){
+      alert('Please fill in all required fields (first name, last name, email, phone, mailing address, city, state, and ZIP) before continuing.\n\nIf you prefer to donate anonymously, check the anonymous box above.');
+      return;
+    }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(_ve)){alert('Please enter a valid email address.');return;}
+  }
+  // Show PayPal transaction ID step; hide info form
+  document.getElementById('donor-info-wrap').style.display = 'none';
+  document.getElementById('donor-txn-wrap').style.display = 'block';
+  // If anonymous, skip txn step entirely and go straight to letter
+  if(isAnon) { showDonorLetter(); return; }
+  document.getElementById('donor-txn-wrap').scrollIntoView({behavior:'smooth'});
+  sendHeight();
+}
+function hideTxnStep() {
+  document.getElementById('donor-txn-wrap').style.display = 'none';
+  document.getElementById('donor-info-wrap').style.display = 'block';
+  sendHeight();
+}
+function showDonorLetter() {
+  const isAnon = document.getElementById('anon-check') && document.getElementById('anon-check').checked;
+  const txnId = document.getElementById('donor-txn-id') ? document.getElementById('donor-txn-id').value.trim() : '';
+  if(!isAnon && !txnId) {
+    alert('Please enter your PayPal Transaction ID. You will find it in the PayPal confirmation email sent after your payment.');
+    return;
+  }
+  const wrap = document.getElementById('donor-letter-wrap');
+  const sel  = document.querySelector('#grid-donate .sel-c, #grid-donate .sel');
+  const today = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  const fname  = document.getElementById('donor-fname') ? document.getElementById('donor-fname').value.trim() : '';
+  const lname  = document.getElementById('donor-lname') ? document.getElementById('donor-lname').value.trim() : '';
+  const demail = document.getElementById('donor-email') ? document.getElementById('donor-email').value.trim() : '';
+  const dphone = document.getElementById('donor-phone') ? document.getElementById('donor-phone').value.trim() : '';
+  const daddr  = document.getElementById('donor-addr')  ? document.getElementById('donor-addr').value.trim()  : '';
+  const dcity  = document.getElementById('donor-city')  ? document.getElementById('donor-city').value.trim()  : '';
+  const dstate = document.getElementById('donor-state') ? document.getElementById('donor-state').value.trim() : '';
+  const dzip   = document.getElementById('donor-zip')   ? document.getElementById('donor-zip').value.trim()   : '';
+  const donorName    = isAnon ? 'Anonymous Donor' : (fname && lname ? fname+' '+lname : fname || lname || 'Valued Donor');
+  const donorAddrFull = [daddr, dcity, dstate, dzip].filter(function(x){return x;}).join(', ');
+  const fundName     = sel ? sel.dataset.name : 'WCA Operations Fund';
+
+  // Populate letter
+  document.getElementById('letter-date').textContent  = today;
+  var ltxn = document.getElementById('letter-txn-id'); if(ltxn) ltxn.textContent = txnId || '(anonymous donation)';
+  document.getElementById('letter-donor').textContent = donorName;
+  document.getElementById('letter-amt').textContent   = '$' + curAmt + '.00';
+  document.getElementById('letter-fund').textContent  = fundName;
+
+  // Show donor address on letter if provided
+  var addrEl = document.getElementById('letter-donor-addr');
+  if(addrEl) {
+    if(donorAddrFull && !isAnon) {
+      addrEl.innerHTML = '<strong>' + donorName + '</strong><br>' + donorAddrFull;
+      addrEl.style.display = 'block';
+    } else {
+      addrEl.style.display = 'none';
+    }
+  }
+
+  wrap.style.display = 'block';
+  wrap.scrollIntoView({behavior:'smooth'});
+  sendHeight();
+
+  // Send notification to WCA via Web3Forms
+  if(demail || !isAnon) {
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify({
+        access_key:     'b0b23799-d852-4bc3-ad54-b958bcccc705',
+        subject:        'WCA Donation — ' + fundName + ' — $' + curAmt + ' — ' + donorName,
+        from_name:      donorName,
+        email:          demail || 'anonymous@noreply.com',
+        replyTo:        demail || 'anonymous@noreply.com',
+        donor_name:     donorName,
+        name:           donorName,
+        donor_email:    demail || '(anonymous)',
+        phone:          dphone || '(anonymous)',
+        mailing_address: donorAddrFull || '(not provided)',
+        fund_selected:  fundName,
+        amount_donated: '$' + curAmt + '.00',
+        paypal_txn_id:  txnId || '(anonymous)',
+        anonymous:      isAnon ? 'Yes' : 'No',
+        submitted:      new Date().toLocaleString('en-US',{timeZone:'Pacific/Honolulu'})
+      })
+    }).catch(function(e){console.warn(e);});
+  }
+}
+function hideDonorLetter() {
+  document.getElementById('donor-letter-wrap').style.display = 'none';
+  sendHeight();
+}
+
+/* AMOUNT BUTTONS */
+function selTier(btn, amt) {
+  document.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+  document.getElementById('cust-inp').value = '';
+  curAmt = amt;
+  updateMemo();
+}
+function setCustomAmt(val) {
+  document.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('sel'));
+  curAmt = parseFloat(val) || 0;
+  updateMemo();
+}
+
+/* UPDATE PAYPAL */
+function updateMemo() {
+  const amt = curAmt > 0 ? curAmt : 25;
+  document.getElementById('memo-amt').textContent = '$' + amt;
+  document.getElementById('memo-text').textContent = '"' + curMemo + '"';
+  document.getElementById('pp-btn').href = PP_BASE + '&amount=' + amt + '&item_name=' + encodeURIComponent(curMemo);
+}
+
+/* SIDEBAR UPDATE */
+function updateSidebar() {
+  const lock = document.getElementById('pay-lock-overlay');
+  const amtSection = document.getElementById('pay-amt-section');
+  const progBox = document.getElementById('prog-box');
+  lock.style.display = 'none';
+  if (curTab === 'donate') {
+    amtSection.style.display = 'block';
+    progBox.style.display = 'block';
+    document.getElementById('pay-type-val').textContent = 'Donation';
+    const sel = document.querySelector('#grid-donate .sel-c, #grid-donate .sel');
+    if (sel) { curMemo = sel.dataset.memo; document.getElementById('pay-name-val').textContent = sel.dataset.name; document.getElementById('qr-name').textContent = sel.dataset.name; }
+    updateMemo();
+  } else if (curTab === 'membership') {
+    amtSection.style.display = 'none';
+    progBox.style.display = 'none';
+    document.getElementById('pay-type-val').textContent = 'Membership';
+    const step3vis = document.getElementById('mem-step3') && document.getElementById('mem-step3').style.display !== 'none';
+    if (!step3vis) { lock.style.display = 'flex'; document.getElementById('pay-name-val').textContent = 'Complete application to pay'; }
+  } else if (curTab === 'rental') {
+    amtSection.style.display = 'none';
+    progBox.style.display = 'none';
+    document.getElementById('pay-type-val').textContent = 'Rental deposit';
+    // check if already submitted
+    const rs = document.getElementById('rent-success');
+    if(rs && rs.style.display === 'block') {
+      lock.style.display = 'none';
+      // check if hourly-only or event
+      var _sbHourly = ['rfc-gymhr','rfc-lawnhr','rfc-atherton','rfc-cottage','rfc-kitchen'].some(id=>document.getElementById(id) && document.getElementById(id).checked) &&
+                      !['rfc-gym','rfc-lawn','rfc-gymlawn','rfc-parking'].some(id=>document.getElementById(id) && document.getElementById(id).checked);
+      if(_sbHourly) {
+        var _sbHrs = parseInt(document.getElementById('rf-hours') && document.getElementById('rf-hours').value) || 0;
+        var _sbAmt = 0;
+        if(document.getElementById('rfc-gymhr') && document.getElementById('rfc-gymhr').checked)    _sbAmt += 75 * _sbHrs;
+        if(document.getElementById('rfc-lawnhr') && document.getElementById('rfc-lawnhr').checked)   _sbAmt += 75 * _sbHrs;
+        if(document.getElementById('rfc-atherton') && document.getElementById('rfc-atherton').checked) _sbAmt += 35 * _sbHrs;
+        if(document.getElementById('rfc-cottage') && document.getElementById('rfc-cottage').checked)  _sbAmt += 35 * _sbHrs;
+        if(document.getElementById('rfc-kitchen') && document.getElementById('rfc-kitchen').checked)  _sbAmt += 25 * _sbHrs;
+        document.getElementById('pay-type-val').textContent = 'Hourly use fee';
+        document.getElementById('pay-name-val').textContent = 'Use fee — $' + _sbAmt;
+        document.getElementById('qr-name').textContent = 'Use fee — $' + _sbAmt;
+        curAmt = _sbAmt;
+      } else {
+        document.getElementById('pay-type-val').textContent = 'Rental deposit';
+        document.getElementById('pay-name-val').textContent = 'Deposit — $300';
+        document.getElementById('qr-name').textContent = 'Rental deposit — $300';
+        curAmt = 300;
+      }
+      updateMemo();
+    } else {
+      lock.style.display = 'flex';
+      document.getElementById('pay-lock-overlay').querySelector('.lock-msg').textContent = 'Complete the application to unlock payment';
+      document.getElementById('pay-name-val').textContent = 'Complete application to pay';
+    }
+  } else if (curTab === 'volunteer') {
+    amtSection.style.display = 'none';
+    progBox.style.display = 'none';
+    lock.style.display = 'none';
+    document.getElementById('pay-type-val').textContent = 'Volunteer sign-up';
+    document.getElementById('pay-name-val').textContent = 'No payment required';
+  } else if (curTab === 'other') {
+    amtSection.style.display = 'none';
+    progBox.style.display = 'none';
+    document.getElementById('pay-type-val').textContent = 'Other payment';
+    var opDone = document.getElementById('op-success') && document.getElementById('op-success').style.display === 'block';
+    if(!opDone) {
+      lock.style.display = 'flex';
+    } else {
+      lock.style.display = 'none';
+    }
+  } else if (curTab === 'carwash') {
+    amtSection.style.display = 'none';
+    progBox.style.display = 'none';
+    document.getElementById('pay-type-val').textContent = 'Car wash fee';
+    const cwFormVis = document.getElementById('cw-form') && document.getElementById('cw-form').style.display !== 'none';
+    if (!cwFormVis) { lock.style.display = 'flex'; document.getElementById('pay-lock-overlay').querySelector('.lock-msg').textContent = 'Complete the application to unlock payment'; document.getElementById('pay-name-val').textContent = 'Complete application to pay'; }
+    else { curAmt = 150; curMemo = 'WCA Car Wash Reservation'; document.getElementById('pay-name-val').textContent = 'Car wash — $150'; document.getElementById('qr-name').textContent = 'Car wash reservation — $150'; updateMemo(); }
+  } else if (curTab === 'balance') {
+    curAmt = 0;
+    amtSection.style.display = 'none';
+    progBox.style.display = 'none';
+    document.getElementById('pay-type-val').textContent = 'Balance payment';
+    document.getElementById('pay-name-val').textContent = 'Look up your booking →';
+    document.getElementById('qr-name').textContent = 'Look up booking to pay';
+  }
+}
+
+/* MEMBERSHIP FLOW */
+function showMemChoice() { document.getElementById('mem-choice').style.display='block'; document.getElementById('mem-steps').style.display='none'; document.getElementById('pay-lock-overlay').style.display='flex'; sendHeight(); }
+function showMemSteps() { document.getElementById('mem-choice').style.display='none'; document.getElementById('mem-steps').style.display='block'; sendHeight(); }
+document.querySelectorAll('#grid-membership .oc').forEach(card => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('#grid-membership .oc').forEach(c => c.classList.remove('sel','sel-c'));
+    card.classList.add('sel-c');
+    memTier = card;
+    document.getElementById('note-membership').innerHTML = '<i class="ti ti-info-circle"></i><div><strong>' + card.dataset.name + '.</strong> ' + card.dataset.note + '</div>';
+    document.getElementById('mem-next1').disabled = false;
+    document.getElementById('org-row').style.display = ['mem-np','mem-biz'].includes(card.dataset.key) ? 'block' : 'none';
+  });
+});
+function memGoStep2() { document.getElementById('mem-step1').style.display='none'; document.getElementById('mem-step2').style.display='block'; setStep(2); sendHeight(); }
+function memGoStep1() { document.getElementById('mem-step2').style.display='none'; document.getElementById('mem-step1').style.display='block'; setStep(1); document.getElementById('pay-lock-overlay').style.display='flex'; sendHeight(); }
+function memGoStep3() {
+  const fname=document.getElementById('mem-fname').value.trim();
+  const lname=document.getElementById('mem-lname').value.trim();
+  const email=document.getElementById('mem-email').value.trim();
+  const phone=document.getElementById('mem-phone').value.trim();
+  const addr=document.getElementById('mem-addr').value.trim();
+  const city=document.getElementById('mem-city').value.trim();
+  const state=document.getElementById('mem-state').value.trim();
+  const zip=document.getElementById('mem-zip').value.trim();
+  const agree=document.getElementById('mem-agree').checked;
+  const waiver=document.getElementById('mem-waiver').checked;
+  if(!fname||!lname||!email||!phone||!addr||!city||!state||!zip||!agree||!waiver){alert('Please fill in all required fields, agree to the membership terms, and agree to the Waiver & Release before continuing.');return;}
+  document.getElementById('mem-step2').style.display='none';
+  document.getElementById('mem-step3').style.display='block';
+  setStep(3);
+  document.getElementById('sum-tier').textContent = memTier ? memTier.dataset.name : '—';
+  document.getElementById('sum-name').textContent = fname+' '+lname;
+  document.getElementById('sum-email').textContent = email;
+  document.getElementById('sum-amt').textContent = memTier ? '$'+memTier.dataset.fixed : '—';
+  document.getElementById('pay-lock-overlay').style.display='none';
+  document.getElementById('pay-type-val').textContent='Membership';
+  document.getElementById('pay-name-val').textContent = memTier ? memTier.dataset.name : '';
+  document.getElementById('qr-name').textContent = memTier ? memTier.dataset.name+' — $'+memTier.dataset.fixed : '';
+  curAmt = memTier ? parseFloat(memTier.dataset.fixed) : 0;
+  curMemo = (memTier ? memTier.dataset.memo : 'WCA Membership')+' — '+fname+' '+lname;
+  updateMemo();
+  sendHeight();
+}
+function setStep(n) {
+  [1,2,3].forEach(i => {
+    const s=document.getElementById('step-ind-'+i);
+    s.classList.remove('active','done');
+    if(i<n)s.classList.add('done');
+    else if(i===n)s.classList.add('active');
+  });
+}
+function memSubmit() {
+  var btn=document.getElementById('mem-submit');
+  btn.disabled=true; btn.innerHTML='<i class="ti ti-check"></i> Submitted!';
+  var _fname = document.getElementById('mem-fname') ? document.getElementById('mem-fname').value.trim() : '';
+  var _lname = document.getElementById('mem-lname') ? document.getElementById('mem-lname').value.trim() : '';
+  var _n     = (_fname + ' ' + _lname).trim();
+  var _e     = document.getElementById('mem-email').value.trim();
+  var _p     = document.getElementById('mem-phone') ? document.getElementById('mem-phone').value.trim() : '';
+  var _addr  = document.getElementById('mem-addr')  ? document.getElementById('mem-addr').value.trim()  : '';
+  var _city  = document.getElementById('mem-city')  ? document.getElementById('mem-city').value.trim()  : '';
+  var _state = document.getElementById('mem-state') ? document.getElementById('mem-state').value.trim() : '';
+  var _zip   = document.getElementById('mem-zip')   ? document.getElementById('mem-zip').value.trim()   : '';
+  var _org   = document.getElementById('mem-org')   ? document.getElementById('mem-org').value.trim()   : '';
+  var _t     = memTier ? memTier.dataset.name  : '—';
+  var _a     = memTier ? '$' + memTier.dataset.fixed : '—';
+  var _addr_full = [_addr,_city,_state,_zip].filter(function(x){return x;}).join(', ') || '(not provided)';
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify({
+      access_key:       'b0b23799-d852-4bc3-ad54-b958bcccc705',
+      subject:          'WCA Membership — ' + _t + ' — ' + _n,
+      from_name:        _n,
+      name:             _n,
+      email:            _e,
+      replyTo:          _e,
+      phone:            _p || '(not provided)',
+      mailing_address:  _addr_full,
+      organization:     _org || '(not provided)',
+      waiver_agreed:    'Yes — 2026 General Waiver and Release',
+      membership_tier:  _t,
+      amount_due:       _a,
+      submitted:        new Date().toLocaleString('en-US',{timeZone:'Pacific/Honolulu'})
+    })
+  }).catch(function(e){console.warn(e);});
+  document.getElementById('mem-success').style.display='block';
+  sendHeight();
+}
+
+/* CAR WASH FLOW */
+function showCwChoice() { document.getElementById('cw-choice').style.display='block'; document.getElementById('cw-form').style.display='none'; document.getElementById('pay-lock-overlay').style.display='flex'; sendHeight(); }
+function showCwForm() { document.getElementById('cw-choice').style.display='none'; document.getElementById('cw-form').style.display='block'; document.getElementById('pay-lock-overlay').style.display='none'; curAmt=150; curMemo='WCA Car Wash Reservation'; document.getElementById('pay-type-val').textContent='Car wash fee'; document.getElementById('pay-name-val').textContent='Car wash — $150'; document.getElementById('qr-name').textContent='Car wash reservation — $150'; updateMemo(); sendHeight(); }
+function cwSubmit() {
+  const org=document.getElementById('cw-org').value.trim();
+  const fname=document.getElementById('cw-fname').value.trim();
+  const lname=document.getElementById('cw-lname').value.trim();
+  const email=document.getElementById('cw-email').value.trim();
+  const phone=document.getElementById('cw-phone').value.trim();
+  const date=document.getElementById('cw-date').value;
+  const cwaddr=document.getElementById('cw-addr').value.trim();
+  const cwcity=document.getElementById('cw-city').value.trim();
+  const cwstate=document.getElementById('cw-state').value.trim();
+  const cwzip=document.getElementById('cw-zip').value.trim();
+  const a1=document.getElementById('cw-agree1').checked;
+  const a2=document.getElementById('cw-agree2').checked;
+  const a3=document.getElementById('cw-agree3').checked;
+  const awaiver=document.getElementById('cw-waiver').checked;
+  if(!fname||!lname||!email||!phone||!date||!cwaddr||!cwcity||!cwstate||!cwzip||!a1||!a2||!a3||!awaiver){alert('Please fill in all required fields, agree to all terms, and agree to the Waiver & Release.');return;}
+  const fullname=fname+' '+lname;
+  const fulladdr=[cwaddr,cwcity,cwstate,cwzip].filter(function(x){return x;}).join(', ');
+  document.getElementById('cw-submit').disabled=true;
+  document.getElementById('cw-submit').innerHTML='<i class="ti ti-check"></i> Submitted!';
+  fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:'b0b23799-d852-4bc3-ad54-b958bcccc705',subject:'WCA Car Wash — '+date+' — '+(org||fullname),from_name:fullname,name:fullname,email:email,replyTo:email,phone:phone,organization:org||'(individual)',mailing_address:fulladdr,event_date:date,fee:'$150',waiver_agreed:'Yes — 2026 General Waiver and Release',submitted:new Date().toLocaleString('en-US',{timeZone:'Pacific/Honolulu'})})}).catch(function(e){console.warn(e);});
+  document.getElementById('cw-success').style.display='block';
+  curMemo='WCA Car Wash — '+date+' — '+(org||fullname);
+  document.getElementById('qr-name').textContent='Car wash — '+date;
+  updateMemo();
+  sendHeight();
+}
+
+/* BALANCE LOOKUP */
+const BOOKINGS = {
+  'demo@example.com': [
+    {ref:'WCA-2026-047',facility:'Gymnasium — flat fee',date:'2026-08-15',time:'5:00 pm – 9:00 pm',deposit:'$300 paid 06/01/2026',useFee:500,extra:75,balance:575,paid:false},
+    {ref:'WCA-2025-119',facility:'Atherton Room',date:'2025-12-20',time:'10:00 am – 12:00 pm',deposit:'N/A',useFee:70,extra:0,balance:0,paid:true}
+  ],
+  'test@hawaii.com': [{ref:'WCA-2026-051',facility:'Gym & Lawn — flat fee',date:'2026-09-06',time:'4:00 pm – 9:00 pm',deposit:'$300 paid 06/10/2026',useFee:1000,extra:0,balance:1000,paid:false}]
+};
+function fmt(ds){const d=new Date(ds+'T00:00:00');return d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});}
+function daysDiff(ds){const d=new Date(ds+'T00:00:00'),t=new Date();t.setHours(0,0,0,0);return Math.ceil((d-t)/(1000*60*60*24));}
+function lookup(){
+  const email=document.getElementById('lookup-email').value.trim().toLowerCase();
+  const err=document.getElementById('lookup-err');
+  const result=document.getElementById('booking-result');
+  if(!email||!email.includes('@')){err.textContent='Please enter a valid email address.';err.style.display='block';result.innerHTML='';return;}
+  const bks=BOOKINGS[email];
+  if(!bks||!bks.length){err.innerHTML='No bookings found for <strong>'+email+'</strong>. Check the email from your application or call <strong>(808) 637-4606</strong>.';err.style.display='block';result.innerHTML='';return;}
+  err.style.display='none';
+  result.innerHTML=bks.map(b=>{
+    const dd=daysDiff(b.date)-15;
+    const dueStr=b.paid?'':(dd<0?'Overdue '+Math.abs(dd)+'d':dd<=5?'Due in '+dd+'d':'Due in '+dd+'d');
+    const rows=[['Facility',b.facility],['Date',fmt(b.date)],['Time',b.time],['Deposit',b.deposit],['Use fee','$'+b.useFee]];
+    if(b.extra>0)rows.push(['Extra time','$'+b.extra]);
+    const balStr=b.paid?'<div class="paid-badge"><i class="ti ti-circle-check" style="font-size:11px"></i>Paid in full</div>':'<div class="bal-pill" onclick="selectBal('+b.balance+',\''+b.ref+'\',\''+b.facility+'\')"><div class="bp-l"><strong>$'+b.balance.toLocaleString()+'</strong> balance due</div><div style="text-align:right"><div class="bp-r">$'+b.balance.toLocaleString()+'</div><div style="font-size:11px;color:var(--co);font-weight:600">'+dueStr+'</div></div></div>';
+    return '<div class="bk-item"><h6>'+b.ref+' — '+fmt(b.date)+'</h6>'+rows.map(r=>'<div class="bkr"><span class="bl">'+r[0]+'</span><span class="bv">'+r[1]+'</span></div>').join('')+balStr+'</div>';
+  }).join('');
+  const unpaid=bks.find(b=>!b.paid);
+  if(unpaid)selectBal(unpaid.balance,unpaid.ref,unpaid.facility);
+  sendHeight();
+}
+function selectBal(amt,ref,facility){
+  curAmt=amt;curMemo='WCA Rental Balance — '+ref;
+  document.getElementById('pay-type-val').textContent='Balance payment';
+  document.getElementById('pay-name-val').textContent=facility;
+  document.getElementById('qr-name').textContent='Balance — $'+amt.toLocaleString();
+  updateMemo();
+}
+
+/* ANONYMOUS TOGGLE */
+function toggleAnon(cb) {
+  const fields = document.getElementById('donor-fields');
+  if(cb.checked) {
+    // Clear all donor fields so nothing goes into records
+    ['donor-fname','donor-lname','donor-email','donor-phone','donor-addr','donor-city','donor-state','donor-zip'].forEach(function(id){
+      var el = document.getElementById(id); if(el) el.value = '';
+    });
+    fields.style.opacity = '0.4';
+    fields.style.pointerEvents = 'none';
+  } else {
+    fields.style.opacity = '1';
+    fields.style.pointerEvents = 'auto';
+  }
+}
+
+
+/* ══ RENTAL FLOW ══ */
+function rentGo(n) {
+  [1,2,3,4].forEach(i => {
+    const p = document.getElementById('rp'+i);
+    if(p) p.style.display = (i===n) ? 'block' : 'none';
+  });
+  // update stepper
+  [1,2,3,4].forEach(i => {
+    const s = document.getElementById('rs'+i);
+    if(!s) return;
+    s.classList.remove('active','done');
+    if(i < n) s.classList.add('done');
+    else if(i === n) s.classList.add('active');
+    const line = document.getElementById('rline'+i);
+    if(line) line.classList.toggle('done', i < n);
+  });
+  // update sidebar
+  if(n === 4 && document.getElementById('rent-success').style.display === 'block') {
+    // already submitted — keep payment unlocked
+  } else if(n < 4) {
+    document.getElementById('pay-lock-overlay').style.display = 'flex';
+    document.getElementById('pay-lock-overlay').querySelector('.lock-msg').textContent = 'Complete the application to unlock payment';
+  }
+  updateSidebar();
+  sendHeight();
+}
+
+function facChk(cb) {
+  cb.closest('.fac-lbl').classList.toggle('checked', cb.checked);
+  const any = ['rfc-gym','rfc-gymhr','rfc-lawn','rfc-lawnhr','rfc-gymlawn','rfc-atherton','rfc-cottage','rfc-kitchen','rfc-parking'].some(id=>document.getElementById(id).checked);
+  const err = document.getElementById('fac-error');
+  if(err) err.style.display = any ? 'none' : 'block';
+  // show hours field only when an hourly facility is selected
+  const anyHourly = ['rfc-gymhr','rfc-lawnhr','rfc-atherton','rfc-cottage'].some(id=>document.getElementById(id).checked);
+  const hrRow = document.getElementById('hourly-row');
+  if(hrRow) hrRow.style.display = anyHourly ? 'block' : 'none';
+  if(!anyHourly) { var hf=document.getElementById('rf-hours'); if(hf) hf.value=''; document.getElementById('rf-calc').textContent='—'; }
+  calcRental();
+  updateRentTerms();
+}
+function updateRentTerms() {
+  const anyHourly = ['rfc-gymhr','rfc-lawnhr','rfc-atherton','rfc-cottage','rfc-kitchen'].some(id=>document.getElementById(id) && document.getElementById(id).checked);
+  var anyEvent  = ['rfc-gym','rfc-lawn','rfc-gymlawn'].some(id=>document.getElementById(id) && document.getElementById(id).checked);
+  var alcohol   = document.getElementById('rf-alcohol') && document.getElementById('rf-alcohol').value === 'yes';
+  // rc1 (event insurance): show for events; show for hourly if alcohol; hide for hourly without alcohol
+  var rc1wrap = document.getElementById('rc1-wrap');
+  if(rc1wrap) {
+    var showIns = anyEvent || (anyHourly && alcohol);
+    rc1wrap.style.display = showIns ? 'block' : 'none';
+    if(!showIns) { var rc1=document.getElementById('rc1'); if(rc1) rc1.checked=false; }
+  }
+  // rc3 (security): events only
+  var rc3wrap = document.getElementById('rc3-wrap');
+  if(rc3wrap) {
+    rc3wrap.style.display = anyEvent ? 'block' : 'none';
+    if(!anyEvent) { var rc3=document.getElementById('rc3'); if(rc3) rc3.checked=false; }
+  }
+  // rc12 (event cancellation): events only
+  var rc12wrap = document.getElementById('rc12-wrap');
+  if(rc12wrap) {
+    rc12wrap.style.display = anyEvent ? 'block' : 'none';
+    if(!anyEvent) { var rc12=document.getElementById('rc12'); if(rc12) rc12.checked=false; }
+  }
+  // rc14 (open fires): events only
+  var rc14wrap = document.getElementById('rc14-wrap');
+  if(rc14wrap) {
+    rc14wrap.style.display = anyEvent ? 'block' : 'none';
+    if(!anyEvent) { var rc14=document.getElementById('rc14'); if(rc14) rc14.checked=false; }
+  }
+  // rc16 (non-compliance): events only
+  var rc16wrap = document.getElementById('rc16-wrap');
+  if(rc16wrap) {
+    rc16wrap.style.display = anyEvent ? 'block' : 'none';
+    if(!anyEvent) { var rc16=document.getElementById('rc16'); if(rc16) rc16.checked=false; }
+  }
+  // rc13 (hourly cancellation): hourly only
+  var rc13wrap = document.getElementById('rc13-wrap');
+  if(rc13wrap) {
+    rc13wrap.style.display = anyHourly ? 'block' : 'none';
+    if(!anyHourly) { var rc13=document.getElementById('rc13'); if(rc13) rc13.checked=false; }
+  }
+  rentChk();
+}
+function calcRental() {
+  var flatTotal = 0;
+  var hourlyTotal = 0;
+  var hours = parseInt(document.getElementById('rf-hours') ? document.getElementById('rf-hours').value : 0) || 0;
+  // flat fee facilities (deposit required)
+  if(document.getElementById('rfc-gym').checked)     flatTotal += 500;
+  if(document.getElementById('rfc-lawn').checked)    flatTotal += 500;
+  if(document.getElementById('rfc-gymlawn').checked) flatTotal += 1000;
+  // hourly facilities (full amount due now, no deposit)
+  if(document.getElementById('rfc-gymhr').checked)    hourlyTotal += 75 * hours;
+  if(document.getElementById('rfc-lawnhr').checked)   hourlyTotal += 75 * hours;
+  if(document.getElementById('rfc-atherton').checked) hourlyTotal += 35 * hours;
+  if(document.getElementById('rfc-cottage').checked)  hourlyTotal += 35 * hours;
+  if(document.getElementById('rfc-kitchen').checked)  hourlyTotal += 25 * hours;
+  if(document.getElementById('rfc-parking').checked)  flatTotal   += 150;
+  var total = flatTotal + hourlyTotal;
+  var calcEl = document.getElementById('rf-calc');
+  if(calcEl) {
+    if(total > 0) {
+      var parts = [];
+      if(hourlyTotal > 0) parts.push('$' + hourlyTotal.toLocaleString() + ' hourly use fee — full amount due now');
+      if(flatTotal > 0) {
+        var balance = Math.max(0, flatTotal - 300);
+        parts.push('$' + flatTotal.toLocaleString() + ' event fee — $300 deposit now, $' + balance.toLocaleString() + ' balance due 15 days before event');
+      }
+      calcEl.textContent = parts.join(' + ');
+    } else {
+      calcEl.textContent = '—';
+    }
+  }
+}
+
+function rentValidate2() {
+  const name = document.getElementById('rf-name').value.trim();
+  const email = document.getElementById('rf-email').value.trim();
+  const phone = document.getElementById('rf-phone').value.trim();
+  const addr = document.getElementById('rf-addr').value.trim();
+  const csz = document.getElementById('rf-csz').value.trim();
+  const date = document.getElementById('rf-date').value;
+  const purpose = document.getElementById('rf-purpose').value.trim();
+  const anyFac = ['rfc-gym','rfc-gymhr','rfc-lawn','rfc-lawnhr','rfc-gymlawn','rfc-atherton','rfc-cottage','rfc-kitchen','rfc-parking'].some(id => document.getElementById(id).checked);
+  if(!anyFac) { const err=document.getElementById('fac-error'); if(err) err.style.display='block'; }
+  const anyHourly = ['rfc-gymhr','rfc-lawnhr','rfc-atherton','rfc-cottage','rfc-kitchen'].some(id => document.getElementById(id).checked);
+  const hours = document.getElementById('rf-hours') ? document.getElementById('rf-hours').value : '';
+  if(!name||!email||!phone||!addr||!csz||!date||!purpose||!anyFac) {
+    alert('Please fill in all required fields (*) and select at least one facility.');
+    return;
+  }
+  if(anyHourly && !hours) {
+    alert('Please select the number of hours for your hourly facility booking.');
+    return;
+  }
+  // populate summary
+  const facs = [];
+  if(document.getElementById('rfc-gym').checked) facs.push('Gym — flat fee ($500)');
+  if(document.getElementById('rfc-gymhr').checked) facs.push('Gym — hourly ($75/hr)');
+  if(document.getElementById('rfc-lawn').checked) facs.push('Lawn — flat fee ($500)');
+  if(document.getElementById('rfc-lawnhr').checked) facs.push('Lawn — hourly ($75/hr)');
+  if(document.getElementById('rfc-gymlawn').checked) facs.push('Gym & Lawn ($1,000)');
+  if(document.getElementById('rfc-atherton').checked) facs.push('Atherton Room ($35/hr)');
+  if(document.getElementById('rfc-cottage').checked) facs.push('Cottage #2 ($35/hr)');
+  if(document.getElementById('rfc-kitchen').checked) facs.push('Kitchen — 1x use ($25/hr)');
+  if(document.getElementById('rfc-parking').checked) facs.push('Parking Lot — Car Wash ($150)');
+  const org = document.getElementById('rf-org').value.trim();
+  document.getElementById('rs-name').textContent = (org ? org + ' — ' : '') + name;
+  document.getElementById('rs-email').textContent = email;
+  document.getElementById('rs-facility').textContent = facs.join(', ');
+  const d = new Date(date+'T00:00:00');
+  document.getElementById('rs-date').textContent = d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  document.getElementById('rs-purpose').textContent = purpose;
+  rentGo(3);
+  // update step 4 payment label and instruction based on use type
+  var _anyHrly = ['rfc-gymhr','rfc-lawnhr','rfc-atherton','rfc-cottage','rfc-kitchen'].some(id=>document.getElementById(id).checked) &&
+                 !['rfc-gym','rfc-lawn','rfc-gymlawn','rfc-parking'].some(id=>document.getElementById(id).checked);
+  var rsPmtDue = document.getElementById('rs-payment-due');
+  var rsInstr  = document.getElementById('rs-pay-instruction');
+  if(_anyHrly) {
+    if(rsPmtDue) rsPmtDue.textContent = 'Full amount due now';
+    if(rsInstr)  rsInstr.innerHTML = 'After submitting, pay the full use fee via PayPal. Then email your PayPal confirmation to <strong>wca66434@gmail.com</strong>. WCA will confirm your booking within 1&ndash;2 business days.';
+  } else {
+    if(rsPmtDue) rsPmtDue.textContent = '$300 deposit (refundable with 3+ weeks notice)';
+    if(rsInstr)  rsInstr.innerHTML = 'After submitting, pay your $300 deposit via PayPal to secure your date. Then email your PayPal confirmation to <strong>wca66434@gmail.com</strong>. Balance is due 15 days before your event &mdash; use the <strong>Pay my balance</strong> tab. If your event is within 10 days of today, full payment is due now.';
+  }
+  updateRentTerms();
+}
+
+function rentReset() {
+  // clear all form fields
+  ['rf-org','rf-name','rf-email','rf-phone','rf-phone2','rf-addr','rf-csz','rf-date','rf-purpose','rf-sig','rf-print','rf-end'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.value='';
+  });
+  ['rf-alcohol','rf-gas','rf-hours'].forEach(id=>{ const el=document.getElementById(id); if(el) el.selectedIndex=0; });
+  var hrow=document.getElementById('hourly-row'); if(hrow) hrow.style.display='none';
+  var hcalc=document.getElementById('rf-calc'); if(hcalc) hcalc.textContent='—';
+  // uncheck facilities
+  ['rfc-gym','rfc-gymhr','rfc-lawn','rfc-lawnhr','rfc-gymlawn','rfc-atherton','rfc-cottage','rfc-kitchen','rfc-parking'].forEach(id=>{
+    const cb=document.getElementById(id);
+    if(cb){ cb.checked=false; const lbl=cb.closest('.fac-lbl'); if(lbl) lbl.classList.remove('checked'); }
+  });
+  // uncheck terms
+  ['rc1','rc2','rc3','rc4','rc5','rc6','rc7','rc8','rc9','rc11','rc12','rc13','rc14','rc15','rc16','rc17'].forEach(id=>{ const el=document.getElementById(id); if(el) el.checked=false; });
+  // reset UI
+  document.getElementById('rent-success').style.display='none';
+  const btn=document.getElementById('rent-submit');
+  btn.disabled=true;
+  btn.innerHTML='Send application &amp; pay deposit <i class="ti ti-lock-open" style="font-size:14px"></i>';
+  document.getElementById('rent-terms-next').disabled=true;
+  const hint=document.getElementById('rent-hint');
+  if(hint){hint.textContent='Check all 12 items above to unlock payment.';hint.style.color='var(--mu)';hint.style.background='var(--pa)';}
+  // re-lock payment sidebar
+  document.getElementById('pay-lock-overlay').style.display='flex';
+  document.getElementById('pay-lock-overlay').querySelector('.lock-msg').textContent='Complete the application to unlock payment';
+  rentGo(1);
+  sendHeight();
+}
+
+function rentChk() {
+  // Only require checkboxes that are visible (inside visible wrapper divs)
+  function cbRequired(id) {
+    var el = document.getElementById(id);
+    if(!el) return false;
+    // check if parent wrapper is hidden
+    var wrap = el.closest('[id$="-wrap"]');
+    if(wrap && wrap.style.display === 'none') return false;
+    return true;
+  }
+  var allIds = ['rc1','rc2','rc3','rc4','rc5','rc6','rc7','rc8','rc9','rc11','rc12','rc13','rc14','rc15','rc16','rc17'];
+  var required = allIds.filter(cbRequired);
+  var checked = required.filter(id => document.getElementById(id).checked);
+  var all = required.length > 0 && checked.length === required.length;
+  const btn = document.getElementById('rent-terms-next');
+  btn.disabled = !all;
+  const hint = document.getElementById('rent-hint');
+  if(all) {
+    hint.textContent = '✓ All terms confirmed — continue to review and payment.';
+    hint.style.color = 'var(--dg)';
+    hint.style.background = 'var(--glt)';
+  } else {
+    hint.textContent = checked.length + ' of ' + required.length + ' items checked — check all to continue.';
+    hint.style.color = 'var(--mu)';
+    hint.style.background = 'var(--pa)';
+  }
+}
+
+function rentUpdSub() {
+  const sig = document.getElementById('rf-sig').value.trim();
+  const prnt = document.getElementById('rf-print').value.trim();
+  document.getElementById('rent-submit').disabled = !(sig && prnt);
+}
+
+function rentSubmit() {
+  const btn = document.getElementById('rent-submit');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="ti ti-check"></i> Application sent — pay deposit &rarr;';
+  const _rname  = document.getElementById('rf-name').value.trim();
+  const _remail = document.getElementById('rf-email').value.trim();
+  const _rphone = document.getElementById('rf-phone').value.trim();
+  const _raddr  = document.getElementById('rf-addr').value.trim();
+  const _rcsz   = document.getElementById('rf-csz').value.trim();
+  const _rdate  = document.getElementById('rs-date').textContent;
+  const _rtype  = (document.getElementById('rf-type') && document.getElementById('rf-type').value) || '—';
+  const _rattend = (document.getElementById('rf-attendees') && document.getElementById('rf-attendees').value) || '—';
+  const _rstart  = (document.getElementById('rf-start') && document.getElementById('rf-start').value) || '—';
+  const _rend    = (document.getElementById('rf-end') && document.getElementById('rf-end').value) || '—';
+  const _rprior  = (document.getElementById('rf-prior') && document.getElementById('rf-prior').value) || '—';
+  const _rhours  = (document.getElementById('rf-hours') && document.getElementById('rf-hours').value) ? document.getElementById('rf-hours').value + ' hour(s)' : 'N/A — flat fee';
+  const _rcalc   = document.getElementById('rf-calc') ? document.getElementById('rf-calc').textContent : '—';
+  const _rfac    = document.getElementById('rs-facility').textContent;
+  fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key: 'b0b23799-d852-4bc3-ad54-b958bcccc705',subject:'WCA Rental — '+_rfac+' — '+_rdate,from_name:_rname,name:_rname,email:_remail,replyTo:_remail,phone:_rphone,mailing_address:_raddr+', '+_rcsz,facility:_rfac,type_of_use:_rtype,date_requested:_rdate,expected_attendees:_rattend,start_time:_rstart,end_time:_rend,hours_requested:_rhours,estimated_total:_rcalc,payment_due:(_rhours==='N/A — flat fee'?'$300 deposit':'Full amount due now — no deposit'),prior_use:_rprior,submitted:new Date().toLocaleString('en-US',{timeZone:'Pacific/Honolulu'})})}).catch(function(e){console.warn(e);});
+  document.getElementById('rent-success').style.display = 'block';
+  // unlock payment sidebar
+  document.getElementById('pay-lock-overlay').style.display = 'none';
+  const name = document.getElementById('rf-name').value.trim();
+  const date = document.getElementById('rs-date').textContent;
+  const fac = document.getElementById('rs-facility').textContent;
+  // determine if hourly-only or event (flat fee)
+  const _isHourlyOnly = ['rfc-gymhr','rfc-lawnhr','rfc-atherton','rfc-cottage','rfc-kitchen'].some(id=>document.getElementById(id).checked) &&
+                        !['rfc-gym','rfc-lawn','rfc-gymlawn','rfc-parking'].some(id=>document.getElementById(id).checked);
+  if(_isHourlyOnly) {
+    // full hourly amount due now
+    var _hrs = parseInt(document.getElementById('rf-hours').value) || 0;
+    var _hrAmt = 0;
+    if(document.getElementById('rfc-gymhr').checked)    _hrAmt += 75 * _hrs;
+    if(document.getElementById('rfc-lawnhr').checked)   _hrAmt += 75 * _hrs;
+    if(document.getElementById('rfc-atherton').checked) _hrAmt += 35 * _hrs;
+    if(document.getElementById('rfc-cottage').checked)  _hrAmt += 35 * _hrs;
+    if(document.getElementById('rfc-kitchen').checked)  _hrAmt += 25 * _hrs;
+    document.getElementById('pay-type-val').textContent = 'Hourly use fee';
+    document.getElementById('pay-name-val').textContent = fac + ' — ' + date;
+    document.getElementById('qr-name').textContent = 'Use fee — $' + _hrAmt;
+    curAmt = _hrAmt;
+    curMemo = 'WCA Hourly Use — ' + name + ' — ' + date;
+  } else {
+    // event/party/flat fee — deposit only
+    document.getElementById('pay-type-val').textContent = 'Rental deposit';
+    document.getElementById('pay-name-val').textContent = fac + ' — ' + date;
+    document.getElementById('qr-name').textContent = 'Rental deposit — $300';
+    curAmt = 300;
+    curMemo = 'WCA Rental Deposit — ' + name + ' — ' + date;
+  }
+  updateMemo();
+  sendHeight();
+}
+function initCampaign() {
+  var fmt = function(n){ return '$' + n.toLocaleString(); };
+  var ids = [
+    {card:'fc1', pname:'p1-name', pdesc:'p1-desc', pfill:'p1-fill', praised:'p1-raised', pgoal:'p1-goal', pcomplete:'p1-complete'},
+    {card:'fc2', pname:'p2-name', pdesc:'p2-desc', pfill:'p2-fill', praised:'p2-raised', pgoal:'p2-goal', pcomplete:'p2-complete'},
+    {card:'fc3', pname:'p3-name', pdesc:'p3-desc', pfill:'p3-fill', praised:'p3-raised', pgoal:'p3-goal', pcomplete:'p3-complete'}
+  ];
+  FUNDS.forEach(function(f, i) {
+    var id = ids[i];
+    var pct = f.goal > 0 ? Math.round(f.raised / f.goal * 100) : 0;
+    var done = pct >= 100;
+    // fund cards
+    var card = document.getElementById(id.card);
+    if(card) {
+      var titleEl = card.querySelector('.oc-title');
+      var descEl  = card.querySelector('.oc-desc');
+      var badgeEl = card.querySelector('.oc-badge');
+      if(titleEl) titleEl.textContent = f.name;
+      if(descEl)  descEl.textContent  = f.desc || '';
+      if(badgeEl) badgeEl.textContent = i === 0 ? 'Unrestricted' : (done ? '🎉 Goal reached!' : pct + '% funded');
+      card.dataset.name = f.name;
+      card.dataset.memo = f.name + ' donation';
+      card.dataset.note = f.desc || f.name;
+    }
+    // progress bars
+    var pname = document.getElementById(id.pname);
+    var pfill = document.getElementById(id.pfill);
+    var praised = document.getElementById(id.praised);
+    var pgoal = document.getElementById(id.pgoal);
+    var pcomplete = document.getElementById(id.pcomplete);
+    var pdesc = document.getElementById(id.pdesc);
+    if(pname) pname.textContent = f.name;
+    if(pdesc) pdesc.textContent = f.desc || '';
+    if(i > 0) {
+      if(pfill) pfill.style.width = Math.min(pct,100) + '%';
+      if(praised) praised.textContent = fmt(f.raised) + ' raised';
+      if(pgoal) pgoal.textContent = 'Goal: ' + fmt(f.goal);
+      if(pcomplete && done) pcomplete.style.display = 'block';
+    }
+  });
+  // info note default
+  var nt = document.getElementById('note-title');
+  var nd = document.getElementById('note-desc');
+  if(nt) nt.textContent = FUNDS[0].name + ' selected.';
+  if(nd) nd.textContent = FUNDS[0].name;
+}
+
+/* ══ OTHER PAYMENTS ══ */
+function opChk() {
+  var ok = document.getElementById('op-fname').value.trim() &&
+           document.getElementById('op-lname').value.trim() &&
+           document.getElementById('op-email').value.trim() &&
+           document.getElementById('op-phone').value.trim() &&
+           document.getElementById('op-addr').value.trim() &&
+           document.getElementById('op-city').value.trim() &&
+           document.getElementById('op-state').value.trim() &&
+           document.getElementById('op-zip').value.trim() &&
+           document.getElementById('op-purpose').value.trim() &&
+           parseFloat(document.getElementById('op-amount').value) > 0;
+  document.getElementById('op-submit').disabled = !ok;
+  if(ok && curTab === 'other') {
+    curAmt = parseFloat(document.getElementById('op-amount').value);
+    curMemo = document.getElementById('op-purpose').value.trim();
+    updateMemo();
+  }
+}
+
+function opSubmit() {
+  var fname   = document.getElementById('op-fname').value.trim();
+  var lname   = document.getElementById('op-lname').value.trim();
+  var name    = fname + ' ' + lname;
+  var email   = document.getElementById('op-email').value.trim();
+  var phone   = document.getElementById('op-phone').value.trim();
+  var org     = document.getElementById('op-org').value.trim() || '(not provided)';
+  var addr    = document.getElementById('op-addr').value.trim();
+  var city    = document.getElementById('op-city').value.trim();
+  var state   = document.getElementById('op-state').value.trim();
+  var zip     = document.getElementById('op-zip').value.trim();
+  var purpose = document.getElementById('op-purpose').value.trim();
+  var amount  = parseFloat(document.getElementById('op-amount').value);
+  var notes   = document.getElementById('op-notes').value.trim() || '(none)';
+  var btn     = document.getElementById('op-submit');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="ti ti-check"></i> Sending…';
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify({
+      access_key: 'b0b23799-d852-4bc3-ad54-b958bcccc705',
+      subject: 'WCA Other Payment — ' + purpose,
+      from_name: name,
+      name: name,
+      email: email,
+      replyTo: email,
+      phone: phone,
+      organization: org,
+      address: [addr, city, state, zip].filter(function(x){return x;}).join(', '),
+      payment_purpose: purpose,
+      amount: '$' + amount.toFixed(2),
+      notes: notes,
+      submitted: new Date().toLocaleString('en-US',{timeZone:'Pacific/Honolulu'})
+    })
+  })
+  .then(function(r){return r.json();})
+  .then(function(d){ if(!d.success) console.warn('SF error',d); })
+  .catch(function(e){ console.warn('SF network error',e); });
+
+  btn.innerHTML = '<i class="ti ti-check"></i> Form sent — pay now';
+  document.getElementById('op-success').style.display = 'block';
+  document.getElementById('pay-lock-overlay').style.display = 'none';
+  curAmt = amount;
+  curMemo = purpose + ' — ' + name;
+  document.getElementById('pay-type-val').textContent = 'Other payment';
+  document.getElementById('pay-name-val').textContent = purpose;
+  document.getElementById('qr-name').textContent = purpose + ' — $' + amount.toFixed(2);
+  updateMemo();
+  sendHeight();
+}
+
+function opReset() {
+  ['op-fname','op-lname','op-email','op-phone','op-org','op-addr','op-city','op-zip','op-purpose','op-notes'].forEach(function(id){
+    var el=document.getElementById(id); if(el) el.value='';
+  });
+  document.getElementById('op-amount').value = '';
+  var opst = document.getElementById('op-state'); if(opst) opst.value = 'HI';
+  document.getElementById('op-success').style.display = 'none';
+  var btn = document.getElementById('op-submit');
+  btn.disabled = true;
+  btn.innerHTML = 'Submit &amp; pay <i class="ti ti-lock-open" style="font-size:14px"></i>';
+  document.getElementById('pay-lock-overlay').style.display = 'flex';
+  sendHeight();
+}
+
+/* ══ VOLUNTEER ══ */
+function voChk() {
+  var ok = document.getElementById('vo-fname').value.trim() &&
+           document.getElementById('vo-lname').value.trim() &&
+           document.getElementById('vo-email').value.trim() &&
+           document.getElementById('vo-phone').value.trim() &&
+           document.getElementById('vo-addr').value.trim() &&
+           document.getElementById('vo-city').value.trim() &&
+           document.getElementById('vo-state').value.trim() &&
+           document.getElementById('vo-zip').value.trim() &&
+           document.getElementById('vo-area').value;
+  document.getElementById('vo-submit').disabled = !ok;
+}
+
+function voSubmit() {
+  var fname   = document.getElementById('vo-fname').value.trim();
+  var lname   = document.getElementById('vo-lname').value.trim();
+  var email   = document.getElementById('vo-email').value.trim();
+  var phone   = document.getElementById('vo-phone').value.trim();
+  var addr    = document.getElementById('vo-addr').value.trim() || '(not provided)';
+  var city    = document.getElementById('vo-city').value.trim() || '';
+  var state   = document.getElementById('vo-state').value.trim() || '';
+  var zip     = document.getElementById('vo-zip').value.trim() || '';
+  var csz     = [city, state, zip].filter(function(x){return x;}).join(', ') || '(not provided)';
+  var area    = document.getElementById('vo-area').value;
+  var skills  = document.getElementById('vo-skills').value.trim() || '(none listed)';
+  var details = document.getElementById('vo-details').value.trim() || '(none)';
+  var source  = document.getElementById('vo-source').value || '(not specified)';
+
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  var btn = document.getElementById('vo-submit');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="ti ti-loader" style="font-size:14px"></i> Sending…';
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify({
+      access_key: 'b0b23799-d852-4bc3-ad54-b958bcccc705',
+      subject:        'WCA Volunteer Sign-Up — ' + fname + ' ' + lname + ' — ' + area,
+      from_name:      fname + ' ' + lname,
+      name:           fname + ' ' + lname,
+      email:          email,
+      replyTo:        email,
+      phone:          phone,
+      address:        addr + ', ' + csz,
+      area_of_help:   area,
+      skills:         skills,
+      how_can_help:   details,
+      how_heard:      source,
+      submitted:      new Date().toLocaleString('en-US',{timeZone:'Pacific/Honolulu'})
+    })
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(d){
+    if(d.success){
+      btn.innerHTML = '<i class="ti ti-check"></i> Submitted!';
+      document.getElementById('vo-success').style.display = 'block';
+    } else {
+      btn.disabled = false;
+      btn.innerHTML = 'Submit <i class="ti ti-send" style="font-size:14px"></i>';
+      alert('There was a problem sending your form. Please try again or call (808) 637-4606.');
+    }
+    sendHeight();
+  })
+  .catch(function(){
+    btn.disabled = false;
+    btn.innerHTML = 'Submit <i class="ti ti-send" style="font-size:14px"></i>';
+    alert('There was a problem sending your form. Please try again or call (808) 637-4606.');
+    sendHeight();
+  });
+}
+
+function voReset() {
+  ['vo-fname','vo-lname','vo-email','vo-phone','vo-addr','vo-city','vo-zip','vo-skills','vo-details'].forEach(function(id){
+    var el = document.getElementById(id); if(el) el.value = '';
+  });
+  document.getElementById('vo-area').value = '';
+  var vost = document.getElementById('vo-state'); if(vost) vost.value = 'HI';
+  document.getElementById('vo-source').value = '';
+  document.getElementById('vo-success').style.display = 'none';
+  var btn = document.getElementById('vo-submit');
+  btn.disabled = true;
+  btn.innerHTML = 'Submit <i class="ti ti-send" style="font-size:14px"></i>';
+  sendHeight();
+}
+
+/* RENT CLEAR ALL */
+function rentClearAll() {
+  if(!confirm('Clear all form fields and start over?')) return;
+  ['rf-name','rf-email','rf-phone','rf-altphone','rf-org','rf-addr','rf-csz','rf-purpose','rf-attendees','rf-start','rf-end'].forEach(function(id){
+    var el=document.getElementById(id); if(el) el.value='';
+  });
+  var rftype = document.getElementById('rf-type'); if(rftype) rftype.value='';
+  var rfprior = document.getElementById('rf-prior'); if(rfprior) rfprior.value='';
+  var rfhours = document.getElementById('rf-hours'); if(rfhours) rfhours.value='';
+  var hrow2=document.getElementById('hourly-row'); if(hrow2) hrow2.style.display='none';
+  var hcalc2=document.getElementById('rf-calc'); if(hcalc2) hcalc2.textContent='—';
+  var rfalc = document.getElementById('rf-alcohol'); if(rfalc) rfalc.value='No';
+  var rfgas = document.getElementById('rf-gas'); if(rfgas) rfgas.value='No';
+  document.querySelectorAll('.fac-lbl').forEach(function(l){l.style.background='';l.style.color='';});
+  document.querySelectorAll('input[id^="chk-tc"]').forEach(function(c){c.checked=false;});
+  ['rc1','rc2','rc3','rc4','rc5','rc6','rc7','rc8','rc9','rc11','rc12','rc13','rc14','rc15','rc16','rc17'].forEach(function(id){var el=document.getElementById(id);if(el)el.checked=false;});
+  rentBack(1);
+  sendHeight();
+}
+
+/* ══ CLEAR FORM FUNCTIONS ══ */
+function donorClear() {
+  if(!confirm('Clear the donation form?')) return;
+  ['donor-fname','donor-lname','donor-email','donor-phone','donor-addr','donor-city','donor-zip','donor-state'].forEach(function(id){
+    var el=document.getElementById(id); if(el) el.value='';
+  });
+  var ds=document.getElementById('donor-state'); if(ds) ds.value='HI';
+  var dtxn=document.getElementById('donor-txn-id'); if(dtxn) dtxn.value='';
+  document.getElementById('donor-txn-wrap').style.display='none';
+  document.getElementById('donor-info-wrap').style.display='block';
+  var ac=document.getElementById('anon-check'); if(ac) ac.checked=false;
+  var df=document.getElementById('donor-fields');
+  if(df){df.style.opacity='1';df.style.pointerEvents='auto';}
+  sendHeight();
+}
+function memClear() {
+  if(!confirm('Clear the membership form? You will return to Step 1.')) return;
+  ['mem-fname','mem-lname','mem-email','mem-phone','mem-addr','mem-city','mem-zip'].forEach(function(id){
+    var el=document.getElementById(id); if(el) el.value='';
+  });
+  var ms=document.getElementById('mem-state'); if(ms) ms.value='HI';
+  var ma=document.getElementById('mem-agree'); if(ma) ma.checked=false;
+  var mw=document.getElementById('mem-waiver'); if(mw) mw.checked=false;
+  var mo=document.getElementById('mem-org'); if(mo) mo.value='';
+  showMemChoice();
+  sendHeight();
+}
+function cwClear() {
+  if(!confirm('Clear the car wash form?')) return;
+  ['cw-fname','cw-lname','cw-email','cw-phone','cw-addr','cw-city','cw-zip','cw-org'].forEach(function(id){
+    var el=document.getElementById(id); if(el) el.value='';
+  });
+  var cs=document.getElementById('cw-state'); if(cs) cs.value='HI';
+  var cd=document.getElementById('cw-date'); if(cd) cd.value='';
+  var cgs=document.getElementById('cw-cgs'); if(cgs) cgs.value='';
+  ['cw-agree1','cw-agree2','cw-agree3','cw-waiver'].forEach(function(id){
+    var el=document.getElementById(id); if(el) el.checked=false;
+  });
+  sendHeight();
+}
+function opClear() {
+  if(!confirm('Clear the other payments form?')) return;
+  ['op-fname','op-lname','op-email','op-phone','op-org','op-addr','op-city','op-zip','op-purpose','op-notes'].forEach(function(id){
+    var el=document.getElementById(id); if(el) el.value='';
+  });
+  var os=document.getElementById('op-state'); if(os) os.value='HI';
+  document.getElementById('op-amount').value='';
+  document.getElementById('op-submit').disabled=true;
+  sendHeight();
+}
+function voClear() {
+  if(!confirm('Clear the volunteer form?')) return;
+  ['vo-fname','vo-lname','vo-email','vo-phone','vo-addr','vo-city','vo-zip','vo-skills','vo-details'].forEach(function(id){
+    var el=document.getElementById(id); if(el) el.value='';
+  });
+  var vos=document.getElementById('vo-state'); if(vos) vos.value='HI';
+  document.getElementById('vo-area').value='';
+  document.getElementById('vo-source').value='';
+  document.getElementById('vo-submit').disabled=true;
+  sendHeight();
+}
+
+/* INIT */
+document.addEventListener('DOMContentLoaded', function() {
+  initCampaign();
+  updateMemo();
+  sendHeight();
+});
+
+/* AUTO RESIZE */
+function sendHeight(){
+  var h=document.body.scrollHeight;
+  window.parent.postMessage({type:'wixIframeHeight',height:h},'*');
+}
+window.addEventListener('load',sendHeight);
+window.addEventListener('resize',sendHeight);
+new MutationObserver(sendHeight).observe(document.body,{childList:true,subtree:true,attributes:true});
+setTimeout(sendHeight,500);
+setTimeout(sendHeight,1500);
+</script>
+</body>
+</html>
