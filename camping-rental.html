@@ -197,7 +197,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
       </div>
       <div class="form-hint" style="margin-top:-6px;margin-bottom:14px">Puʻuiki Beach Park rentals are limited to WCA members, Dole employees, and Dole/Waialua Sugar retirees. At least one must be "Yes" to proceed.</div>
       <div class="elig-error" id="elig-error"><i class="ti ti-alert-circle" style="margin-right:4px"></i>Select "Yes" for at least one of WCA Member, Dole Employee, or Dole/Waialua Sugar Retiree — this is required to rent at Puʻuiki.</div>
-      <div class="form-group"><label class="form-label">Point of contact (if different)</label><input class="form-input" type="text" id="p-poc" placeholder="Name and phone, if applicable"></div>
+      <div class="form-group"><label class="form-label">Point of contact (if different from applicant)</label><input class="form-input" type="text" id="p-poc" placeholder="Name, phone number, and email"><div class="form-hint">Person WCA should contact on the day of your stay. If left blank, applicant is assumed to be the day-of contact.</div></div>
       <div class="form-group"><label class="form-label">Mailing address <span class="req">*</span></label><input class="form-input" type="text" id="p-addr" placeholder="Street, city, state, ZIP"></div>
       <div class="form-row">
         <div class="form-group"><label class="form-label">Phone <span class="req">*</span></label><input class="form-input" type="tel" id="p-phone" placeholder="(808) 555-0000"></div>
@@ -554,13 +554,15 @@ function submitForm(){
     nights: nights,
     campsites: sites.join(', '),
     site_count: sites.length,
-    EXPECTED_CAMPING_FEE: '$' + fee.toLocaleString() + ' (' + nights + ' nights x $' + perNightRate(sites.length).toLocaleString() + '/night for ' + sites.length + ' sites — ' + (promoActive() ? 'INTRODUCTORY RATE' : 'regular tiered rate') + ')',
+    EXPECTED_CAMPING_FEE: '$' + fee.toLocaleString() + ' (' + nights + ' night' + (nights===1?'':'s') + ' x $' + (promoActive() ? PROMO_RATE_FLAT : (sites.length <= DISCOUNT_AFTER_SITES ? NIGHTLY_RATE : 'tiered')) + '/night per site x ' + sites.length + ' site' + (sites.length===1?'':'s') + ' — ' + (promoActive() ? 'INTRODUCTORY RATE $100/night/site' : 'regular tiered rate') + ')',
     PRICING_TIER_APPLIED: promoActive() ? 'Introductory promo ($100/night flat, no tiering) — active through 12/31/26' : 'Regular tiered rate ($150/night first 2 sites, $125/night after)',
     EXPECTED_DEPOSIT: '$' + deposit.toLocaleString() + ' (flat, any number of sites)',
     EXPECTED_TOTAL_IF_BOTH: '$' + total.toLocaleString(),
     staff_note: 'Amount was NOT passed to PayPal automatically — applicant typed it in manually. Cross-check the PayPal notification amount against EXPECTED_TOTAL above before confirming this reservation. Tiered per-site pricing ($150/night first 2 sites, $125/night after) and flat $100 deposit are pending formal Trustee sign-off — see form note.',
     typed_signature: document.getElementById('p-sig').value,
     printed_name: document.getElementById('p-print').value,
+    waiver_and_release: 'Agreed — 2026 WCA Puuiki Beach Park Waiver & Release (electronic signature accepted under HRS §489E-7)',
+    date_confirmation_note: 'WCA will verify eligibility, payment receipt, and date availability before issuing written confirmation. Submission does not guarantee a booking.',
     submitted: new Date().toLocaleString('en-US',{timeZone:'Pacific/Honolulu'})
   };
   fetch('https://api.web3forms.com/submit',{
