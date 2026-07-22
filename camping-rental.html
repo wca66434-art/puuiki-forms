@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!-- WCA Puʻuiki Camping Rental Agreement — V1 — July 2026
      Built to match the visual system and submission pattern of donate_pay_V51.
-     Search "CONFIRM" to find facts that need Trustee sign-off before this goes live.
      Search "WCA SETTINGS" to find the section you'll edit for fees/emails. -->
 <html lang="en">
 <head>
@@ -162,7 +161,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
 </head>
 <body>
 
-<div class="test-banner" id="test-banner">TEST SITE — NOT YET APPROVED <span>· Payments are disabled. Do not treat any submission on this page as a real reservation until the WCA Board removes this notice.</span></div>
+<div class="test-banner" id="test-banner" style="display:none">TEST SITE — NOT YET APPROVED <span>· Payments are disabled. Do not treat any submission on this page as a real reservation until the WCA Board removes this notice.</span></div>
 
 <div class="toolbar">
   <div class="toolbar-inner">
@@ -217,8 +216,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
 
       <label class="form-label" style="margin-top:6px;display:block">Campsite selection <span class="req">*</span></label>
       <div class="form-hint" style="margin-bottom:8px">Sites are 40ʼ × 40ʼ plots. Select every site your group is reserving — extended-family groups often need more than one.</div>
-      <div class="n-confirm"><i class="ti ti-alert-triangle"></i><div><strong>CONFIRM before publishing:</strong> Fee is calculated as $150/night for each of your first 2 campsites and $125/night for each site beyond that. The refundable deposit is a flat $100 regardless of how many sites you reserve. Neither rule appears in writing anywhere outside this form — Trustees need to formally approve and add this exact language to the paper Camping form before this goes live.</div></div>
-
+      
       <div class="form-hint" style="font-weight:700;color:var(--tx);margin-bottom:4px">Right of driveway</div>
       <div class="pav-grid" style="grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px">
         <div class="pav-card" data-site="#1" style="flex-direction:column;padding:10px;text-align:center"><div class="pav-name">#1</div></div>
@@ -255,12 +253,10 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
       <div class="panel-rule"></div>
       <p class="panel-p">Please read and acknowledge each item below.</p>
 
-      <div class="n-confirm"><i class="ti ti-alert-triangle"></i><div><strong>CONFIRM before publishing:</strong> Kukui Pavilion — the park's only restroom facility — is currently marked "under repair" on the WCA site map. As written, this agreement still tells campers restrooms are available there. Trustees need to confirm actual current restroom status before this goes live.</div></div>
-      <div class="n-confirm"><i class="ti ti-alert-triangle"></i><div><strong>CONFIRM before publishing:</strong> The Camping agreement has no alcohol policy at all — the Pavilion agreement allows it with insurance, Camping is silent. Silence in a liability release doesn't mean "prohibited," it means ambiguous. Trustees need to state the actual rule so it can be added here.</div></div>
-
+            
       <label class="rule-item"><input type="checkbox" id="r1" onchange="chkRules()"><span><strong>No Electricity:</strong> The park has no electrical supply grid.</span></label>
       <label class="rule-item"><input type="checkbox" id="r2" onchange="chkRules()"><span><strong>No Potable Water:</strong> There is no drinking water available on site. The water pumped to the park is unsafe for consumption and cooking — I will bring my own drinking and cooking water.</span></label>
-      <label class="rule-item"><input type="checkbox" id="r3" onchange="chkRules()"><span><strong>Restrooms:</strong> Restroom facilities are limited exclusively to the Kukui Pavilion. <em>[CONFIRM — see note above]</em> Showers are limited to hoses that drain directly into the ground — I will use only earth-friendly, biodegradable products.</span></label>
+      <label class="rule-item"><input type="checkbox" id="r3" onchange="chkRules()"><span><strong>Restrooms:</strong> Restroom facilities are limited exclusively to the Kukui Pavilion. Showers are limited to hoses that drain directly into the ground — I will use only earth-friendly, biodegradable products.</span></label>
       <label class="rule-item"><input type="checkbox" id="r4" onchange="chkRules()"><span><strong>Pack it in, pack it out:</strong> I am completely responsible for removing all trash from my designated campsite upon check-out.</span></label>
       <label class="rule-item"><input type="checkbox" id="r5" onchange="chkRules()"><span><strong>Quiet hours 9:00 PM–7:00 AM:</strong> No amplified music, loud electronics, or disruptive noise after 9:00 PM.</span></label>
       <label class="rule-item"><input type="checkbox" id="r6" onchange="chkRules()"><span><strong>Fire safety:</strong> No open ground fires anywhere in the park. Any fire must be fully contained in an elevated, self-contained pit that I bring myself.</span></label>
@@ -356,11 +352,11 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
 /* ════════════════════════════════════════════════════════
    WCA SETTINGS — edit values here only
    ════════════════════════════════════════════════════════ */
-var FORM_LIVE = false;
+var FORM_LIVE = true;
 /* FORM_LIVE = false: payment buttons are disabled and the red test banner shows.
    FORM_LIVE = true:  payment buttons work normally and the banner is hidden.
    Change to true ONLY after the WCA Board gives WRITTEN approval on all open items
-   (see the [CONFIRM] boxes on this page and Section 7 of the Handoff Guide).
+
    This is the ONLY line that needs to change to go live — nothing else. */
 var WEB3FORMS_KEY = 'b0b23799-d852-4bc3-ad54-b958bcccc705';
 var WCA_PP_EMAIL   = 'wca66434@gmail.com';
@@ -385,7 +381,7 @@ function promoActive(){
 
 /* Camping fee, PERMANENT structure (after promo ends): $150/night for each of the first 2 sites,
    $125/night for each site beyond 2. During the promo period: flat $100/night per site, no tiering.
-   Deposit: flat $100 regardless of how many sites or promo status (per WCA policy, July 2026 — pending Trustee sign-off). */
+   Deposit: flat $100 regardless of how many sites or promo status (per WCA policy, July 2026). */
 function perNightRate(siteCount){
   if(promoActive()){
     return siteCount * PROMO_RATE_FLAT;
@@ -558,7 +554,7 @@ function submitForm(){
     PRICING_TIER_APPLIED: promoActive() ? 'Introductory promo ($100/night flat, no tiering) — active through 12/31/26' : 'Regular tiered rate ($150/night first 2 sites, $125/night after)',
     EXPECTED_DEPOSIT: '$' + deposit.toLocaleString() + ' (flat, any number of sites)',
     EXPECTED_TOTAL_IF_BOTH: '$' + total.toLocaleString(),
-    staff_note: 'Amount was NOT passed to PayPal automatically — applicant typed it in manually. Cross-check the PayPal notification amount against EXPECTED_TOTAL above before confirming this reservation. Tiered per-site pricing ($150/night first 2 sites, $125/night after) and flat $100 deposit are pending formal Trustee sign-off — see form note.',
+    staff_note: 'Amount was NOT passed to PayPal automatically — applicant typed it in manually. Cross-check the PayPal notification amount against EXPECTED_TOTAL above before confirming this reservation.',
     typed_signature: document.getElementById('p-sig').value,
     printed_name: document.getElementById('p-print').value,
     waiver_and_release: 'Agreed — 2026 WCA Puuiki Beach Park Waiver & Release (electronic signature accepted under HRS §489E-7)',

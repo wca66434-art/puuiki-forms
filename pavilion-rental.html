@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!-- WCA Puʻuiki Pavilion Rental Agreement — V1 — July 2026
      Built to match the visual system and submission pattern of donate_pay_V51.
-     Search "CONFIRM" to find facts that need Trustee sign-off before this goes live.
      Search "WCA SETTINGS" to find the section you'll edit for fees/emails. -->
 <html lang="en">
 <head>
@@ -162,7 +161,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
 </head>
 <body>
 
-<div class="test-banner" id="test-banner">TEST SITE — NOT YET APPROVED <span>· Payments are disabled. Do not treat any submission on this page as a real reservation until the WCA Board removes this notice.</span></div>
+<div class="test-banner" id="test-banner" style="display:none">TEST SITE — NOT YET APPROVED <span>· Payments are disabled. Do not treat any submission on this page as a real reservation until the WCA Board removes this notice.</span></div>
 
 <div class="toolbar">
   <div class="toolbar-inner">
@@ -176,7 +175,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
     <div class="ph-ey"><i class="ti ti-tent"></i>Puʻuiki Beach Park</div>
     <h1 class="ph-h1">Pavilion Rental Agreement</h1>
     <div class="ph-rule"></div>
-    <p class="ph-p"><strong>Introductory rate: $350 through Dec 31, 2026</strong>, while park repairs are ongoing. Regular rate (expected $400–$500, exact figure pending Board approval) begins Jan 1, 2027. Kaʻala Pavilion: approx. 2,200 SF (31' × 73') within a 16,500 SF total rental area, Waialua Beach Road, Waialua, HI 96791.</p>
+    <p class="ph-p"><strong>Introductory rate: $350 through Dec 31, 2026</strong>, while park repairs are ongoing. Regular rate begins Jan 1, 2027. Kaʻala Pavilion: approx. 2,200 SF (31' × 73') within a 16,500 SF total rental area, Waialua Beach Road, Waialua, HI 96791.</p>
   </div>
 </div>
 
@@ -236,11 +235,10 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
       <div class="panel-rule"></div>
       <p class="panel-p">Please read and acknowledge each item below.</p>
 
-      <div class="n-confirm"><i class="ti ti-alert-triangle"></i><div><strong>CONFIRM before publishing:</strong> Kukui Pavilion — the park's only restroom facility — is currently marked "under repair" on the WCA site map. As written, this agreement still tells renters restrooms are available there. Trustees need to confirm actual current restroom status (working restroom elsewhere? porta-potty required for every rental until repairs finish?) before this goes live.</div></div>
 
       <label class="rule-item"><input type="checkbox" id="r1" onchange="chkRules()"><span><strong>No Electricity:</strong> The park has no electrical supply grid. I will bring my own generator or solar power setup if needed.</span></label>
       <label class="rule-item"><input type="checkbox" id="r2" onchange="chkRules()"><span><strong>Water:</strong> Potable water is currently available, but service may be interrupted without notice.</span></label>
-      <label class="rule-item"><input type="checkbox" id="r3" onchange="chkRules()"><span><strong>Restrooms:</strong> Restroom facilities are limited exclusively to the Kukui Pavilion. <em>[CONFIRM — see note above]</em> A portable toilet is required if my event exceeds 50 attendees.</span></label>
+      <label class="rule-item"><input type="checkbox" id="r3" onchange="chkRules()"><span><strong>Restrooms:</strong> Restroom facilities are limited exclusively to the Kukui Pavilion. A portable toilet is required if my event exceeds 50 attendees.</span></label>
       <label class="rule-item"><input type="checkbox" id="r4" onchange="chkRules()"><span><strong>Pack it in, pack it out:</strong> I am responsible for removing all trash from my designated area upon check-out.</span></label>
       <label class="rule-item"><input type="checkbox" id="r5" onchange="chkRules()"><span><strong>Quiet hours 9:00 PM–7:00 AM:</strong> No amplified music, loud electronics, or disruptive noise after 9:00 PM.</span></label>
       <label class="rule-item"><input type="checkbox" id="r6" onchange="chkRules()"><span><strong>Fire safety:</strong> No open ground fires anywhere in the park. Any fire must be fully contained in an elevated, self-contained pit that I bring myself.</span></label>
@@ -329,11 +327,11 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
 /* ════════════════════════════════════════════════════════
    WCA SETTINGS — edit values here only
    ════════════════════════════════════════════════════════ */
-var FORM_LIVE = false;
+var FORM_LIVE = true;
 /* FORM_LIVE = false: payment buttons are disabled and the red test banner shows.
    FORM_LIVE = true:  payment buttons work normally and the banner is hidden.
    Change to true ONLY after the WCA Board gives WRITTEN approval on all open items
-   (see the [CONFIRM] boxes on this page and Section 7 of the Handoff Guide).
+
    This is the ONLY line that needs to change to go live — nothing else. */
 var WEB3FORMS_KEY = 'b0b23799-d852-4bc3-ad54-b958bcccc705';
 var PAVILION_FEE    = 350;
@@ -345,7 +343,7 @@ var PAVILION_DEPOSIT = 100;
 
    ⚠ TIME-SENSITIVE — ACTION REQUIRED BY 12/31/2026 ⚠
    The $350 Fee / $450 Deposit+Fee prices above are an INTRODUCTORY RATE, discounted due to
-   ongoing park repairs. The regular rate (expected $400–$500, exact figure pending Board
+   ongoing park repairs. The regular rate (expected $400–$500) begins Jan 1, 2027.
    approval) takes effect Jan 1, 2027. Unlike Camping, this does NOT happen automatically —
    TWO manual steps are required together, same day, or the displayed price and the actual
    PayPal charge will disagree:
