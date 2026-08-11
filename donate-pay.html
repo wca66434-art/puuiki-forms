@@ -1,5 +1,14 @@
 <!DOCTYPE html>
-<!-- WCA Donate & Pay — V56 — 7-27-26
+<!-- WCA Donate & Pay — V2 — 2026-08-10 | Based on current uploaded V56 master -->
+<!--
+V2 CHANGES:
+- Corrected rental calculation: $300 security deposit is separate from facility use fee.
+- Gym: $300 deposit + $500 use fee due 15 days before event.
+- Lawn: $300 deposit + $500 use fee due 15 days before event.
+- Gym + Lawn: $300 deposit + $1,000 use fee due 15 days before event.
+- Preserved current donation campaign FUNDS settings exactly.
+- Removed stale hard-coded 67% / 42% fallback labels; campaign display is driven by FUNDS.
+-->
 <!-- & Pay — V11 — June 2026 -->
 <html lang="en">
 <head>
@@ -373,14 +382,14 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
         <div class="oc-price">Any amt</div>
         <div class="oc-title">Puʻuiki Beach Park</div>
         <div class="oc-desc">Water access at our 9.5-acre coastal park.</div>
-        <span class="oc-badge bm">67% funded</span>
+        <span class="oc-badge bm">Current campaign</span>
       </div>
-      <div class="oc" id="fc3" data-key="facility" data-name="WCA Facilities fund" data-memo="WCA Historic Facilities Fund donation" data-note="42% funded. Critical repairs to our 90-year-old community hall.">
+      <div class="oc" id="fc3" data-key="facility" data-name="WCA Facilities fund" data-memo="WCA Historic Facilities Fund donation" data-note="Critical repairs and upgrades to our WCA cottages and grounds.">
         <div class="oc-top"><div class="oc-ico"><i class="ti ti-building"></i></div><div class="oc-check"><i class="ti ti-check"></i></div></div>
         <div class="oc-price">Any amt</div>
         <div class="oc-title">WCA Facilities</div>
         <div class="oc-desc">Repairs to our 90-year-old community hall.</div>
-        <span class="oc-badge bm">42% funded</span>
+        <span class="oc-badge bm">Current campaign</span>
       </div>
     </div>
     <div class="info-note"><i class="ti ti-info-circle"></i><div id="note-donate"><strong>WCA Operations fund selected.</strong> Unrestricted — WCA deploys this immediately for any urgent need.</div></div>
@@ -892,7 +901,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
         </div>
       </div>
 
-      <p style="font-size:12px;color:var(--mu);margin-bottom:14px;line-height:1.65" id="rs-pay-instruction">After submitting, pay your $300 deposit via PayPal to secure your date. Then email your PayPal confirmation to <strong>wca66434@gmail.com</strong>. Balance is due 15 days before your event — use the <strong>Pay my balance</strong> tab. If your event is within 10 days, full payment is due now.</p>
+      <p style="font-size:12px;color:var(--mu);margin-bottom:14px;line-height:1.65" id="rs-pay-instruction">After submitting, pay your $300 deposit via PayPal to secure your date. Then email your PayPal confirmation to <strong>wca66434@gmail.com</strong>. The separate facility use fee is due 15 days before your event — use the <strong>Pay my balance</strong> tab. If your event is within 10 days, full payment is due now.</p>
 
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <button class="step-btn-back" onclick="rentGo(3)"><i class="ti ti-arrow-left" style="font-size:13px"></i>Back</button>
@@ -919,7 +928,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;font-size:12px;line-height:1.65;color:var(--tx)">
               <div style="background:var(--dg);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;flex-shrink:0;margin-top:1px">3</div>
-              <div><strong>WCA will email you within 1–2 business days</strong> to confirm your date is available and your payment has been received and confirmed. That email is your official booking confirmation. Balance is due 15 days before your event — pay it using the <strong>Pay My Balance</strong> tab above. If your event is within 10 days of today, full payment is due immediately.</div>
+              <div><strong>WCA will email you within 1–2 business days</strong> to confirm your date is available and your payment has been received and confirmed. That email is your official booking confirmation. The separate facility use fee is due 15 days before your event — pay it using the <strong>Pay My Balance</strong> tab above. If your event is within 10 days of today, full payment is due immediately.</div>
             </div>
           </div>
           <div style="margin-top:12px;padding:10px 12px;background:var(--pa);border-radius:6px;font-size:11px;color:var(--br);line-height:1.6">
@@ -1029,7 +1038,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
     <div class="panel-ey">Use fee payment</div>
     <h2 class="panel-h2">Pay my rental balance</h2>
     <div class="panel-rule"></div>
-    <div class="n-info">After paying your $300 deposit to secure your date, return here to pay your use fee balance. <strong>Balance is due 15 days before your event.</strong> If your event is within 10 days of booking, full payment is due immediately.</div>
+    <div class="n-info">After paying your $300 refundable security deposit to secure your date, return here to pay the separate facility use fee. <strong>The use fee is due 15 days before your event.</strong> If your event is within 10 days of booking, full payment is due immediately.</div>
     <div class="lookup-box">
       <h5><i class="ti ti-search" style="font-size:14px"></i>Look up your booking</h5>
       <div class="email-row">
@@ -1929,8 +1938,8 @@ function calcRental() {
       var parts = [];
       if(hourlyTotal > 0) parts.push('$' + hourlyTotal.toLocaleString() + ' hourly use fee — full amount due now');
       if(flatTotal > 0) {
-        var balance = Math.max(0, flatTotal - 300);
-        parts.push('$' + flatTotal.toLocaleString() + ' event fee (8-hr block, event ends 9:30 PM) — $300 deposit now, $' + balance.toLocaleString() + ' balance due 15 days before event');
+        var useFee = flatTotal;
+        parts.push('$300 refundable security deposit now + $' + useFee.toLocaleString() + ' facility use fee due 15 days before event (8-hr max; event ends 9:30 PM)');
       }
       calcEl.textContent = parts.join(' + ');
     } else {
@@ -1988,7 +1997,7 @@ function rentValidate2() {
     if(rsInstr)  rsInstr.innerHTML = 'After submitting, pay the full use fee via PayPal. Then email your PayPal confirmation to <strong>wca66434@gmail.com</strong>. WCA will confirm your booking within 1&ndash;2 business days.';
   } else {
     if(rsPmtDue) rsPmtDue.textContent = '$300 deposit (refundable with 3+ weeks notice)';
-    if(rsInstr)  rsInstr.innerHTML = 'After submitting, pay your $300 deposit via PayPal to secure your date. Then email your PayPal confirmation to <strong>wca66434@gmail.com</strong>. Balance is due 15 days before your event &mdash; use the <strong>Pay my balance</strong> tab. If your event is within 10 days of today, full payment is due now.';
+    if(rsInstr)  rsInstr.innerHTML = 'After submitting, pay your $300 deposit via PayPal to secure your date. Then email your PayPal confirmation to <strong>wca66434@gmail.com</strong>. The separate facility use fee is due 15 days before your event &mdash; use the <strong>Pay my balance</strong> tab. If your event is within 10 days of today, full payment is due now.';
   }
   updateRentTerms();
 }
