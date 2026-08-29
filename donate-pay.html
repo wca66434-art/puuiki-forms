@@ -1317,7 +1317,7 @@ document.querySelectorAll('#grid-donate .oc').forEach(card => {
     document.getElementById('note-donate').innerHTML = '<strong>' + card.dataset.name + ' selected.</strong> ' + card.dataset.note;
     curMemo = card.dataset.memo;
     document.getElementById('pay-name-val').textContent = card.dataset.name;
-    document.getElementById('qr-name').textContent = card.dataset.name;
+    setQrName(card.dataset.name);
     updateMemo();
   });
 });
@@ -1338,6 +1338,19 @@ function setCustomAmt(val) {
 }
 
 /* UPDATE PAYPAL / ZEFFY */
+/* Null-safe setter — 'qr-name' does not exist anywhere in this page's HTML
+   (confirmed: 0 definitions, 13 call sites before this fix), so every
+   direct document.getElementById('qr-name').textContent = ... call was
+   throwing "Cannot set properties of null" the instant it ran. Since this
+   sits right after the success check in every submit function, it silently
+   crashed the rest of that function every time — including the code that
+   swaps the payment button to Zeffy — while Web3Forms had already
+   genuinely succeeded. This function makes every one of those call sites
+   safe without needing to know why 'qr-name' was removed. */
+function setQrName(text) {
+  var el = document.getElementById('qr-name');
+  if (el) el.textContent = text;
+}
 function updateMemo() {
   const amt = curAmt > 0 ? curAmt : 25;
   document.getElementById('memo-amt').textContent = '$' + amt;
@@ -1345,7 +1358,7 @@ function updateMemo() {
   var ppBtnLocal = document.getElementById('pp-btn');
   var cardBtnLocal = document.getElementById('card-btn');
   var zeffyNoteLocal = document.getElementById('zeffy-manual-amount-note');
-  var zeffyTabUrls = { donate: ZEFFY_DONATIONS_URL, carwash: ZEFFY_GENERAL_URL, other: ZEFFY_GENERAL_URL };
+  var zeffyTabUrls = { donate: ZEFFY_DONATIONS_URL, membership: ZEFFY_GENERAL_URL, carwash: ZEFFY_GENERAL_URL, other: ZEFFY_GENERAL_URL };
   if (zeffyTabUrls[curTab]) {
     if(ppBtnLocal) {
       ppBtnLocal.href = zeffyTabUrls[curTab];
@@ -1380,7 +1393,7 @@ function updateSidebar() {
     if(ppMemo) ppMemo.style.display = 'block';
     document.getElementById('pay-type-val').textContent = 'Donation';
     const sel = document.querySelector('#grid-donate .sel-c, #grid-donate .sel');
-    if (sel) { curMemo = sel.dataset.memo; document.getElementById('pay-name-val').textContent = sel.dataset.name; document.getElementById('qr-name').textContent = sel.dataset.name; }
+    if (sel) { curMemo = sel.dataset.memo; document.getElementById('pay-name-val').textContent = sel.dataset.name; setQrName(sel.dataset.name); }
     updateMemo();
   } else if (curTab === 'membership') {
     amtSection.style.display = 'none';
@@ -1410,7 +1423,7 @@ function updateSidebar() {
         if(document.getElementById('rfc-kitchen') && document.getElementById('rfc-kitchen').checked)  _sbAmt += 25 * _sbHrs;
         document.getElementById('pay-type-val').textContent = 'Hourly use fee';
         document.getElementById('pay-name-val').textContent = 'Use fee — $' + _sbAmt;
-        document.getElementById('qr-name').textContent = 'Use fee — $' + _sbAmt;
+        setQrName('Use fee — $' + _sbAmt);
         curAmt = _sbAmt;
         var _sbpad = document.getElementById('pay-amount-due');
         var _sbpadv = document.getElementById('pay-amount-due-val');
@@ -1419,7 +1432,7 @@ function updateSidebar() {
       } else {
         document.getElementById('pay-type-val').textContent = 'Rental deposit';
         document.getElementById('pay-name-val').textContent = 'Deposit — $300';
-        document.getElementById('qr-name').textContent = 'Rental deposit — $300';
+        setQrName('Rental deposit — $300');
         curAmt = 300;
         var _sbpad2 = document.getElementById('pay-amount-due');
         var _sbpadv2 = document.getElementById('pay-amount-due-val');
@@ -1459,14 +1472,14 @@ function updateSidebar() {
     document.getElementById('pay-type-val').textContent = 'Car wash fee';
     const cwDone = document.getElementById('cw-success') && document.getElementById('cw-success').style.display === 'block';
     if (!cwDone) { lock.style.display = 'flex'; document.getElementById('pay-lock-overlay').querySelector('.lock-msg').textContent = 'Complete the application to unlock payment'; document.getElementById('pay-name-val').textContent = 'Complete application to pay'; }
-    else { lock.style.display = 'none'; curAmt = 150; curMemo = curMemo || 'WCA Car Wash Reservation'; document.getElementById('pay-name-val').textContent = 'Car wash — $150'; document.getElementById('qr-name').textContent = 'Car wash reservation — $150'; updateMemo(); }
+    else { lock.style.display = 'none'; curAmt = 150; curMemo = curMemo || 'WCA Car Wash Reservation'; document.getElementById('pay-name-val').textContent = 'Car wash — $150'; setQrName('Car wash reservation — $150'); updateMemo(); }
   } else if (curTab === 'balance') {
     curAmt = 0;
     amtSection.style.display = 'none';
     progBox.style.display = 'none';
     document.getElementById('pay-type-val').textContent = 'Balance payment';
     document.getElementById('pay-name-val').textContent = 'Look up your booking →';
-    document.getElementById('qr-name').textContent = 'Look up booking to pay';
+    setQrName('Look up booking to pay');
   }
 }
 
@@ -1507,7 +1520,7 @@ function memGoStep3() {
   document.getElementById('pay-lock-overlay').style.display='none';
   document.getElementById('pay-type-val').textContent='Membership';
   document.getElementById('pay-name-val').textContent = memTier ? memTier.dataset.name : '';
-  document.getElementById('qr-name').textContent = memTier ? memTier.dataset.name+' — $'+memTier.dataset.fixed : '';
+  setQrName(memTier ? memTier.dataset.name+' — $'+memTier.dataset.fixed : '');
   curAmt = memTier ? parseFloat(memTier.dataset.fixed) : 0;
   curMemo = (memTier ? memTier.dataset.memo : 'WCA Membership')+' — '+fname+' '+lname;
   updateMemo();
@@ -1567,7 +1580,7 @@ function memSubmit() {
       document.getElementById('pay-lock-overlay').style.display = 'none';
       document.getElementById('pay-type-val').textContent = 'Membership';
       document.getElementById('pay-name-val').textContent = _t + ' — ' + _a;
-      document.getElementById('qr-name').textContent = _t + ' — ' + _a;
+      setQrName(_t + ' — ' + _a);
       updateMemo();
       sendHeight();
     })
@@ -1614,7 +1627,7 @@ function cwSubmit() {
       document.getElementById('pay-lock-overlay').style.display='none';
       curMemo='WCA Car Wash — '+date+' — '+(org||fullname);
       document.getElementById('pay-name-val').textContent='Car wash — $150';
-      document.getElementById('qr-name').textContent='Car wash — '+date;
+      setQrName('Car wash — '+date);
       updateMemo();
       sendHeight();
     })
@@ -1661,7 +1674,7 @@ function selectBal(amt,ref,facility){
   curAmt=amt;curMemo='WCA Rental Balance — '+ref;
   document.getElementById('pay-type-val').textContent='Balance payment';
   document.getElementById('pay-name-val').textContent=facility;
-  document.getElementById('qr-name').textContent='Balance — $'+amt.toLocaleString();
+  setQrName('Balance — $'+amt.toLocaleString());
   updateMemo();
 }
 
@@ -2018,7 +2031,7 @@ function rentSubmit() {
         if(document.getElementById('rfc-kitchen').checked)  _hrAmt += 25 * _hrs;
         document.getElementById('pay-type-val').textContent = 'Hourly use fee';
         document.getElementById('pay-name-val').textContent = fac + ' — ' + date;
-        document.getElementById('qr-name').textContent = 'Use fee — $' + _hrAmt;
+        setQrName('Use fee — $' + _hrAmt);
         curAmt = _hrAmt;
         curMemo = 'WCA Hourly Use — ' + name + ' — ' + date;
         var _pad = document.getElementById('pay-amount-due');
@@ -2029,7 +2042,7 @@ function rentSubmit() {
         // event/party/flat fee — deposit only
         document.getElementById('pay-type-val').textContent = 'Rental deposit';
         document.getElementById('pay-name-val').textContent = fac + ' — ' + date;
-        document.getElementById('qr-name').textContent = 'Rental deposit — $300';
+        setQrName('Rental deposit — $300');
         curAmt = 300;
         curMemo = 'WCA Rental Deposit — ' + name + ' — ' + date;
         var _pad2 = document.getElementById('pay-amount-due');
@@ -2175,7 +2188,7 @@ function opSubmit() {
     curMemo = purpose + ' — ' + name;
     document.getElementById('pay-type-val').textContent = 'Other payment';
     document.getElementById('pay-name-val').textContent = purpose;
-    document.getElementById('qr-name').textContent = purpose + ' — $' + amount.toFixed(2);
+    setQrName(purpose + ' — $' + amount.toFixed(2));
     updateMemo();
     sendHeight();
   })
