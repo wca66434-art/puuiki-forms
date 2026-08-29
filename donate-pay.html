@@ -557,7 +557,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
       <div class="panel-ey">Step 2 of 4</div>
       <h2 class="panel-h2">Your application</h2>
       <div class="panel-rule"></div>
-      <div class="n-amber"><strong>Your date is not secured until payment is received.</strong> Parties, events, and concerts require a <strong>$300 deposit</strong> to hold the date — maximum 7 hours including setup &amp; cleanup, event must end by 9:30 PM, all persons off premises by 11:00 PM. Hourly use requires <strong>full payment</strong> at time of booking — maximum 4 hours. Complete this form, agree to terms, then pay via Zeffy.</div>
+      <div class="n-amber"><strong>Your date is not secured until payment is received.</strong> Parties, events, and concerts require a <strong>$300 deposit</strong> to hold the date — maximum 8 hours including setup &amp; cleanup. Amplified music/sound must stop by <strong>9:30 PM</strong>; guests may remain until <strong>10:00 PM</strong>; all persons off premises by <strong>11:00 PM</strong>. Need more time for setup or cleanup? Additional time beyond 8 hours is available at <strong>$75/hour</strong> with advance approval — contact the WCA office before your event. Hourly use requires <strong>full payment</strong> at time of booking — maximum 4 hours. Complete this form, agree to terms, then pay via Zeffy.</div>
 
       <div class="app-form">
         <div class="form-group"><label class="form-label">Name / Organization</label><input class="form-input" type="text" id="rf-org" placeholder="Organization name (optional — leave blank if individual)"><div class="form-hint">Only required if applying on behalf of an organization</div></div>
@@ -638,7 +638,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
             </select></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label class="form-label">Event end time <span style="font-size:10px;color:var(--co)">(max 9:30 PM)</span></label>
+          <div class="form-group"><label class="form-label">Event end time <span style="font-size:10px;color:var(--co)">(max 10:00 PM)</span></label>
             <select class="form-input" id="rf-end">
               <option value="">Select end time…</option>
               <option>7:00 AM</option><option>7:30 AM</option>
@@ -655,10 +655,10 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
               <option>6:00 PM</option><option>6:30 PM</option>
               <option>7:00 PM</option><option>7:30 PM</option>
               <option>8:00 PM</option><option>8:30 PM</option>
-              <option>9:00 PM</option>
-              <option>9:30 PM (latest allowed)</option>
+              <option>9:00 PM</option><option>9:30 PM</option>
+              <option>10:00 PM (latest allowed)</option>
             </select>
-            <div class="form-hint">All persons off premises by 11:00 PM</div></div>
+            <div class="form-hint">Amplified music/sound must stop by 9:30 PM regardless of event end time. All persons off premises by 11:00 PM.</div></div>
         </div>
 
         <!-- HOURLY: hours + calculated amount — shown/hidden by facChk -->
@@ -718,7 +718,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
           <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--bg2);border-radius:6px"><input type="checkbox" id="rc2" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Alcohol:</strong> No alcohol without event insurance that includes alcohol coverage. No glass bottles or glassware on premises.</span></label>
           <div id="rc3-wrap"><label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--bg2);border-radius:6px"><input type="checkbox" id="rc3" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Security:</strong> I will provide an off-duty HPD officer or licensed certified guard service (two for concerts) and submit proof to WCA before the event.</span></label></div>
           <div id="rc14-wrap"><label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:#7a1c1c;cursor:pointer;line-height:1.6;padding:8px;background:#fff5f5;border-radius:6px"><input type="checkbox" id="rc14" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>No open fires or fireworks:</strong> Absolutely no open fires, candles, or fireworks anywhere on WCA property. Any illegal activity including fireworks will result in forfeiture of the entire deposit and may result in ban from future use.</span></label></div>
-          <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:#7a1c1c;cursor:pointer;line-height:1.6;padding:8px;background:#fff5f5;border-radius:6px"><input type="checkbox" id="rc4" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Time limits &amp; curfew — City Ordinance:</strong> Hourly use maximum 4 hours. Party/event maximum 7 hours including setup and cleanup. All amplified sound must stop by 9:30 PM. All persons must be off premises by 11:00 PM. Violations may result in loss of deposit and ban from future use.</span></label>
+          <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:#7a1c1c;cursor:pointer;line-height:1.6;padding:8px;background:#fff5f5;border-radius:6px"><input type="checkbox" id="rc4" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Time limits &amp; curfew — City Ordinance:</strong> Hourly use maximum 4 hours. Party/event maximum 8 hours including setup and cleanup — additional setup/cleanup time beyond 8 hours available at $75/hour with advance WCA approval. All amplified sound must stop by 9:30 PM; guests may remain until 10:00 PM. All persons must be off premises by 11:00 PM. Violations may result in loss of deposit and ban from future use.</span></label>
           <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--bg2);border-radius:6px"><input type="checkbox" id="rc5" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Decorations:</strong> No nails, staples, or glass. All tape removed after event. No glass cups or bottles on premises.</span></label>
           <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--bg2);border-radius:6px"><input type="checkbox" id="rc6" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Cleanup:</strong> Gym floor, kitchen, bathrooms cleaned. All trash hauled off site. Lights off, doors locked. Jalousies closed. Keys returned to lock box.</span></label>
           <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--tx);cursor:pointer;line-height:1.6;padding:8px;background:var(--bg2);border-radius:6px"><input type="checkbox" id="rc7" onchange="rentChk()" style="width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer"><span><strong>Restricted areas:</strong> Guests kept out of NSCC and leech field areas. Children off stage. 25ft clearance from gas tank. No open fires or fireworks.</span></label>
