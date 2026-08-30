@@ -1625,8 +1625,8 @@ function cwSubmit() {
     });
 }
 
-/* BALANCE LOOKUP */
-function fmt(ds){const d=new Date(ds+'T00:00:00');return d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});}
+/* CURRENCY FORMATTER */
+function fmtCurrency(n){return '$' + Number(n).toLocaleString();}
 
 
 
@@ -2057,8 +2057,8 @@ function initCampaign() {
     if(pdesc) pdesc.textContent = f.desc || '';
     if(i > 0) {
       if(pfill) pfill.style.width = Math.min(pct,100) + '%';
-      if(praised) praised.textContent = fmt(f.raised) + ' raised';
-      if(pgoal) pgoal.textContent = 'Goal: ' + fmt(f.goal);
+      if(praised) praised.textContent = fmtCurrency(f.raised) + ' raised';
+      if(pgoal) pgoal.textContent = 'Goal: ' + fmtCurrency(f.goal);
       if(pcomplete && done) pcomplete.style.display = 'block';
     }
   });
