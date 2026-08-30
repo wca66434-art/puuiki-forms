@@ -188,14 +188,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
 .lock-sub{font-size:11px;color:#A8C8B8;line-height:1.55}
 
 /* BALANCE LOOKUP */
-.lookup-box{background:#fff;border-radius:10px;padding:16px 18px;border:1px solid var(--bd);margin-bottom:14px}
-.lookup-box h5{font-size:13px;font-weight:600;color:var(--dg);margin-bottom:10px;display:flex;align-items:center;gap:6px}
-.email-row{display:flex;gap:8px;margin-bottom:6px}
-.email-row input{flex:1;padding:9px 12px;border:1.5px solid var(--bd);border-radius:6px;font-size:14px;font-family:var(--sans);color:var(--tx);outline:none}
-.email-row input:focus{border-color:var(--g)}
-.email-row button{background:var(--dg);color:#fff;border:none;padding:9px 16px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--sans);white-space:nowrap}
-.email-row button:hover{background:var(--g)}
-.lookup-hint{font-size:11px;color:var(--mu);line-height:1.45}
+.fac-lbl input[type=checkbox]{accent-color:var(--dg);width:14px;height:14px;cursor:pointer;flex-shrink:0}
 .n-red{border-left:3px solid #e24b4a;background:#fff5f5;padding:.38rem .65rem;border-radius:0 6px 6px 0;font-size:12px;color:#7a1c1c;line-height:1.45;margin-top:.4rem;display:none}
 .n-amber{border-left:3px solid #d97706;background:#fffbf0;padding:.5rem .75rem;border-radius:0 6px 6px 0;font-size:12px;color:#7a4a08;line-height:1.55;margin-bottom:.8rem}
 .n-info{border-left:3px solid var(--co);background:#fff9f5;padding:.5rem .75rem;border-radius:0 6px 6px 0;font-size:12px;color:var(--br);line-height:1.55;margin-bottom:.8rem}
@@ -203,16 +196,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
 .fac-lbl{display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;background:#fff;border:1.5px solid var(--bd);border-radius:6px;padding:8px 12px;transition:all .15s;user-select:none}
 .fac-lbl:hover{border-color:var(--g);background:var(--glt)}
 .fac-lbl.checked{border-color:var(--dg);background:var(--glt);color:var(--dg);font-weight:600}
-.fac-lbl input[type=checkbox]{accent-color:var(--dg);width:14px;height:14px;cursor:pointer;flex-shrink:0}.bk-item{background:#fff;border:1px solid var(--bd);border-radius:8px;padding:12px 14px;margin-bottom:8px}
-.bk-item h6{font-size:13px;font-weight:600;color:var(--dg);margin-bottom:8px}
-.bkr{display:flex;justify-content:space-between;font-size:12px;padding:.15rem 0;border-bottom:.5px solid var(--bd)}
-.bkr:last-child{border:none}
-.bkr .bl{color:var(--mu)}.bkr .bv{font-weight:500}
-.bal-pill{display:flex;justify-content:space-between;align-items:center;background:var(--pa);border-radius:6px;padding:8px 12px;margin-top:8px;cursor:pointer;transition:background .15s}
-.bal-pill:hover{background:var(--brlt)}
-.bp-l{font-size:11px;color:var(--br)}.bp-l strong{display:block;font-size:14px;color:var(--dg)}
-.bp-r{font-size:16px;font-weight:600;color:var(--dg)}
-.paid-badge{display:inline-flex;align-items:center;gap:.25rem;background:#e8f7ef;color:#1a5c38;font-size:11px;padding:.22rem .55rem;border-radius:20px;margin-top:6px}
+.fac-lbl input[type=checkbox]{accent-color:var(--dg);width:14px;height:14px;cursor:pointer;flex-shrink:0}
 
 /* RENTAL */
 .rent-opts{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
@@ -913,18 +897,11 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
     <div class="panel-ey">Use fee payment</div>
     <h2 class="panel-h2">Pay my rental balance</h2>
     <div class="panel-rule"></div>
-    <div class="n-info">After paying your $300 deposit to secure your date, return here to pay your use fee balance. <strong>Balance is due 15 days before your event.</strong> If your event is within 10 days of booking, full payment is due immediately.</div>
-    <div class="lookup-box">
-      <h5><i class="ti ti-search" style="font-size:14px"></i>Look up your booking</h5>
-      <div class="email-row">
-        <input type="email" id="lookup-email" placeholder="Email from your application" onkeydown="if(event.key==='Enter')lookup()">
-        <button onclick="lookup()">Look up</button>
-      </div>
-      <div class="lookup-hint">Enter the email you used when you submitted your rental application.</div>
-      <div class="n-red" id="lookup-err"></div>
+    <div class="n-info">Already applied and just need to pay your balance? You don't need to fill out another application. <strong>Balance is due 15 days before your event.</strong> If your event is within 10 days of booking, full payment is due immediately.</div>
+    <div class="app-form" style="margin-top:16px;border-left:3px solid var(--dg)">
+      <div style="font-size:14px;font-weight:700;color:var(--tx);margin-bottom:8px"><i class="ti ti-cash" style="color:var(--dg)"></i> How to pay</div>
+      <div style="font-size:13px;color:var(--mu);line-height:1.7">Click "Pay via Zeffy" on the right. On Zeffy's page, select <strong>Facility Rental</strong> (or the open/custom amount option) and enter your exact balance — the amount was included in your original application confirmation email. Not sure of your balance? Call <strong>(808) 637-4606</strong> or email <strong>wca66434@gmail.com</strong> and WCA staff can confirm it for you.</div>
     </div>
-    <div id="booking-result"></div>
-    <div class="n-info" style="margin-top:10px;font-size:11px"><strong>Booking not showing?</strong> Call <strong>(808) 637-4606</strong> or email <strong>wca66434@gmail.com</strong></div>
   </div>
 
   <!-- ══ OTHER PAYMENTS ══ -->
@@ -1364,7 +1341,7 @@ function updateMemo() {
   var ppBtnLocal = document.getElementById('pp-btn');
   var cardBtnLocal = document.getElementById('card-btn');
   var zeffyNoteLocal = document.getElementById('zeffy-manual-amount-note');
-  var zeffyTabUrls = { donate: ZEFFY_DONATIONS_URL, membership: ZEFFY_GENERAL_URL, carwash: ZEFFY_GENERAL_URL, other: ZEFFY_GENERAL_URL };
+  var zeffyTabUrls = { donate: ZEFFY_DONATIONS_URL, membership: ZEFFY_GENERAL_URL, carwash: ZEFFY_GENERAL_URL, other: ZEFFY_GENERAL_URL, balance: ZEFFY_GENERAL_URL };
   if (zeffyTabUrls[curTab]) {
     if(ppBtnLocal) {
       ppBtnLocal.href = zeffyTabUrls[curTab];
@@ -1483,9 +1460,11 @@ function updateSidebar() {
     curAmt = 0;
     amtSection.style.display = 'none';
     progBox.style.display = 'none';
-    document.getElementById('pay-type-val').textContent = 'Balance payment';
-    document.getElementById('pay-name-val').textContent = 'Look up your booking →';
-    setQrName('Look up booking to pay');
+    lock.style.display = 'none';
+    document.getElementById('pay-type-val').textContent = 'Rental balance';
+    document.getElementById('pay-name-val').textContent = 'Enter amount on Zeffy';
+    setQrName('Rental balance payment');
+    updateMemo();
   }
 }
 
@@ -1647,42 +1626,7 @@ function cwSubmit() {
 }
 
 /* BALANCE LOOKUP */
-const BOOKINGS = {
-  'demo@example.com': [
-    {ref:'WCA-2026-047',facility:'Gymnasium — flat fee',date:'2026-08-15',time:'5:00 pm – 9:00 pm',deposit:'$300 paid 06/01/2026',useFee:500,extra:75,balance:575,paid:false},
-    {ref:'WCA-2025-119',facility:'Atherton Room',date:'2025-12-20',time:'10:00 am – 12:00 pm',deposit:'N/A',useFee:70,extra:0,balance:0,paid:true}
-  ],
-  'test@hawaii.com': [{ref:'WCA-2026-051',facility:'Gym & Lawn — flat fee',date:'2026-09-06',time:'4:00 pm – 9:00 pm',deposit:'$300 paid 06/10/2026',useFee:1000,extra:0,balance:1000,paid:false}]
-};
 function fmt(ds){const d=new Date(ds+'T00:00:00');return d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});}
-function daysDiff(ds){const d=new Date(ds+'T00:00:00'),t=new Date();t.setHours(0,0,0,0);return Math.ceil((d-t)/(1000*60*60*24));}
-function lookup(){
-  const email=document.getElementById('lookup-email').value.trim().toLowerCase();
-  const err=document.getElementById('lookup-err');
-  const result=document.getElementById('booking-result');
-  if(!email||!email.includes('@')){err.textContent='Please enter a valid email address.';err.style.display='block';result.innerHTML='';return;}
-  const bks=BOOKINGS[email];
-  if(!bks||!bks.length){err.innerHTML='No bookings found for <strong>'+email+'</strong>. Check the email from your application or call <strong>(808) 637-4606</strong>.';err.style.display='block';result.innerHTML='';return;}
-  err.style.display='none';
-  result.innerHTML=bks.map(b=>{
-    const dd=daysDiff(b.date)-15;
-    const dueStr=b.paid?'':(dd<0?'Overdue '+Math.abs(dd)+'d':dd<=5?'Due in '+dd+'d':'Due in '+dd+'d');
-    const rows=[['Facility',b.facility],['Date',fmt(b.date)],['Time',b.time],['Deposit',b.deposit],['Use fee','$'+b.useFee]];
-    if(b.extra>0)rows.push(['Extra time','$'+b.extra]);
-    const balStr=b.paid?'<div class="paid-badge"><i class="ti ti-circle-check" style="font-size:11px"></i>Paid in full</div>':'<div class="bal-pill" onclick="selectBal('+b.balance+',\''+b.ref+'\',\''+b.facility+'\')"><div class="bp-l"><strong>$'+b.balance.toLocaleString()+'</strong> balance due</div><div style="text-align:right"><div class="bp-r">$'+b.balance.toLocaleString()+'</div><div style="font-size:11px;color:var(--co);font-weight:600">'+dueStr+'</div></div></div>';
-    return '<div class="bk-item"><h6>'+b.ref+' — '+fmt(b.date)+'</h6>'+rows.map(r=>'<div class="bkr"><span class="bl">'+r[0]+'</span><span class="bv">'+r[1]+'</span></div>').join('')+balStr+'</div>';
-  }).join('');
-  const unpaid=bks.find(b=>!b.paid);
-  if(unpaid)selectBal(unpaid.balance,unpaid.ref,unpaid.facility);
-  sendHeight();
-}
-function selectBal(amt,ref,facility){
-  curAmt=amt;curMemo='WCA Rental Balance — '+ref;
-  document.getElementById('pay-type-val').textContent='Balance payment';
-  document.getElementById('pay-name-val').textContent=facility;
-  setQrName('Balance — $'+amt.toLocaleString());
-  updateMemo();
-}
 
 
 
