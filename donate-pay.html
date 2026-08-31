@@ -900,7 +900,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
     <div class="n-info">Already applied for <strong>Facility Rental, Camping, or Pavilion</strong> and just need to pay your remaining balance? You don't need to fill out another application. <strong>Facility Rental:</strong> balance due 15 days before your event (due immediately if your event is within 10 days of booking). <strong>Camping &amp; Pavilion:</strong> no set deadline — please pay as soon as you can to help confirm your reservation.</div>
     <div class="app-form" style="margin-top:16px;border-left:3px solid var(--dg)">
       <div style="font-size:14px;font-weight:700;color:var(--tx);margin-bottom:8px"><i class="ti ti-cash" style="color:var(--dg)"></i> How to pay</div>
-      <div style="font-size:13px;color:var(--mu);line-height:1.7">Click "Pay via Zeffy" on the right. On Zeffy's page, select <strong>WCA Payment</strong> — your balance isn't a fixed listed price, so this is the option that lets you enter your own amount. Enter your exact balance, and use the purpose field to note your name and booking type (e.g., "Camping balance — Jane Doe"). The amount was included in your original application confirmation email. Not sure of your balance? Call <strong>(808) 637-4606</strong> or email <strong>wca66434@gmail.com</strong> and WCA staff can confirm it for you.</div>
+      <div style="font-size:13px;color:var(--mu);line-height:1.7">Click "Pay via Zeffy" on the right. On Zeffy's page, select <strong>WCA Payments</strong> — your balance isn't a fixed listed price, so this is the option that lets you enter your own amount. Enter your exact balance, and use the note field to say what payment is for (e.g., "Camping balance — Jane Doe"). The amount was included in your original application confirmation email. Not sure of your balance? Call <strong>(808) 637-4606</strong> or email <strong>wca66434@gmail.com</strong> and WCA staff can confirm it for you.</div>
     </div>
   </div>
 
@@ -1150,7 +1150,7 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
         <div id="pay-amount-due-val" style="font-size:22px;font-weight:700;color:#fff;font-family:var(--serif)">$0</div>
       </div>
       <div id="zeffy-manual-amount-note" style="display:none;margin:0 0 10px;padding:10px 14px;background:rgba(255,255,255,0.08);border-left:3px solid var(--co);border-radius:0 8px 8px 0;font-size:12px;color:#F0D8C0;line-height:1.6">
-        <strong>Important:</strong> Zeffy does not receive this amount automatically. On Zeffy's page, select the item matching your payment if one exists (e.g., Car Wash, your Membership tier, or your Facility Rental deposit/fee) — or if there's no matching listed item, select <strong>WCA Payment</strong> and enter the amount and purpose yourself. Double-check it before sending.
+        <strong>Important:</strong> Zeffy does not receive this amount automatically. On Zeffy's page, select the item matching your payment if one exists (e.g., Car Wash, your Membership tier, Parties/Events Deposit, or Gym/Lawn Rental Fee) — or if there's no matching listed item, select <strong>WCA Payments</strong> and enter the amount and a note of what it's for. Double-check it before sending.
       </div>
       <div class="pay-amt-section" id="pay-amt-section">
         <div class="pay-amt-lbl">Choose an amount</div>
@@ -1365,7 +1365,7 @@ function updateSidebar() {
   var padEl = document.getElementById('pay-amount-due');
   if(padEl) padEl.style.display = 'none';
   var ppBtnEl = document.getElementById('pp-btn');
-  if(ppBtnEl) ppBtnEl.innerHTML = '<i class="ti ti-brand-paypal" style="font-size:16px"></i>Pay with PayPal';
+  if(ppBtnEl) { ppBtnEl.style.display = 'flex'; ppBtnEl.innerHTML = '<i class="ti ti-brand-paypal" style="font-size:16px"></i>Pay with PayPal'; }
   var cardBtnEl = document.getElementById('card-btn');
   if(cardBtnEl) cardBtnEl.style.display = 'flex';
   var zeffyNoteEl = document.getElementById('zeffy-manual-amount-note');
@@ -1439,6 +1439,8 @@ function updateSidebar() {
     lock.style.display = 'none';
     document.getElementById('pay-type-val').textContent = 'Volunteer sign-up';
     document.getElementById('pay-name-val').textContent = 'No payment required';
+    if(ppBtnEl) ppBtnEl.style.display = 'none';
+    if(cardBtnEl) cardBtnEl.style.display = 'none';
   } else if (curTab === 'other') {
     amtSection.style.display = 'none';
     progBox.style.display = 'none';
