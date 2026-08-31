@@ -897,10 +897,10 @@ body{font-family:var(--sans);font-weight:300;color:var(--tx);background:var(--pa
     <div class="panel-ey">Use fee payment</div>
     <h2 class="panel-h2">Pay my rental balance</h2>
     <div class="panel-rule"></div>
-    <div class="n-info">Already applied and just need to pay your balance? You don't need to fill out another application. <strong>Balance is due 15 days before your event.</strong> If your event is within 10 days of booking, full payment is due immediately.</div>
+    <div class="n-info">Already applied for <strong>Facility Rental, Camping, or Pavilion</strong> and just need to pay your remaining balance? You don't need to fill out another application. <strong>Facility Rental:</strong> balance due 15 days before your event (due immediately if your event is within 10 days of booking). <strong>Camping &amp; Pavilion:</strong> no set deadline — please pay as soon as you can to help confirm your reservation.</div>
     <div class="app-form" style="margin-top:16px;border-left:3px solid var(--dg)">
       <div style="font-size:14px;font-weight:700;color:var(--tx);margin-bottom:8px"><i class="ti ti-cash" style="color:var(--dg)"></i> How to pay</div>
-      <div style="font-size:13px;color:var(--mu);line-height:1.7">Click "Pay via Zeffy" on the right. On Zeffy's page, select <strong>Facility Rental</strong> (or the open/custom amount option) and enter your exact balance — the amount was included in your original application confirmation email. Not sure of your balance? Call <strong>(808) 637-4606</strong> or email <strong>wca66434@gmail.com</strong> and WCA staff can confirm it for you.</div>
+      <div style="font-size:13px;color:var(--mu);line-height:1.7">Click "Pay via Zeffy" on the right. On Zeffy's page, select whichever matches your booking — <strong>Facility Rental, Camping, or Pavilion</strong> — or the open/custom amount option, and enter your exact balance. The amount was included in your original application confirmation email. Not sure of your balance? Call <strong>(808) 637-4606</strong> or email <strong>wca66434@gmail.com</strong> and WCA staff can confirm it for you.</div>
     </div>
   </div>
 
@@ -1461,9 +1461,9 @@ function updateSidebar() {
     amtSection.style.display = 'none';
     progBox.style.display = 'none';
     lock.style.display = 'none';
-    document.getElementById('pay-type-val').textContent = 'Rental balance';
+    document.getElementById('pay-type-val').textContent = 'Balance payment';
     document.getElementById('pay-name-val').textContent = 'Enter amount on Zeffy';
-    setQrName('Rental balance payment');
+    setQrName('Balance payment');
     updateMemo();
   }
 }
